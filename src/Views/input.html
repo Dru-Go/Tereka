@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Input</title>
+	<link rel="stylesheet" href="../tailwind2.css">
+</head>
+
+<body>
+	<div class="wrap">
+		<label for="inp" class="inp">
+			<input type="password" id="inp" placeholder="Password" pattern=".{6,}" required>
+
+			<svg width="280px" height="18px" viewBox="0 0 280 18" class="bord bord_focus bord_mark">
+				<defs>
+					<style>
+						.bord {
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							height: 18px;
+							fill: none;
+							stroke: #c8ccd4;
+							stroke-width: 2;
+						}
+
+						.bord_mark {
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							height: 18px;
+							fill: none;
+							stroke: #c8ccd4;
+							stroke-width: 2;
+						}
+
+						.bord_Error {
+							position: absolute;
+							left: 0;
+							bottom: 0;
+							height: 18px;
+							fill: none;
+							stroke: #c8ccd4;
+							stroke-width: 2;
+						}
+
+						.inp input:focus+.bord path {
+							stroke: rgb(74, 152, 241);
+						}
+
+						.inp input:focus+.bord_mark path {
+							animation: elasticInput 0.8s ease forwards;
+						}
+
+						.inp input:focus+.bord_mark+.check {
+							transform: translate(0, 0) scale(1);
+						}
+					</style>
+				</defs>
+				<path
+					d="M0,12 L223.166144,12 C217.241379,12 217.899687,12 225.141066,12 C236.003135,12 241.9279,12 249.827586,12 C257.727273,12 264.639498,12 274.514107,12 C281.097179,12 281.755486,12 276.489028,12">
+				</path>
+			</svg>
+			<svg width="14px" height="12px" viewBox="0 0 14 12" class="check">
+				<path d="M1 7 5.5 11 L13 1"></path>
+			</svg>
+		</label>
+	</div>
+</body>
+
+
+
+<style>
+	.wrap {
+		display: grid;
+		font-family: Avenir;
+		-webkit-text-size-adjust: 100%;
+		-webkit-font-smoothing: antialiased;
+		overflow: hidden;
+	}
+
+
+	.inp {
+		position: relative;
+		margin: auto;
+		width: 100%;
+		max-width: 280px;
+		height: 53px;
+	}
+
+	.inp .svg_bord {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 18px;
+		fill: none;
+	}
+
+	.inp .svg_bord path {
+		stroke: #c8ccd4;
+		stroke-width: 2;
+	}
+
+	.inp .svg_bord path d {
+		transition: all 0.2s ease;
+	}
+
+	.inp .check {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		fill: none;
+		transform: translate(0, 9px) scale(0);
+		transition: all 0.3s cubic-bezier(0.5, 0.9, 0.25, 1.3);
+		transition-delay: 0.15s;
+	}
+
+	.inp .check path {
+		stroke: #07f;
+		stroke-width: 2;
+	}
+
+	.inp input {
+		-webkit-appearance: none;
+		width: 100%;
+		border: 0;
+		font-family: inherit;
+		padding: 0;
+		height: 48px;
+		font-size: 16px;
+		font-weight: 500;
+		background: none;
+		border-radius: 0;
+		color: #223254;
+		transition: all 0.15s ease;
+	}
+
+	.inp input:focus {
+		outline: none;
+	}
+
+
+
+	::placeholder {
+		color: #9098a9;
+	}
+
+	@-moz-keyframes elasticInput {
+		33% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+
+		66% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+	}
+
+	@-webkit-keyframes elasticInput {
+		33% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+
+		66% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+	}
+
+	@-o-keyframes elasticInput {
+		33% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+
+		66% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+	}
+
+	@keyframes elasticInput {
+		33% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,1 253,1 C261,1 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+
+		66% {
+			d: path("M0,12 L226,12 C220,12 220.666667,12 228,12 C239,12 245,17 253,17 C261,17 268,12 278,12 C284.666667,12 285.333333,12 280,12");
+		}
+	}
+</style>
+
+</html>

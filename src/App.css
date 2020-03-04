@@ -1,0 +1,136 @@
+.al {
+  fill: black;
+}
+
+.aWrong{fill:#b92c2c;}
+
+.a2 {
+  fill: #1ab8a1;
+}
+
+.a345,
+.b345,
+.d345 {
+  fill: none;
+}
+
+.a345 {
+  stroke: #1ab8a1;
+  stroke-width: 3px;
+}
+
+.c345,
+.e345 {
+  stroke: none;
+}
+
+.e345 {
+  fill: #1ab8a1;
+}
+
+
+:root {
+  --color1: #1AB8A1;
+  --color2: #D4E6E4;
+  --color3: #ffffff;
+  --color4: #ABACAC;
+  --color5: #1AB8A1;
+}
+
+:root {
+  --color5: #010001;
+}
+
+.color1-bg {
+  background-color: var(--color1);
+}
+
+.color5-bg {
+  background-color: var(--color1);
+}
+
+.color1-border {
+  border-color: var(--color1);
+}
+
+.color1-text {
+  color: var(--color1);
+}
+
+
+/* Bounce Animation */
+
+.spinner {
+  width: 70px;
+  text-align: left;
+}
+
+.spinner>div {
+  width: 6px;
+  height: 6px;
+  margin-left: .13rem;
+  margin-right: .13rem;
+  border-radius: 100%;
+  background-color: #D4E6E4;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0)
+  }
+  
+  40% {
+    -webkit-transform: scale(1.0)
+  }
+}
+
+
+
+
+@keyframes sk-bouncedelay {
+  
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  
+  40% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+/* End Bounce Animation */
+
+/* Scroll Bar */
+::-webkit-scrollbar {
+  background-color: #1a202c;
+  border: none;
+  width: .45rem;
+  border-radius: 10px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  cursor: pointer;
+  background: var(--color5);
+  border-radius: 2px;
+}
+/* Scroll Bar */
