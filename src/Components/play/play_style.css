@@ -1,0 +1,72 @@
+.search-icon {
+  fill: #95989a;
+}
+.aa {
+  fill: #948686;
+}
+
+.bb {
+  fill: #0f8775;
+}
+
+.cc {
+  fill: #dedede;
+  font-size: 12px;
+  font-family: HelveticaRounded-Bold, Helvetica Rounded;
+  font-weight: 700;
+}
+
+.aw {
+  fill: #125a4f;
+}
+
+.a {
+  fill: #a4e6dd;
+}
+.a24,
+.b24 {
+  fill: #0a4b41;
+}
+
+.b24 {
+  font-size: 11px;
+  font-family: SegoeUI-Bold, Segoe UI;
+  font-weight: 700;
+}
+
+.a8uyt {
+  fill: url(#a);
+}
+
+.b8uyt {
+  fill: #a4e6dd;
+}
+
+.clogo8uyt {
+  filter: url(#d);
+}
+
+.d8uyt {
+  filter: url(#b);
+}
+.ah256,
+.bh256 {
+  fill: #0a4b41;
+}
+
+.ah256 {
+  font-size: 11px;
+  font-family: SegoeUI-Bold, Segoe UI;
+  font-weight: 700;
+}
+
+.play {
+	display: grid;
+	background: rgba(255, 255, 255, 0.3);
+	height: 100%;
+	backdrop-filter: blur(3px);
+}
+.menu-back {
+	background-color: #0BCDBA;
+}
+

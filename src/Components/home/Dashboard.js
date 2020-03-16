@@ -1,24 +1,36 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import Side from '../nav/side';
+import Header from '../header/header';
+import MidPromos from './midPromo';
+import Board from './selectionBoard';
+import Play from '../play/Play';
+import {PlayProvider} from '../../Context/audioContext';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
-const dashboard = props => {
-  const navStyle = {
-    margin:'auto'
-  }
+const Dashboard = () => {
+  const filters = [
+    '/business',
+    '/history',
+    '/economy',
+    '/fiction',
+    '/fantacy',
+    '/philosopy',
+  ];
   return (
-
-    <div>
-      <div className="text-4xl font-medium text-center">Dashboard</div>
-      <div className="flex items-center m-auto">
-        <Link style={navStyle} to="/register">
-          <button>SignUp</button>
-        </Link>
-        <Link style={navStyle} to="/login">
-          <button>Login</button>
-        </Link>
+    <Router>
+      <div class="wrapper">
+        <Route path="/" component={Side} />
+        <div class="main">
+          <Route path="/" component={Header} />
+          <Route path="/" exact component={MidPromos} />
+          <Route path={['/', ...filters]} exact component={Board} />
+          <PlayProvider>
+            <Route path="/play" exact component={Play} />
+          </PlayProvider>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
-export default dashboard;
+export default Dashboard;

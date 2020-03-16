@@ -134,3 +134,19 @@
   border-radius: 2px;
 }
 /* Scroll Bar */
+
+
+.lister {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+}
+.main_details {
+  background-color: #F1F5F8;
+  display: grid;
+  grid-template-rows: 7% 25% 68%;
+}
+
+
+.text-padd-color {
+  background-color: #D4E6E4;
+}

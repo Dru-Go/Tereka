@@ -1,13 +1,202 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-auto-rows: 100vh;
 }
+
+.promo {
+}
+
+
+
+.bord-left {
+  border-left: 0.7px solid lightgray;
+}
+
+.side {
+  background: linear-gradient(#1ab8a1, #055448);
+  display: grid;
+  grid-template-rows: 20% 23% 57%;
+}
+
+.main {
+  background-color: #f1f5f8;
+  display: grid;
+  grid-template-rows: 7% 40% 53%;
+}
+
+.head {
+  display: grid;
+  grid-template-columns: 90% 5% 5%;
+}
+
+.menu-back {
+  background-color: #0bcdba;
+}
+
+.mid {
+}
+
+.footer {
+}
+
+:root {
+  --color1: #1ab8a1;
+  --color2: #d4e6e4;
+  --color3: #ffffff;
+  --color4: #abacac;
+  --color5: #1ab8a1;
+}
+
+:root {
+  --color5: #010001;
+}
+
+.color1-bg {
+  background-color: var(--color1);
+}
+
+.color5-bg {
+  background-color: var(--color1);
+}
+
+.color1-border {
+  border-color: var(--color1);
+}
+
+.color1-text {
+  color: var(--color1);
+}
+
+/* Svg LOGO */
+.alogo,
+.blogo,
+.clogo,
+.elogo {
+  fill: none;
+  stroke-width:1px;
+}
+
+.alogo {
+  stroke: #5d45f9;
+}
+
+.alogo,
+.blogo {
+  stroke-width: 1px;
+}
+
+.blogo {
+  stroke: #5b45f2;
+}
+
+.dlogo,
+.flogo {
+  stroke:none;
+}
+
+.flogo {
+  fill: #5b45f2;
+}
+
+.elogo{
+}
+
+/* END Svg LOGO */
+
+/* Search SVG */
+.searchIcon {
+  fill: #95989a;
+}
+
+/* END Search SVG */
+
+/* Notification SVG */
+.a_notify {
+  fill: #948686;
+}
+
+.b_notify {
+  fill: #0f8775;
+}
+
+.c_notify {
+  fill: #dedede;
+  font-size: 12px;
+  font-family: HelveticaRounded-Bold, Helvetica Rounded;
+  font-weight: 700;
+}
+
+/* END Notification SVG */
+
+/* Star SVG */
+.aStar {
+  fill: #0f8775;
+}
+
+/*END Star SVG */
+
+/* Dropdown SVG */
+.a_dropdown {
+  fill: #d2cdcd;
+}
+
+/* END Dropdown SVG */
+
+
+
+/* Bookmark and Like SVG */
+.abookmark {
+  fill: #a4e6dd;
+}
+/* End Bookmark and Like SVG */
+
+
+
+/* Back SVG */
+.aw {
+  fill: #125a4f;
+}
+/* End Back SVG */
+
+
+
+/* Play SVG */
+.a8uyt {
+  fill: url(#a);
+}
+
+.b8uyt {
+  fill: #a4e6dd;
+}
+
+.clogo8uyt {
+  filter: url(#d);
+}
+
+.d8uyt {
+  filter: url(#b);
+}
+/* End Play SVG */
+
+
+
+/* Audio Control SVG */
+.a24,
+.b24 {
+  fill: #0a4b41;
+}
+
+.b24 {
+  font-size: 11px;
+  font-family: SegoeUI-Bold, Segoe UI;
+  font-weight: 700;
+}
+/* End Audio Control SVG */
+
+

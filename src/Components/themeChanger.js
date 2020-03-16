@@ -1,20 +1,17 @@
-import React, {useState, useContext} from 'react';
-import { ThemeContext } from '../Context/themeContext';
+import React, {useState, useEffect, useContext} from 'react';
+import {ThemeContext} from '../Context/themeContext';
 
 const ThemeToggle = () => {
-  
   const [themes, curTheme, setTheme] = useContext(ThemeContext);
   const [toggle, setToggle] = useState('off');
 
+  useEffect(() => {
+    toggle === 'off' ? setTheme(themes.light) : setTheme(themes.dark);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [toggle]);
+
   const ToggleTheme = () => {
-    if (curTheme === themes.light || toggle === 'off') {
-      setTheme(themes.dark);
-      setToggle('on');
-    }
-    if (curTheme === themes.dark || toggle === 'on') {
-      setTheme(themes.light);
-      setToggle('off');
-    }
+    toggle === 'off' ? setToggle('on') : setToggle('off');
   };
 
   return (
@@ -35,4 +32,4 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle
+export default ThemeToggle;
