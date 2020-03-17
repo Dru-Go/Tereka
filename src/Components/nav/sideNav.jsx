@@ -34,7 +34,7 @@ const sideNav = props => {
       </MenuLink>
 
       {/* Here We added some filters to still be active as the filters are linked */}
-      <MenuLink to={'/'} exact={true}>
+      <MenuLink to={['/',...filters ]} exact={true}>
         <div>Dashboard</div>
       </MenuLink>
       <MenuLink to="/favorites" exact={true}>

@@ -4,6 +4,7 @@ import Header from '../header/header';
 import MidPromos from './midPromo';
 import Board from './selectionBoard';
 import Play from '../play/Play';
+import Suggestion from '../suggestions/suggest';
 import {PlayProvider} from '../../Context/audioContext';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 
@@ -27,6 +28,7 @@ const Dashboard = () => {
           <PlayProvider>
             <Route path="/play" exact component={Play} />
           </PlayProvider>
+          <Route path="/suggestions" exact component={Suggestion} />
         </div>
       </div>
     </Router>

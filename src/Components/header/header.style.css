@@ -5,3 +5,7 @@
 .b234h {
   filter: url(#a);
 }
+
+.dropdown{
+  backdrop-filter: blur(3px);
+}

@@ -1,15 +1,18 @@
-import React from 'react'
+import React from 'react';
+import {Link} from 'react-router-dom';
 import Logo from './logo';
 import SideMenu from './sideNav';
 
-const side = (props) => (
-	<div class="side">
-	<div class="pt-10 cursor-pointer">
-	  <Logo/>
-	</div>
-	<div class="border-gray-400 ">
-			<SideMenu path={props.location.pathname}/>
-	</div>
+const side = () => (
+  <div class="side">
+    <div class="pt-10 cursor-pointer">
+      <Link to="/">
+        <Logo />
+      </Link>
+    </div>
+    <div class="border-gray-400 ">
+      <SideMenu />
+    </div>
   </div>
 );
 

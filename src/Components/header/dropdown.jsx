@@ -1,9 +1,10 @@
 // Here we do some refactoring
 import React from 'react';
+import './header.style.css'
 
 const styles = {
   active:
-    "absolute font-normal opacity-10 shadow overflow-hidden rounded w-48 border mt-2 py-1 right-0 z-20",
+    "absolute font-normal dropdown shadow overflow-hidden rounded w-48 border mt-2 py-1 right-0 z-20",
   hidden: 'hidden',
 };
 

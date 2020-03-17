@@ -1,9 +1,7 @@
 import React from 'react';
-import Header from '../header/header';
 
 const details = () => (
   <div class="main_details">
-    <Header />
     <div class="border-b ">
       <div class="ml-20 lister">
         <div class="">
