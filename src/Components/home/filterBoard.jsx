@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import {Link} from 'react-router-dom';
 
 const FilterBoard = ({dispatch}) => {
@@ -41,9 +41,11 @@ const Filter = ({value, dispatch}) => {
     Inactive: 'px-4 cursor-pointer hover:text-gray-800 hover:font-bold',
   };
 
-  if (handle === path) {
-    dispatch({type: value});
-  }
+  useEffect(() => {
+    if (handle === path) {
+      dispatch({type: value});
+    }
+  })
 
   return (
     <Link to={path}>

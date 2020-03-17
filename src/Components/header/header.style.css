@@ -1,0 +1,7 @@
+.a234h {
+  fill: #fff;
+  opacity: 50%;
+}
+.b234h {
+  filter: url(#a);
+}

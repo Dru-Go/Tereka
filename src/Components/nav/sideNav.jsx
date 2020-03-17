@@ -19,14 +19,23 @@ const MenuLink = ({children, to, exact}) => (
 );
 
 const sideNav = props => {
+  const filters = [
+    '/business',
+    '/history',
+    '/economy',
+    '/fiction',
+    '/fantacy',
+    '/philosopy',
+  ];
   return (
     <div class="pl-10 text-xs">
       <MenuLink to="/play" exact={true}>
         <div>Now Listening</div>
       </MenuLink>
 
-      <MenuLink to="/" exact={true}>
-        <div>Store</div>
+      {/* Here We added some filters to still be active as the filters are linked */}
+      <MenuLink to={'/'} exact={true}>
+        <div>Dashboard</div>
       </MenuLink>
       <MenuLink to="/favorites" exact={true}>
         <div>Favorites</div>
