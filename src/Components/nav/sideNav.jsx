@@ -38,7 +38,7 @@ const sideNav = props => {
         <div>Dashboard</div>
       </MenuLink>
       <MenuLink to="/favorites" exact={true}>
-        <div>Favorites</div>
+        <div>Wishlist</div>
       </MenuLink>
       <MenuLink to="/suggestions" exact={true}>
         <div>Suggestions</div>

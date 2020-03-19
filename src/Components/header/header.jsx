@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 // import './header.style.css'
 import Dropdown from './dropdown';
 import Links from './links';
+import Search from './search/search/search';
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);
@@ -13,8 +14,8 @@ const Header = () => {
   return (
     <div class="bord head">
       <div class="bord-left px-32">
-        <div class="border flex items-center rounded-lg w-50p p-1 m-2">
-          <div class="mx-2">
+        <div class="border flex items-start rounded-lg w-50p p-1 m-2">
+          <div class="mx-2 mt-1">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="17.49"
@@ -28,15 +29,7 @@ const Header = () => {
               />
             </svg>
           </div>
-          <div class="mx-1 text-sm font-medium w-full">
-            <input
-              type="text"
-              placeholder="Search"
-              class="outline-none w-64 bg-transparent"
-              name=""
-              id=""
-            />
-          </div>
+          <Search/>
         </div>
       </div>
       <div class=" cursor-pointer">
