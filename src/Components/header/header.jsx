@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 // import './header.style.css'
 import Dropdown from './dropdown';
 import Links from './links';
-import Search from './search/search/search';
+import Search from './search/search';
 
 const Header = () => {
   const [toggle, setToggle] = useState(false);

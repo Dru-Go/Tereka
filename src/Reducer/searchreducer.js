@@ -69,7 +69,6 @@ const NARRATOR_STATE = [
 ];
 
 function searchReducer(state, action) {
-  console.log('Dispatching ', action.type, ' ...');
   switch (action.type) {
     case 'AUTHOR':
       return AUTHOR_STATE; // TODO return a list of authors

@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
+import Suggest from './suggest';
+import {Link} from 'react-router-dom';
+const style = {
+  NewSuggestion:
+    'p-2 shadow hover:shadow-none cursor-pointer hover:bg-gray-500 border border-gray-300 bg-gray-300 text-lg font-medium rounded-lg',
+};
 
 // TODO here manage the state of the Suggestion Box
 
-const suggestionBox = () => {
+const SuggestionBox = () => {
   const state = [
     {
       title: "Anna's Diary",
@@ -27,9 +33,9 @@ const suggestionBox = () => {
         <div class="text-center text-xl font-medium font-helvetica-rounded m-auto">
           Pending Suggestion
         </div>
-        <div class="p-2 shadow hover:shadow-none cursor-pointer hover:bg-gray-500 border border-gray-300 bg-gray-300 text-lg font-medium rounded-lg">
-          New Suggestions
-        </div>
+        <Link to="/suggestions/suggest">
+          <div class={style.NewSuggestion}>New Suggestions</div>
+        </Link>
       </div>
       <Suggestions suggestions={state} />
     </div>
@@ -44,18 +50,18 @@ const Suggestions = ({suggestions}) => (
   </div>
 );
 
-const Suggestion = ({ suggestion }) => {
-  const [like, setLike] = useState(false)
+const Suggestion = ({suggestion}) => {
+  const [like, setLike] = useState(false);
 
   const style = {
-    like: "uppercase hover:font-medium cursor-pointer pt-2 text-center",
-    liked: "uppercase cursor-pointer pt-2 text-center"
-  }
+    like: 'uppercase hover:font-medium cursor-pointer pt-2 text-center',
+    liked: 'uppercase cursor-pointer pt-2 text-center',
+  };
 
   const liked = () => {
     console.log('Liked ', suggestion, 'Suggestion');
-    suggestion.likes += 1
-    setLike(!like)
+    suggestion.likes += 1;
+    setLike(!like);
   };
 
   return (
@@ -68,15 +74,12 @@ const Suggestion = ({ suggestion }) => {
           by {suggestion.author}
         </div>
         <div class="text-xs text-center pt-2">{suggestion.likes} likes</div>
-        <div
-          className={like? style.liked:style.like}
-          onClick={liked}
-        >
-          {like? "Liked":"Like"}
+        <div className={like ? style.liked : style.like} onClick={liked}>
+          {like ? 'Liked' : 'Like'}
         </div>
       </div>
     </div>
   );
 };
 
-export default suggestionBox;
+export default SuggestionBox;

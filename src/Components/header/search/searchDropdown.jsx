@@ -8,7 +8,6 @@ const styles = {
 };
 
 const SearchDropdown = ({active, selected, links, setToggle}) => {
-  console.log('Links ', links);
   return (
     <ul className={active ? styles.active : styles.hidden}>
       {links

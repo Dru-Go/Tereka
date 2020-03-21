@@ -35,7 +35,7 @@ const List = ({setActive, redirectPath, title, Svg, extra}) => {
   };
 
   return (
-    <li onClick={handleClick}>
+    <li class="hover:bg-gray-500" onClick={handleClick}>
       <div class="flex items-center p-2 border-b">
         <div class="">
           <Svg />

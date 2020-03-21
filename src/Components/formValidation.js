@@ -1,7 +1,7 @@
 import {useState, useContext, useEffect} from 'react';
 import {AuthContext} from '../Context/authContext';
 
-// Custom Hook to handle validation
+// Custom Hook d handle Signup and Login forms
 const useFormValidaton = (initialState, validate) => {
   const context = useContext(AuthContext);
 

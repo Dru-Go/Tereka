@@ -253,7 +253,7 @@ img {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 input:-ms-input-placeholder,

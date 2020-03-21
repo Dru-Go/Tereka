@@ -1,5 +1,5 @@
 import React, {useState, useReducer, useEffect} from 'react';
-import SearchReducer from '../../../Reducer/searchreducercer';
+import SearchReducer from '../../../Reducer/searchReducer';
 import SearchDropdown from './searchDropdown';
 import SearchTip from './searchTips';
 
@@ -15,7 +15,6 @@ const Search = () => {
   const [showTip, setShowTip] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-  console.log('Reducer State is ', state);
 
   useEffect(() => {
     if (selected === '/Audio') {
