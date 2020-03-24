@@ -1,8 +1,12 @@
+
+
 .al {
   fill: black;
 }
 
-.aWrong{fill:#b92c2c;}
+.aWrong {
+  fill: #b92c2c;
+}
 
 .a2 {
   fill: #1ab8a1;
@@ -28,13 +32,13 @@
   fill: #1ab8a1;
 }
 
-
 :root {
-  --color1: #1AB8A1;
-  --color2: #D4E6E4;
+  --color1: #1ab8a1;
+  --color2: #d4e6e4;
   --color3: #ffffff;
-  --color4: #ABACAC;
-  --color5: #1AB8A1;
+  --color4: #abacac;
+  --color5: #1ab8a1;
+  --color6: #9CD9D9;
 }
 
 :root {
@@ -57,6 +61,19 @@
   color: var(--color1);
 }
 
+.color-text-menu {
+  color: var(--color6);
+}
+
+.selected {
+  transform: scaleX(1.05);
+}
+
+.scaled:hover {
+  transform: scale(1.2);
+}
+
+
 
 /* Bounce Animation */
 
@@ -65,13 +82,13 @@
   text-align: left;
 }
 
-.spinner>div {
+.spinner > div {
   width: 6px;
   height: 6px;
-  margin-left: .13rem;
-  margin-right: .13rem;
+  margin-left: 0.13rem;
+  margin-right: 0.13rem;
   border-radius: 100%;
-  background-color: #D4E6E4;
+  background-color: #d4e6e4;
   display: inline-block;
   -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -88,33 +105,28 @@
 }
 
 @-webkit-keyframes sk-bouncedelay {
-  
   0%,
   80%,
   100% {
-    -webkit-transform: scale(0)
+    -webkit-transform: scale(0);
   }
-  
+
   40% {
-    -webkit-transform: scale(1.0)
+    -webkit-transform: scale(1);
   }
 }
 
-
-
-
 @keyframes sk-bouncedelay {
-  
   0%,
   80%,
   100% {
     -webkit-transform: scale(0);
     transform: scale(0);
   }
-  
+
   40% {
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
 /* End Bounce Animation */
@@ -123,7 +135,7 @@
 ::-webkit-scrollbar {
   background-color: #1a202c;
   border: none;
-  width: .45rem;
+  width: 0.45rem;
   border-radius: 10px;
   background: transparent;
 }
@@ -135,18 +147,16 @@
 }
 /* Scroll Bar */
 
-
 .lister {
   display: grid;
   grid-template-columns: 20% 60% 20%;
 }
 .main_details {
-  background-color: #F1F5F8;
+  background-color: #f1f5f8;
   display: grid;
   grid-template-rows: 7% 25% 68%;
 }
 
-
 .text-padd-color {
-  background-color: #D4E6E4;
+  background-color: #d4e6e4;
 }

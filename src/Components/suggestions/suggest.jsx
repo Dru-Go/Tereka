@@ -2,8 +2,8 @@
 import React, {useState, useReducer} from 'react';
 import './seggest.style.css';
 import SuggestionReducer from '../../Reducer/suggestionReducer';
-import CategoryDropDown from './categoryDropdown'
-import Tips from './tips'
+import CategoryDropDown from './categoryDropdown';
+import Tips from './tips';
 
 const Categories = ['Fiction', 'Buisness', 'History', 'Business', 'Others'];
 
@@ -29,9 +29,7 @@ const Suggest = () => {
   const [values, setValue] = useState(INITIAL_STATE);
   const [toggle, setToggle] = useState(false);
 
-
-
-  const toggled = e => {   
+  const toggled = e => {
     setToggle(!toggle);
   };
 
@@ -129,6 +127,5 @@ const Suggest = () => {
     </div>
   );
 };
-
 
 export default Suggest;

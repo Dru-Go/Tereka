@@ -6,7 +6,7 @@ const midPromo = () => (
   <div class="mid ">
     <div class="ml-4 mt-6 mb-10 bg-gray-200">
       <div class="m-2 flex items-center">
-        <div class="mx-2  border rounded-lg  w-1/3 px-4 py-2 flex">
+        <div class="mx-2 zoom-8 border  rounded-lg  w-1/3 px-4 py-2 flex">
           <div class="w-1/2 cursor-pointer -mt-8">
             <img
               class="rounded m-auto hover:shadow"

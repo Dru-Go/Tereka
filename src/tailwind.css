@@ -411,6 +411,38 @@ video {
   appearance: none;
 }
 
+/* Zoom */
+.zoom-1 {
+  zoom: 10%;
+}
+.zoom-2 {
+  zoom: 20%;
+}
+.zoom-3 {
+  zoom: 30%;
+}
+.zoom-4 {
+  zoom: 40%;
+}
+.zoom-5 {
+  zoom: 50%;
+}
+.zoom-6 {
+  zoom: 60%;
+}
+.zoom-7 {
+  zoom: 70%;
+}
+.zoom-8 {
+  zoom: 80%;
+}
+.zoom-9 {
+  zoom: 90%;
+}
+.zoom-10 {
+  zoom: 100%;
+}
+
 .bg-fixed {
   background-attachment: fixed;
 }

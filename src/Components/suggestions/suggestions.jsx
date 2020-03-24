@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Suggest from './suggest';
 import {Link} from 'react-router-dom';
 const style = {
   NewSuggestion:

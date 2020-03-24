@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const FilterBoard = ({dispatch}) => {
   return (
-    <div class=" flex items-center justify-between mt-2  mr-3 border rounded-lg header">
+    <div class=" flex items-center justify-between mt-2  mr-3 border rounded-lg zoom-9 header">
       <div class="flex cursor-pointer p-2 items-baseline">
         <div class=" text-gray-500 text-xs font-medium uppercase">Popular</div>
         <div class="ml-1">

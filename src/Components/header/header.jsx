@@ -12,7 +12,7 @@ const Header = () => {
   };
 
   return (
-    <div class="bord head">
+    <div class="bord head zoom-8">
       <div class="bord-left px-32">
         <div class="border flex items-start rounded-lg w-50p p-1 m-2">
           <div class="mx-2 mt-1">

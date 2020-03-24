@@ -1,6 +1,4 @@
-body {
-  margin: 0;
-}
+
 
 
 .wrapper {
@@ -200,3 +198,15 @@ body {
 /* End Audio Control SVG */
 
 
+
+/* Side SVGs */
+
+/* IN ACTIVE SVGs */
+.inActiveSVG {
+  fill: #d4e6e4;
+}
+/* ACTIVE SVGs */
+.ActiveSVG {
+  fill: #fff;
+}
+/* End Side SVGs */

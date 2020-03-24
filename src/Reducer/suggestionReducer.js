@@ -4,7 +4,6 @@ const status = {
   open: 'Open',
 };
 
-
 const SUGGESTIONS_STATE = [
   {
     title: "Anna's Diary",
@@ -76,6 +75,7 @@ function suggestionReducer(state, action) {
           ) {
             titles.push(suggest);
           }
+          return null
         });
       }
       return titles; // DOING return a list of suggetsions which start with the sear
@@ -84,9 +84,12 @@ function suggestionReducer(state, action) {
       let authors = [];
       if (action.value !== '') {
         AUTHOR_STATE.map(suggest => {
-          if (suggest.name.toLowerCase().startsWith(action.value.toLowerCase())) {
+          if (
+            suggest.name.toLowerCase().startsWith(action.value.toLowerCase())
+          ) {
             authors.push(suggest);
           }
+          return null
         });
       }
       return authors; // DOING return a list of suggetsions which start with the sear
