@@ -1,0 +1,139 @@
+{
+  "done": [],
+  "in-progress": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:50:00.992Z",
+      "description": {
+        "content": "A page that shows most trending audios",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Top Audio Books"
+    }
+  ],
+  "testing": [],
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:52:17.163Z",
+      "description": {
+        "content": "A page that shows liked audios",
+        "mime": "text/markdown"
+      },
+      "id": "2",
+      "prio": 1,
+      "references": [],
+      "title": "Favorites"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:53:55.959Z",
+      "description": {
+        "content": "A page that shows recent plays with there time lines",
+        "mime": "text/markdown"
+      },
+      "id": "3",
+      "prio": 1,
+      "references": [],
+      "title": "History"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T05:24:13.493Z",
+      "description": {
+        "content": "update the play component to show \n - playlists, \n - queues, \n - forward and backward buttons ",
+        "mime": "text/markdown"
+      },
+      "id": "4",
+      "prio": 1,
+      "references": [],
+      "title": "Now Listening"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component, and a Resolver",
+      "creation_time": "2020-03-25T05:29:17.882Z",
+      "description": {
+        "content": "A Compoennt \n- Add Playlist\n- List Playlist\n- List Audios in Playlist\n- Add audio to playlist",
+        "mime": "text/markdown"
+      },
+      "id": "5",
+      "prio": 1,
+      "references": [],
+      "title": "Playlist"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:13:49.733Z",
+      "description": {
+        "content": "Adding \n- Grid to the layout",
+        "mime": "text/markdown"
+      },
+      "id": "8",
+      "references": [],
+      "title": "Items-styling"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component,",
+      "creation_time": "2020-03-25T05:31:28.124Z",
+      "description": {
+        "content": "Mini Player in the Sidenavs\n- Add Controlls\n- Manage Transitions",
+        "mime": "text/markdown"
+      },
+      "id": "6",
+      "prio": 0,
+      "references": [],
+      "title": "Mini Player"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:10:21.174Z",
+      "description": {
+        "content": "Adding \n- Slider",
+        "mime": "text/markdown"
+      },
+      "id": "7",
+      "references": [],
+      "title": "Promo styling"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Update",
+      "creation_time": "2020-03-25T12:22:27.784Z",
+      "description": {
+        "content": "Change up the Promo Component to feature\n- Narrator \n\t- Name\n    - Image\n    - Albems\n    - followers",
+        "mime": "text/markdown"
+      },
+      "id": "9",
+      "references": [],
+      "title": "Promo_Narrator"
+    }
+  ]
+}
