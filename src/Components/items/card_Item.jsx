@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const CardItem = ({state}) => {
   let stars = [];
@@ -14,9 +15,11 @@ const CardItem = ({state}) => {
         <div class="font-helvetica-rounded py-1 cursor-pointer">
           {state.Title}
         </div>
-        <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
-          By {state.Author}
-        </div>
+        <Link to={'/details/2345'}>
+          <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
+            By {state.Author}
+          </div>
+        </Link>
         <div class="text-xxs">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. .
         </div>
