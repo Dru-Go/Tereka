@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 
 const style = {
   active: 'p-2 mx-1 rounded-full  bg-green-300',
@@ -61,17 +61,18 @@ const FilterBoard = ({fil_dispatch, ori, setOri}) => {
         </div>
       </div>
       <div class="flex items-center text-gray-500 text-xs font-medium">
-        <Filter value="Business" dispatch={fil_dispatch} />
-        <Filter value="History" dispatch={fil_dispatch} />
-        <Filter value="Economy" dispatch={fil_dispatch} />
-        <Filter value="Fiction" dispatch={fil_dispatch} />
-        <Filter value="Fantacy" dispatch={fil_dispatch} />
-        <Filter value="Philosopy" dispatch={fil_dispatch} />
+        <MenuLink value="Business" dispatch={fil_dispatch} exact={true} to={"/business"}/>
+        <MenuLink value="History" dispatch={fil_dispatch} exact={true} to={"/history"}/>
+        <MenuLink value="Economy" dispatch={fil_dispatch} exact={true} to={"/economy"}/>
+        <MenuLink value="Fiction" dispatch={fil_dispatch} exact={true} to={"/fiction"}/>
+        <MenuLink value="Fantacy" dispatch={fil_dispatch} exact={true} to={"/fantacy"}/>
+        <MenuLink value="Philosopy" dispatch={fil_dispatch} exact={true} to={"/philosopy"}/>
       </div>
     </div>
   );
 };
 
+// eslint-disable-next-line no-unused-vars
 const Filter = ({value, dispatch}) => {
   const handle = window.location.pathname;
   const path = '/' + value.toLowerCase();
@@ -97,6 +98,33 @@ const Filter = ({value, dispatch}) => {
         {value}
       </div>
     </Link>
+  );
+};
+
+const MenuLink = ({value, to, exact, dispatch}) => {
+  const styles = {
+    active:
+      'px-4 cursor-pointer hover:text-gray-800 hover:font-bold underline text-gray-800 font-bold',
+    Inactive: 'px-4 cursor-pointer hover:text-gray-800 hover:font-bold',
+  };
+  return (
+    <Route
+      path={to}
+      exact={exact}
+      children={({match}) => {
+        if (match && match.path.endsWith(value.toLowerCase())) {
+          console.log('MenuLink -> Match ', match, '-> Value', value);
+          dispatch({type: value.toUpperCase()});
+        }
+        return (
+          <Link to={to}>
+            <div className={match ? styles.active : styles.Inactive}>
+              {value}
+            </div>
+          </Link>
+        );
+      }}
+    />
   );
 };
 
