@@ -1,6 +1,3 @@
-
-
-
 .wrapper {
   display: grid;
   grid-template-columns: 20% 80%;
@@ -9,8 +6,6 @@
 
 .promo {
 }
-
-
 
 .bord-left {
   border-left: 0.7px solid lightgray;
@@ -77,7 +72,7 @@
 .clogo,
 .elogo {
   fill: none;
-  stroke-width:1px;
+  stroke-width: 1px;
 }
 
 .alogo {
@@ -95,14 +90,14 @@
 
 .dlogo,
 .flogo {
-  stroke:none;
+  stroke: none;
 }
 
 .flogo {
   fill: #5b45f2;
 }
 
-.elogo{
+.elogo {
 }
 
 /* END Svg LOGO */
@@ -146,23 +141,17 @@
 
 /* END Dropdown SVG */
 
-
-
 /* Bookmark and Like SVG */
 .abookmark {
   fill: #a4e6dd;
 }
 /* End Bookmark and Like SVG */
 
-
-
 /* Back SVG */
 .aw {
   fill: #125a4f;
 }
 /* End Back SVG */
-
-
 
 /* Play SVG */
 .a8uyt {
@@ -182,8 +171,6 @@
 }
 /* End Play SVG */
 
-
-
 /* Audio Control SVG */
 .a24,
 .b24 {
@@ -197,8 +184,6 @@
 }
 /* End Audio Control SVG */
 
-
-
 /* Side SVGs */
 
 /* IN ACTIVE SVGs */
@@ -210,3 +195,29 @@
   fill: #fff;
 }
 /* End Side SVGs */
+
+/* Filter SVGs */
+/* Item Display alarge */
+.alarge {
+  fill: #abacac;
+}
+/* End Item Display alarge */
+
+/* Item Display alist */
+.alist {
+  fill: #abacac;
+}
+/* End Item Display alist */
+
+/* Love SVG  */
+.alove {
+  fill: #d4e6e4;
+}
+/* End Love SVG  */
+
+/* Filter SVGs */
+/* Remove SVG  */
+.a_remove {
+  fill: #fb0707;
+}
+/* End Remove SVG  */
