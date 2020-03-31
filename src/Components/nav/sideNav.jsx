@@ -1,5 +1,8 @@
-import React from 'react';
-import {Route, Link} from 'react-router-dom';
+import React, {useState} from 'react';
+import {Link} from 'react-router-dom';
+
+import {MenuLink, Menu} from '../menu/menuLink';
+import {AddPlaylist, ListPlaylist} from '../playlist/playlist';
 
 const style = {
   activeStyle:
@@ -11,26 +14,7 @@ const style = {
     'px-4 py-2  hover:shadow color-text-menu cursor-pointer color-text-menu  text-xs',
 };
 
-const MenuLink = ({children, to, exact}) => (
-  <Route
-    path={to}
-    exact={exact}
-    children={({match}) => (
-      <Link to={to}>
-        <div className={match ? style.activeStyle : style.InactiveStyle}>
-          {children}
-        </div>
-      </Link>
-    )}
-  />
-);
-const Menu = ({children, title}) => (
-  <div class="flex items-center">
-    <div class="pr-2">{children}</div>
-    <div> {title}</div>
-  </div>
-);
-const sideNav = () => {
+const SideNav = () => {
   const filters = [
     '/business',
     '/history',
@@ -39,11 +23,18 @@ const sideNav = () => {
     '/fantacy',
     '/philosopy',
   ];
+
+  const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
+
+  const addPlaylist = () => {
+    setToggleAddPlaylist(true);
+  };
+
   return (
     <div>
       <div class="uppercase  pl-12 pb-2 color-text-menu">Browse</div>
       <div class="pl-16">
-        <MenuLink to="/top" exact={true}>
+        <MenuLink to="/trending" exact={true}>
           <Menu title={'Top Audio Books'}>
             <svg width="12.238" height="12.238" viewBox="0 0 10.238 10.238">
               <path
@@ -116,8 +107,8 @@ const sideNav = () => {
               </svg>
             </Menu>
           </MenuLink>
-          <MenuLink to="/history" exact={true}>
-            <Menu title={'History'}>
+          <MenuLink to="/recent" exact={true}>
+            <Menu title={'Recent'}>
               <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">
                 <path
                   className={style.InactiveSvgClass}
@@ -132,7 +123,10 @@ const sideNav = () => {
       <div class="mt-2">
         <div class="flex items-center ">
           <div class="uppercase  pl-12 pb-2 color-text-menu">playlist</div>
-          <div class="ml-20 p-3 cursor-pointer rounded-full scaled ">
+          <div
+            class="ml-20 p-3 cursor-pointer rounded-full scaled"
+            onClick={addPlaylist}
+          >
             <svg width="15.174" height="12.122" viewBox="0 0 10.174 7.122">
               <path
                 className={style.InactiveSvgClass}
@@ -142,22 +136,16 @@ const sideNav = () => {
             </svg>
           </div>
         </div>
-        <div class="pl-16 text-sm">
-          <MenuLink to="/playlist/1" exact={true}>
-            <Menu title={'My Playlist'}>
-              <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">
-                <path
-                  className={style.InactiveSvgClass}
-                  d="M8.023,14.727H10.7V4H8.023ZM4,14.727H6.682V9.363H4Zm8.045-7.375v7.375h2.682V7.352Z"
-                  transform="translate(-4 -4)"
-                />
-              </svg>
-            </Menu>
-          </MenuLink>
-        </div>
+        {/* Here the add Playlist form  */}
+        <AddPlaylist
+          active={toggleAddPlaylist}
+          setActive={setToggleAddPlaylist}
+        />
+        {/* Here the list of playlist */}
+        <ListPlaylist />
       </div>
     </div>
   );
 };
 
-export default sideNav;
+export default SideNav;

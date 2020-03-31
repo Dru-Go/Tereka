@@ -21,7 +21,7 @@ const Details = ({match}) => {
 
   useEffect(() => {
     detail_Dispatcher({type: 'SEARCH', id: match.params.id});
-  });
+  },[match.params.id]);
 
   return (
     <div class="main_details">

@@ -6,7 +6,9 @@ import Board from './selectionBoard';
 import Play from '../play/Play';
 import Suggestion from '../suggestions/suggestions';
 import Details from '../details/details';
+import Playlist from '../playlist/playlistAudios';
 import Top from '../topAudios/trending';
+import Sad from '../error/sad';
 import Favorites from '../favorites/favorites';
 import Suggest from '../suggestions/suggest';
 import {PlayProvider} from '../../Context/audioContext';
@@ -35,8 +37,10 @@ const Dashboard = () => {
           <Route path="/suggestions" exact component={Suggestion} />
           <Route path="/suggestions/suggest" exact component={Suggest} />
           <Route path="/trending" exact component={Top} />
+          <Route path="/sad" exact component={Sad} />
           <Route path="/favorites" exact component={Favorites} />
           <Route path="/details/:id" exact component={Details} />
+          <Route path="/playlist/:id" exact component={Playlist} />
         </div>
       </div>
     </Router>

@@ -5,19 +5,19 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Component",
-      "creation_time": "2020-03-25T04:50:00.992Z",
+      "category": "Feature Component, and a Resolver",
+      "creation_time": "2020-03-25T05:29:17.882Z",
       "description": {
-        "content": "A page that shows most trending audios",
+        "content": "A Compoennt \n- Add Playlist\n- List Playlist\n- List Audios in Playlist\n- Add audio to playlist",
         "mime": "text/markdown"
       },
-      "id": "1",
+      "id": "5",
+      "prio": 1,
       "references": [],
-      "title": "Top Audio Books"
+      "title": "Playlist"
     }
   ],
-  "testing": [],
-  "todo": [
+  "testing": [
     {
       "assignedTo": {
         "name": "Dre"
@@ -33,6 +33,22 @@
       "references": [],
       "title": "Favorites"
     },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-28T08:21:02.438Z",
+      "description": {
+        "content": "Shows details about narrators",
+        "mime": "text/markdown"
+      },
+      "id": "10",
+      "references": [],
+      "title": "Narator's Details"
+    }
+  ],
+  "todo": [
     {
       "assignedTo": {
         "name": "Dre"
@@ -62,21 +78,6 @@
       "prio": 1,
       "references": [],
       "title": "Now Listening"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature Component, and a Resolver",
-      "creation_time": "2020-03-25T05:29:17.882Z",
-      "description": {
-        "content": "A Compoennt \n- Add Playlist\n- List Playlist\n- List Audios in Playlist\n- Add audio to playlist",
-        "mime": "text/markdown"
-      },
-      "id": "5",
-      "prio": 1,
-      "references": [],
-      "title": "Playlist"
     },
     {
       "assignedTo": {
@@ -134,6 +135,34 @@
       "id": "9",
       "references": [],
       "title": "Promo_Narrator"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-29T06:27:37.305Z",
+      "description": {
+        "content": "Adding a sort dropdown that sorts  with\n- Title\n- Auther\n- Narrator\n- Likes\n- Duration",
+        "mime": "text/markdown"
+      },
+      "id": "11",
+      "references": [],
+      "title": "Sort"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:50:00.992Z",
+      "description": {
+        "content": "A page that shows most trending audios",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Top Audio Books"
     }
   ]
 }

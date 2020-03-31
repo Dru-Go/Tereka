@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {Link, Route} from 'react-router-dom';
 
 const style = {
@@ -61,18 +61,18 @@ const FilterBoard = ({fil_dispatch, ori, setOri}) => {
         </div>
       </div>
       <div class="flex items-center text-gray-500 text-xs font-medium">
-        <MenuLink value="Business" dispatch={fil_dispatch} exact={true} to={"/business"}/>
-        <MenuLink value="History" dispatch={fil_dispatch} exact={true} to={"/history"}/>
-        <MenuLink value="Economy" dispatch={fil_dispatch} exact={true} to={"/economy"}/>
-        <MenuLink value="Fiction" dispatch={fil_dispatch} exact={true} to={"/fiction"}/>
-        <MenuLink value="Fantacy" dispatch={fil_dispatch} exact={true} to={"/fantacy"}/>
-        <MenuLink value="Philosopy" dispatch={fil_dispatch} exact={true} to={"/philosopy"}/>
+        <MenuLink value="Business" dispatch={fil_dispatch} to="/business"/>
+        <MenuLink value="History" dispatch={fil_dispatch} to="/history"/>
+        <MenuLink value="Economy" dispatch={fil_dispatch} to="/economy"/>
+        <MenuLink value="Fiction" dispatch={fil_dispatch} to="/fiction"/>
+        <MenuLink value="Fantacy" dispatch={fil_dispatch} to="/fantacy"/>
+        <MenuLink value="Philosopy" dispatch={fil_dispatch} to="/philosopy"/>
       </div>
     </div>
   );
 };
 
-const MenuLink = ({value, to, exact, dispatch}) => {
+const MenuLink = ({value, to, dispatch}) => {
   const styles = {
     active:
       'px-4 cursor-pointer hover:text-gray-800 hover:font-bold underline text-gray-800 font-bold',
@@ -81,7 +81,7 @@ const MenuLink = ({value, to, exact, dispatch}) => {
   return (
     <Route
       path={to}
-      exact={exact}
+      exact={true}
       children={({match}) => {
         if (match && match.path.endsWith(value.toLowerCase())) {
           console.log('MenuLink -> Match ', match, '-> Value', value);
