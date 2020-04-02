@@ -1,6 +1,5 @@
 {
-  "done": [],
-  "in-progress": [
+  "done": [
     {
       "assignedTo": {
         "name": "Dre"
@@ -17,6 +16,7 @@
       "title": "Playlist"
     }
   ],
+  "in-progress": [],
   "testing": [
     {
       "assignedTo": {
@@ -46,6 +46,20 @@
       "id": "10",
       "references": [],
       "title": "Narator's Details"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-29T06:27:37.305Z",
+      "description": {
+        "content": "Adding a sort dropdown that sorts  with\n- Title\n- Auther\n- Narrator\n- Likes\n- Duration",
+        "mime": "text/markdown"
+      },
+      "id": "11",
+      "references": [],
+      "title": "Sort"
     }
   ],
   "todo": [
@@ -135,20 +149,6 @@
       "id": "9",
       "references": [],
       "title": "Promo_Narrator"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature Component",
-      "creation_time": "2020-03-29T06:27:37.305Z",
-      "description": {
-        "content": "Adding a sort dropdown that sorts  with\n- Title\n- Auther\n- Narrator\n- Likes\n- Duration",
-        "mime": "text/markdown"
-      },
-      "id": "11",
-      "references": [],
-      "title": "Sort"
     },
     {
       "assignedTo": {

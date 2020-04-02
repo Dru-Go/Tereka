@@ -1,12 +1,16 @@
-import React from 'react';
-import {Link, Route} from 'react-router-dom';
+import React, {useState} from 'react';
+import Dropdown from './sortDropdown';
+import MenuLink from './menuLink';
 
 const style = {
   active: 'p-2 mx-1 rounded-full  bg-green-300',
   inactive: 'p-2  mx-1 rounded-full hover:bg-green-300',
 };
 
-const FilterBoard = ({fil_dispatch, ori, setOri}) => {
+const sortLinks = ['Title', 'Author', 'Narrator', 'Likes', 'Duration'];
+
+const FilterBoard = ({fil_dispatch, ori, setOri, sortBy, setSortBy}) => {
+  const [openSort, setOpenSort] = useState(false);
   const handleClick = () => {
     if (ori === 'Card') {
       setOri('List');
@@ -45,57 +49,42 @@ const FilterBoard = ({fil_dispatch, ori, setOri}) => {
             </svg>
           </div>
         </div>
-        <div class="flex ml-3 py-1 px-3  rounded-full hover:bg-green-300 items-center">
-          <div class=" text-gray-500 hover:text-gray-800 text-xs font-medium uppercase">
-            sort
-          </div>
-          <div class="ml-2">
-            <svg width="12" height="7" viewBox="0 0 12 7.41">
-              <path
-                class="a_dropdown"
-                d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z"
-                transform="translate(-6 -8.59)"
+        <div>
+          <div
+            class="flex ml-3 py-1 px-3  rounded-full hover:bg-green-300 items-center"
+            onClick={() => setOpenSort(!openSort)}
+          >
+            <div class=" text-gray-500 hover:text-gray-800 text-xs font-medium uppercase">
+              {sortBy}
+            </div>
+            <div class="ml-2">
+              <svg width="12" height="7" viewBox="0 0 12 7.41">
+                <path
+                  class="a_dropdown"
+                  d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z"
+                  transform="translate(-6 -8.59)"
+                />
+              </svg>
+              {/* Dropdown */}
+              <Dropdown
+                active={openSort}
+                titles={sortLinks}
+                setToggle={setOpenSort}
+                setSelected={setSortBy}
               />
-            </svg>
+            </div>
           </div>
         </div>
       </div>
       <div class="flex items-center text-gray-500 text-xs font-medium">
-        <MenuLink value="Business" dispatch={fil_dispatch} to="/business"/>
-        <MenuLink value="History" dispatch={fil_dispatch} to="/history"/>
-        <MenuLink value="Economy" dispatch={fil_dispatch} to="/economy"/>
-        <MenuLink value="Fiction" dispatch={fil_dispatch} to="/fiction"/>
-        <MenuLink value="Fantacy" dispatch={fil_dispatch} to="/fantacy"/>
-        <MenuLink value="Philosopy" dispatch={fil_dispatch} to="/philosopy"/>
+        <MenuLink value="Business" dispatch={fil_dispatch} to="/business" />
+        <MenuLink value="History" dispatch={fil_dispatch} to="/history" />
+        <MenuLink value="Economy" dispatch={fil_dispatch} to="/economy" />
+        <MenuLink value="Fiction" dispatch={fil_dispatch} to="/fiction" />
+        <MenuLink value="Fantacy" dispatch={fil_dispatch} to="/fantacy" />
+        <MenuLink value="Philosopy" dispatch={fil_dispatch} to="/philosopy" />
       </div>
     </div>
-  );
-};
-
-const MenuLink = ({value, to, dispatch}) => {
-  const styles = {
-    active:
-      'px-4 cursor-pointer hover:text-gray-800 hover:font-bold underline text-gray-800 font-bold',
-    Inactive: 'px-4 cursor-pointer hover:text-gray-800 hover:font-bold',
-  };
-  return (
-    <Route
-      path={to}
-      exact={true}
-      children={({match}) => {
-        if (match && match.path.endsWith(value.toLowerCase())) {
-          console.log('MenuLink -> Match ', match, '-> Value', value);
-          dispatch({type: value.toUpperCase()});
-        }
-        return (
-          <Link to={to}>
-            <div className={match ? styles.active : styles.Inactive}>
-              {value}
-            </div>
-          </Link>
-        );
-      }}
-    />
   );
 };
 

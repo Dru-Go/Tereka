@@ -1,35 +1,35 @@
 const FINAL_STATE = [
   {
     Image: './book1.png',
-    Title: "Babushka's Journey",
+    Title: 'Arina',
     Author: 'Marry Bay',
-    Narrator: 'Chenio Achebe',
-    Likes:23,
+    Narrator: 'Achebe Charly',
+    Likes: 23,
     Stars: 3,
-    Duration:'1:23:34'
+    Duration: '1:23:34',
+  },
+  {
+    Image: './book1.png',
+    Title: 'The Power Of Now',
+    Author: 'Charly Sans',
+    Narrator: 'Eric Lancer',
+    Likes: 34,
+    Stars: 3,
+    Duration: '1:23:34',
   },
   {
     Image: './book1.png',
     Title: "Babushka's Journey",
-    Author: 'Marry Bay',
-    Narrator:'Chenio Achebe',
-    Likes:34,
+    Author: 'Mark Bates',
+    Narrator: 'Charles Exavior',
+    Likes: 55,
     Stars: 3,
-    Duration:'1:23:34'
-  },
-  {
-    Image: './book1.png',
-    Title: "Babushka's Journey",
-    Author: 'Marry Bay',
-    Narrator:'Chenio Achebe',
-    Likes:55,
-    Stars: 3,
-    Duration:'1:23:34'
+    Duration: '1:23:34',
   },
 ];
 
 function filterReducer(state, action) {
-  console.log('ACTION CALLED IS ', action.type)
+  console.log('ACTION CALLED IS ', action.type);
   switch (action.type) {
     case 'BUSINESS':
       return FINAL_STATE; // TODO return a list of BUSINESS related Audios

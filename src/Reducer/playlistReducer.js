@@ -71,12 +71,7 @@ function playlistReducer(state, action) {
     case 'ADD_AUDIO':
       return null; // TODO add an audio with id to a playlist with id
     case 'ALL_AUDIO':
-      let playlist = {};
-      FINAL_STATE.filter(play => {
-        if (play.id === action.value) {
-          playlist = play;
-        }
-      });
+      let playlist = FINAL_STATE.find(play => play.id === action.value);
       return playlist.audios; // TODO get all the audios with in a playlist with id
     case 'REMOVE_AUDIO':
       return null; // TODO remove audio of id from a playlist with id
