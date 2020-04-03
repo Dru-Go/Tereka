@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-
+import Mini from '../mini play/mini'
+import Expanded from '../mini play/expanded'
 import {MenuLink, Menu} from '../menu/menuLink';
 import {AddPlaylist, ListPlaylist} from '../playlist/playlist';
 
@@ -11,7 +12,7 @@ const style = {
   InactiveSvgClass: 'inActiveSVG ',
 
   InactiveStyle:
-    'px-4 py-2  hover:shadow color-text-menu cursor-pointer color-text-menu  text-xs',
+    'px-4 py-2  hover:shadow color-text-menu cursor-pointer color-text-menu text-xs',
 };
 
 const SideNav = () => {
@@ -25,6 +26,7 @@ const SideNav = () => {
   ];
 
   const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
+  const [toggleMinimize, setToggleMinimize] = useState(false);
 
   const addPlaylist = () => {
     setToggleAddPlaylist(true);
@@ -143,6 +145,8 @@ const SideNav = () => {
         />
         {/* Here the list of playlist */}
         <ListPlaylist />
+        
+        {toggleMinimize ? <Mini min={toggleMinimize} setMin={setToggleMinimize} />: <Expanded min={toggleMinimize} setMin={setToggleMinimize}/>}
       </div>
     </div>
   );

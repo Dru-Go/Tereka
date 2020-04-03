@@ -1,0 +1,17 @@
+.aback {
+  fill: #9cd9d9;
+}
+.apause {
+  fill: #9cd9d9;
+}
+.aforward {
+  fill: #9cd9d9;
+}
+.avolume {
+  fill: #9cd9d9;
+}
+.miniPlay {
+  border-radius: 14px 14px 0px 0px;
+  background: rgb(253, 253, 253, 12%);
+  backdrop-filter: blur(0px);
+}
