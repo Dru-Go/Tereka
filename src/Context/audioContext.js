@@ -1,18 +1,27 @@
-// TODO here we define an audio that store the last played record of an audio in cache
-
 import React, {useState, createContext} from 'react';
 
-export const PlayContext = createContext();
+export const AudioContext = createContext();
 
 export const PlayProvider = props => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [curplay, setplay] = useState(null);
+  const [duration, setDuration] = useState(); // Duration of the audio file
+  const [curTime, setCurTime] = useState(); // Current audio play value
+  const [playing, setPlaying] = useState(false); // Pause and Play
+  const [seekTime, setSeekTime] = useState(); // audio seek position
 
   return (
-    <PlayContext.Provider value={[curplay, setplay]}>
+    <AudioContext.Provider
+      value={[
+        curTime,
+        duration,
+        playing,
+        setDuration,
+        setCurTime,
+        seekTime,
+        setPlaying,
+        setSeekTime,
+      ]}
+    >
       {props.children}
-    </PlayContext.Provider>
+    </AudioContext.Provider>
   );
 };
-
-

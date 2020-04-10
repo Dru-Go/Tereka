@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .aback {
   fill: #9cd9d9;
 }
@@ -8,6 +9,18 @@
   fill: #9cd9d9;
 }
 .avolume {
+=======
+.aback1 {
+  fill: #9cd9d9;
+}
+.apause1 {
+  fill: #9cd9d9;
+}
+.aforward1 {
+  fill: #9cd9d9;
+}
+.avolume1 {
+>>>>>>> feat/play
   fill: #9cd9d9;
 }
 .miniPlay {
