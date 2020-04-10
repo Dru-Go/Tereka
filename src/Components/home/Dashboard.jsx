@@ -3,7 +3,7 @@ import Side from '../nav/side';
 import Header from '../header/header';
 import MidPromos from './midPromo';
 import Board from './selectionBoard';
-import Play from '../play/Play';
+import Play from '../play/play';
 import Suggestion from '../suggestions/suggestions';
 import Details from '../details/details';
 import Top from '../topAudios/trending';

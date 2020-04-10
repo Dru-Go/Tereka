@@ -39,6 +39,17 @@ const sideNav = () => {
     '/fantacy',
     '/philosopy',
   ];
+<<<<<<< Updated upstream
+=======
+
+  const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
+  const [toggleMinimize, setToggleMinimize] = useState(true);
+
+  const addPlaylist = () => {
+    setToggleAddPlaylist(true);
+  };
+
+>>>>>>> Stashed changes
   return (
     <div>
       <div class="uppercase  pl-12 pb-2 color-text-menu">Browse</div>
@@ -142,6 +153,7 @@ const sideNav = () => {
             </svg>
           </div>
         </div>
+<<<<<<< Updated upstream
         <div class="pl-16 text-sm">
           <MenuLink to="/playlist/1" exact={true}>
             <Menu title={'My Playlist'}>
@@ -155,6 +167,17 @@ const sideNav = () => {
             </Menu>
           </MenuLink>
         </div>
+=======
+        {/* Here the add Playlist form  */}
+        <AddPlaylist
+          active={toggleAddPlaylist}
+          setActive={setToggleAddPlaylist}
+        />
+        {/* Here the list of playlist */}
+        <ListPlaylist />
+        
+        {toggleMinimize ? <Mini setMin={setToggleMinimize} />: <Expanded setMin={setToggleMinimize}/>}
+>>>>>>> Stashed changes
       </div>
     </div>
   );

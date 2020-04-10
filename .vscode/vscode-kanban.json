@@ -13,7 +13,26 @@
       },
       "id": "1",
       "references": [],
+<<<<<<< Updated upstream
       "title": "Top Audio Books"
+=======
+      "title": "Fix List Layout issue",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:13:49.733Z",
+      "description": {
+        "content": "Adding \n- Grid to the layout",
+        "mime": "text/markdown"
+      },
+      "id": "8",
+      "references": [],
+      "title": "Items-styling"
+>>>>>>> Stashed changes
     }
   ],
   "testing": [],
@@ -83,6 +102,7 @@
         "name": "Dre"
       },
       "category": "Feature Component",
+<<<<<<< Updated upstream
       "creation_time": "2020-03-25T06:13:49.733Z",
       "description": {
         "content": "Adding \n- Grid to the layout",
@@ -112,6 +132,8 @@
         "name": "Dre"
       },
       "category": "Feature Component",
+=======
+>>>>>>> Stashed changes
       "creation_time": "2020-03-25T06:10:21.174Z",
       "description": {
         "content": "Adding \n- Slider",

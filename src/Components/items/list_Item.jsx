@@ -3,21 +3,26 @@ import React from 'react';
 
 const listItem = ({state, index}) => {
   return (
-    <div class="m-2 flex cursor-pointer py-3 border hover:shadow rounded  items-center ">
+    <div class="m-2 flex justify-between cursor-pointer py-3 border hover:shadow rounded  items-center ">
       <div class="flex items-center mx-4">
         <div class="mx-2 px-2 text-gray-900 text-sm">{index}</div>
-        <div class="uppercase font-helvetica-rounded text-sm text-gray-600">
+        <div class="uppercase font-helvetica-rounded text-xs text-gray-600">
           {state.Title}
         </div>
       </div>
       <div class="flex items-center justify-between">
         <div class="text-sm camelcase mx-16">
           Auther:
-          <span class="text-green-500 text-xs ml-1 hover:underline"> {state.Author}</span>
+          <span class="text-green-500 text-xs ml-1 hover:underline">
+            {state.Author}
+          </span>
         </div>
         <div class="text-sm camelcase mx-16">
           Narrator:
-          <span class="text-green-500 text-xs ml-1 hover:underline"> {state.Narrator}</span>
+          <span class="text-green-500 text-xs ml-1 hover:underline">
+            {' '}
+            {state.Narrator}
+          </span>
         </div>
         <div class="flex items-center mx-20 cursor-pointer">
           <div>
