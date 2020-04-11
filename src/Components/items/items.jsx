@@ -4,16 +4,8 @@ import CardItem from './card_Item';
 import SortReducer from '../../Reducer/sortReducer';
 
 const style = {
-<<<<<<< HEAD
-  card: ' flex items-center',
-=======
-<<<<<<< Updated upstream
-  card: ' flex items-center'
-}
-=======
   card: 'flex items-center',
   list: 'block',
->>>>>>> feat/play
 };
 const INITIAL_STATE = [
   {
@@ -23,10 +15,6 @@ const INITIAL_STATE = [
     Stars: 0,
   },
 ];
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> feat/play
 
 // DONE: Manuplate the state passed
 const Items = ({state, ori, sortBy}) => {
@@ -35,9 +23,8 @@ const Items = ({state, ori, sortBy}) => {
 
   useEffect(() => {
     sort_Dispatcher({type: sortBy.toUpperCase(), value: state});
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sortBy]);
-  
 
   if (ori === 'Card') {
     for (let i = 0; i < state.length; i++) {
@@ -52,15 +39,7 @@ const Items = ({state, ori, sortBy}) => {
   // TODO: Here a grid like class must be present
   return (
     <div class="body ml-4 mt-6 border mr-3">
-<<<<<<< HEAD
-      <div className={ori === 'Card' ? style.card : ''}>{audios}</div>
-=======
-<<<<<<< Updated upstream
-      <div className={ori === "Card"? style.card:''} >{audios}</div>
-=======
       <div className={ori === 'Card' ? style.card : style.list}>{audios}</div>
->>>>>>> Stashed changes
->>>>>>> feat/play
     </div>
   );
 };

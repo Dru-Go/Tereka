@@ -138,24 +138,7 @@ const SideNav = () => {
             </svg>
           </div>
         </div>
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-        <div class="pl-16 text-sm">
-          <MenuLink to="/playlist/1" exact={true}>
-            <Menu title={'My Playlist'}>
-              <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">
-                <path
-                  className={style.InactiveSvgClass}
-                  d="M8.023,14.727H10.7V4H8.023ZM4,14.727H6.682V9.363H4Zm8.045-7.375v7.375h2.682V7.352Z"
-                  transform="translate(-4 -4)"
-                />
-              </svg>
-            </Menu>
-          </MenuLink>
-        </div>
-=======
->>>>>>> feat/play
+
         {/* Here the add Playlist form  */}
         <AddPlaylist
           active={toggleAddPlaylist}
@@ -164,12 +147,8 @@ const SideNav = () => {
         {/* Here the list of playlist */}
         <ListPlaylist />
         
-<<<<<<< HEAD
-        {toggleMinimize ? <Mini min={toggleMinimize} setMin={setToggleMinimize} />: <Expanded min={toggleMinimize} setMin={setToggleMinimize}/>}
-=======
+
         {toggleMinimize ? <Mini setMin={setToggleMinimize} />: <Expanded setMin={setToggleMinimize}/>}
->>>>>>> Stashed changes
->>>>>>> feat/play
       </div>
     </div>
   );
