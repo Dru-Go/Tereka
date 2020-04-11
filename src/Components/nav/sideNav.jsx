@@ -24,26 +24,14 @@ const SideNav = () => {
     '/fantacy',
     '/philosopy',
   ];
-<<<<<<< HEAD
 
-  const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
-  const [toggleMinimize, setToggleMinimize] = useState(false);
-=======
-<<<<<<< Updated upstream
-=======
 
   const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
   const [toggleMinimize, setToggleMinimize] = useState(true);
->>>>>>> feat/play
 
   const addPlaylist = () => {
     setToggleAddPlaylist(true);
-  };
-
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> feat/play
+  }
   return (
     <div>
       <div class="uppercase  pl-12 pb-2 color-text-menu">Browse</div>
