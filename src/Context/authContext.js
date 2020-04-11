@@ -1,5 +1,5 @@
 import React, {useReducer, createContext} from 'react';
-
+import AuthReducer from '../Reducer/authReducer';
 const AuthContext = createContext({
   user: null,
   login: userData => {},
@@ -8,26 +8,8 @@ const AuthContext = createContext({
 
 const InitalState = {user: null};
 
-function authreducer(state, action) {
-  console.log(state, action);
-  switch (action.type) {
-    case 'LOGIN':
-      return {
-        ...state,
-        user: action.payload,
-      };
-    case 'LOGOUT':
-      return {
-        ...state,
-        user: null,
-      };
-    default:
-      return state;
-  }
-}
-
 function AuthProvider(props) {
-  const [state, dispatch] = useReducer(authreducer, InitalState);
+  const [state, dispatch] = useReducer(AuthReducer, InitalState);
 
   const login = userData => {
     dispatch({

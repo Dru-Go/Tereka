@@ -25,7 +25,7 @@
 
 .head {
   display: grid;
-  grid-template-columns: 90% 5% 5%;
+  grid-template-columns: 90% 5% 4%;
 }
 
 .menu-back {
