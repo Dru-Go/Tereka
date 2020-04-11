@@ -10,7 +10,7 @@ const side = () => (
         <Logo />
       </Link>
     </div>
-    <div class="border-gray-400 ">
+    <div class="-mt-5 border-gray-400 ">
       <SideMenu />
     </div>
   </div>

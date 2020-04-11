@@ -31,27 +31,27 @@ const Details = ({match}) => {
             <img src={detailState.image} class="rounded-full" alt="Narrator" />
           </div>
           <div class="p-16">
-            <div class="text-4xl font-helvetica-rounded">
+            <div class="text-2xl font-helvetica-rounded">
               {detailState.name}
             </div>
             <div class="text-lg italic font-medium">{detailState.type}</div>
             <div class="mt-4 text-sm">{detailState.followers} Followers</div>
-            <div class="mt-2 text-sm">{detailState.audios.length} Audios</div>
+            <div class="mt-2 text-sm">{detailState.audios.length} Published Audios</div>
           </div>
           <div class="flex mt-64">
             {/* TODO onClick change the text to following */}
-            <div class="mx-2  py-1 cursor-pointer px-4 text-padd-color rounded-full">
+            <div class="mx-2  text-sm cursor-pointer hover:underline py-2 px-3 text-center font-medium text-padd-color rounded-full">
               Follow
             </div>
             {/* TODO onClick open a model that includes an input for searching and a button to add a new suggestion  */}
-            <div class=" py-1 px-4 cursor-pointer text-padd-color rounded-full">
+            <div class=" text-sm w-32 p-2 text-center hover:underline font-medium cursor-pointer text-padd-color rounded-full">
               Suggest Book
             </div>
           </div>
         </div>
       </div>
       <div>
-        <div class="my-5 ml-8 text-2xl font-helvetica-rounded text-gray-600">
+        <div class="my-5 ml-8 font-helvetica-rounded text-gray-500">
           Published Audios
         </div>
         <div class="mt-5 ml-5 text-2xl flex items-center font-helvetica-rounded text-gray-600">

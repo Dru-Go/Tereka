@@ -4,6 +4,21 @@
       "assignedTo": {
         "name": "Dre"
       },
+      "category": "Feature",
+      "creation_time": "2020-04-11T11:19:24.992Z",
+      "details": {
+        "content": "App program flow",
+        "mime": "text/markdown"
+      },
+      "id": "15",
+      "prio": 1,
+      "references": [],
+      "title": "Main Router Logic"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
       "category": "Feature Component, and a Resolver",
       "creation_time": "2020-03-25T05:29:17.882Z",
       "description": {
@@ -19,21 +34,6 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Component,",
-      "creation_time": "2020-03-25T05:31:28.124Z",
-      "description": {
-        "content": "Mini Player in the Sidenavs\n- Add Controlls\n- Manage Transitions",
-        "mime": "text/markdown"
-      },
-      "id": "6",
-      "prio": 0,
-      "references": [],
-      "title": "Mini Player"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
       "category": "Feature Component",
       "creation_time": "2020-03-29T06:27:37.305Z",
       "description": {
@@ -42,12 +42,21 @@
       },
       "id": "11",
       "references": [],
-<<<<<<< HEAD
-      "title": "Sort"
-=======
-<<<<<<< Updated upstream
-      "title": "Top Audio Books"
-=======
+      "title": "Fix List Layout issue",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Styling Issue",
+      "creation_time": "2020-04-03T04:40:26.673Z",
+      "description": {
+        "content": "List Layout\n- use Tables ",
+        "mime": "text/markdown"
+      },
+      "id": "12",
+      "references": [],
       "title": "Fix List Layout issue",
       "type": "bug"
     },
@@ -64,8 +73,21 @@
       "id": "8",
       "references": [],
       "title": "Items-styling"
->>>>>>> Stashed changes
->>>>>>> feat/play
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component,",
+      "creation_time": "2020-03-25T05:31:28.124Z",
+      "description": {
+        "content": "Mini Player in the Sidenavs\n- Add Controlls\n- Manage Transitions",
+        "mime": "text/markdown"
+      },
+      "id": "6",
+      "prio": 0,
+      "references": [],
+      "title": "Mini Player"
     }
   ],
   "in-progress": [
@@ -73,16 +95,15 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Styling Issue",
-      "creation_time": "2020-04-03T04:40:26.673Z",
+      "category": "Feature",
+      "creation_time": "2020-04-11T13:42:36.281Z",
       "description": {
-        "content": "List Layout\n- use Tables ",
+        "content": "Add to header\n- Signup\n- Signin",
         "mime": "text/markdown"
       },
-      "id": "12",
+      "id": "17",
       "references": [],
-      "title": "Fix List Layout issue",
-      "type": "bug"
+      "title": "Add a SignUp and Login to the Header"
     }
   ],
   "testing": [
@@ -166,24 +187,35 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Component",
-<<<<<<< Updated upstream
-      "creation_time": "2020-03-25T06:13:49.733Z",
+      "category": "Feature",
+      "creation_time": "2020-04-11T11:22:29.292Z",
       "description": {
-        "content": "Adding \n- Grid to the layout",
+        "content": "Apply useAudio to the mini player ",
         "mime": "text/markdown"
       },
-      "id": "8",
+      "id": "16",
       "references": [],
-      "title": "Items-styling"
+      "title": "Mini Play Logic"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "View Feature",
+      "creation_time": "2020-04-11T10:58:42.438Z",
+      "description": {
+        "content": "Detailed View\n- Prototype\n- View Design",
+        "mime": "text/markdown"
+      },
+      "id": "14",
+      "references": [],
+      "title": "Narrators View"
     },
     {
       "assignedTo": {
         "name": "Dre"
       },
       "category": "Feature Component",
-=======
->>>>>>> Stashed changes
       "creation_time": "2020-03-25T06:10:21.174Z",
       "description": {
         "content": "Adding \n- Slider",

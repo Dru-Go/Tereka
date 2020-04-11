@@ -49,7 +49,7 @@ const Favorites = () => {
   );
 };
 
-// TODO
+// Remove Favorite
 const Remove = ({state, dispatch}) => {
   const handleRemove = () => {
     dispatch({type: 'REMOVE', id: '1234', value: state.Title});

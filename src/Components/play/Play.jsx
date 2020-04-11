@@ -39,7 +39,7 @@ const Player = () => {
           <img class="m-auto w-1/4 " src="../book1.png" alt="" />
         </div>
       </div>
-      <div class="bord play mt-48 border">
+      <div class="bord play absolute w-80p bottom-0 border">
         <div class="bord  flex items-start justify-around">
           <div class="p-4 cursor-pointer rounded-full">
             <svg

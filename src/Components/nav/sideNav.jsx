@@ -34,7 +34,7 @@ const SideNav = () => {
   }
   return (
     <div>
-      <div class="uppercase  pl-12 pb-2 color-text-menu">Browse</div>
+      <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">Browse</div>
       <div class="pl-16">
         <MenuLink to="/trending" exact={true}>
           <Menu title={'Top Audio Books'}>
@@ -74,7 +74,7 @@ const SideNav = () => {
         </MenuLink>
       </div>
       <div class="mt-2">
-        <div class="uppercase  pl-12 pb-2 color-text-menu">your audios</div>
+        <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">your audios</div>
         <div class="pl-16 text-sm">
           <MenuLink to="/play" exact={true}>
             <Menu title={'Now Listening'}>
@@ -124,7 +124,7 @@ const SideNav = () => {
       </div>
       <div class="mt-2">
         <div class="flex items-center ">
-          <div class="uppercase  pl-12 pb-2 color-text-menu">playlist</div>
+          <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">playlist</div>
           <div
             class="ml-20 p-3 cursor-pointer rounded-full scaled"
             onClick={addPlaylist}

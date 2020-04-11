@@ -16,12 +16,12 @@ const INITIAL_STATE = [
   },
 ];
 
-// TODO Adds to the list of available playlists
+// Adds to the list of available playlists
 const AddPlaylist = ({active, setActive}) => {
   const [, Dispatcher] = useReducer(PlaylistReducer, INITIAL_STATE);
   const [name, setName] = useState('');
   const handleClick = () => {
-    //   TODO handle dispatching a new playlist event
+    // // TODO handle dispatching a new playlist event
     console.log('Name is', name);
     Dispatcher({type: 'NEW_PLAYLIST', value: name});
     setActive(!active);
@@ -52,7 +52,7 @@ const AddPlaylist = ({active, setActive}) => {
   );
 };
 
-// TODO Playlist represents each playlist name on the sidebar
+// Playlist represents each playlist name on the sidebar
 const Playlist = ({id, name}) => {
   return (
     <div class="pl-16 text-sm">

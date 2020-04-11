@@ -15,16 +15,16 @@ const INITIAL_STATE = [
   },
 ];
 
-// TODO lists all the audios in the selcted playlist
+// lists all the audios in the selcted playlist
 const ListAudios = ({match}) => {
-  // TODO tries to fetch which playlist is selected from the link
+  // // TODO fetch which playlist is selected from the link
   const [State, Dispatcher] = useReducer(PlaylistReducer, INITIAL_STATE);
 
   useEffect(() => {
     Dispatcher({type: 'ALL_AUDIO', value: match.params.id});
   }, [match.params.id]);
 
-  // TODO Dispatch the playlist id and fetch the audios
+  // // TODO Dispatch the playlist id and fetch the audios
   return (
     <div>
       {State ? (
