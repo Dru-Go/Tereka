@@ -1,22 +1,12 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 import './play_style.css';
 import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
-// import {AudioContext} from '../../Context/audioContext';
-import useAudioPlayer from '../../Hooks/useAudio';
+import {AudioContext} from '../../Context/audioContext';
 
 const Player = () => {
-  const [play_pause, setPlay_Pause] = useState(false);
-  // const [, duration, playing, , setPlaying] = useContext(AudioContext);
-  const {
-    curTime,
-    duration,
-    playing,
-    setPlaying,
-    setClickedTime,
-  } = useAudioPlayer("main_music");
-
+  const [curTime, , duration, , playing, setPlaying] = useContext(AudioContext);
 
   return (
     <>
@@ -94,13 +84,9 @@ const Player = () => {
             </svg>
           </div>
         </div>
-        {/* audio */}
-        <audio id="main_music">
-          <source src="./song.mp3" />
-          Your browser does not support the <code>audio</code> element.
-        </audio>
+        
         {/* playBar */}
-        <PlayBar curTime={curTime} duration={duration} onTimeUpdate={(time) => setClickedTime(time)} />
+        <PlayBar curTime={curTime} duration={duration} />
         <div class="bord flex items-center mt-16">
           <div class="flex items-center ml-40 w-70p justify-center">
             <div class="cursor-pointer">
@@ -111,18 +97,10 @@ const Player = () => {
                 />
               </svg>
             </div>
-            {play_pause ? (
-              <Play
-                controls={setPlay_Pause}
-                play={playing}
-                setPlay={setPlaying}
-              />
+            {playing ? (
+              <Play setPlay={setPlaying} />
             ) : (
-              <Pause
-                controls={setPlay_Pause}
-                play={playing}
-                setPlay={setPlaying}
-              />
+              <Pause setPlay={setPlaying} />
             )}
             <div class="cursor-pointer">
               <svg class="w-8 h-8 b8uyt" viewBox="0 0 17.5 12">

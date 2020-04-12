@@ -11,7 +11,6 @@ const Expanded = ({
   setPlay,
   curTime,
   duration,
-  setClickedTime,
 }) => {
 
 
@@ -37,7 +36,6 @@ const Expanded = ({
         mini={mini}
         curTime={curTime}
         duration={duration}
-        onTimeUpdate={time => setClickedTime(time)}
       />
       <div class="flex items-center my-2 justify-around">
         <div class="cursor-pointer" onClick={handleClick}>

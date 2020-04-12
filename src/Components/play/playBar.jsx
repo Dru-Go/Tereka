@@ -3,7 +3,7 @@ import moment from 'moment';
 // eslint-disable-next-line no-unused-vars
 import momentDurationFormatSetup from 'moment-duration-format';
 
-const PlayBar = ({duration, curTime, onTimeUpdate}) => {
+const PlayBar = ({duration, curTime}) => {
   // const [width, setWidth] = useState(0);
 
   const curPercentage = (curTime / duration) * 100;
@@ -13,31 +13,6 @@ const PlayBar = ({duration, curTime, onTimeUpdate}) => {
     return moment.duration(duration, 'seconds').format('mm:ss', {trim: false});
   }
 
-  function calcClickedTime(e) {
-    const clickPositionInPage = e.pageX;
-    const bar = document.querySelector('.bar__progress');
-    const barStart = bar.getBoundingClientRect().width + window.clientX;
-    console.log('Bar Start ',  bar.getBoundingClientRect().width);
-    const barWidth = bar.offsetWidth;
-    const clickPositionInBar = clickPositionInPage - barStart;
-    const timePerPixel = duration / barWidth;
-    return timePerPixel * clickPositionInBar;
-  }
-
-  function handleTimeDrag(e) {
-    console.log('TimeUpdate', onTimeUpdate(calcClickedTime(e)));
-    const updateTimeOnMove = eMove => {
-      console.log('Move', eMove);
-
-      onTimeUpdate(calcClickedTime(eMove));
-    };
-
-    document.addEventListener('mousemove', updateTimeOnMove);
-
-    document.addEventListener('mouseup', () => {
-      document.removeEventListener('mousemove', updateTimeOnMove);
-    });
-  }
 
   return (
     <>
@@ -56,7 +31,6 @@ const PlayBar = ({duration, curTime, onTimeUpdate}) => {
           ></div>
           <div
             class="rounded-full p-1 drag bg-dark-blue"
-            onMouseDown={e => handleTimeDrag(e)}
             id="playhead"
           ></div>
         </div>

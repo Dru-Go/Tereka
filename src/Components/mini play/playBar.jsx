@@ -11,37 +11,12 @@ const styles = {
   progess: 'rounded-full bg-gray-800  h-full  bar__progress bg-dark-blue',
 };
 
-const playBar = ({mini, duration, curTime, onTimeUpdate}) => {
+const playBar = ({mini, duration, curTime}) => {
   function formatDuration(duration) {
     return moment.duration(duration, 'seconds').format('mm:ss', {trim: false});
   }
   const curPercentage = (curTime / duration) * 100;
 
-  function calcClickedTime(e) {
-    const clickPositionInPage = e.pageX;
-    const bar = document.querySelector('.bar__progress');
-    const barStart = bar.getBoundingClientRect().width + window.clientX;
-    console.log('Bar Start ', bar.getBoundingClientRect().width);
-    const barWidth = bar.offsetWidth;
-    const clickPositionInBar = clickPositionInPage - barStart;
-    const timePerPixel = duration / barWidth;
-    return timePerPixel * clickPositionInBar;
-  }
-
-  function handleTimeDrag(e) {
-    console.log('TimeUpdate', onTimeUpdate(calcClickedTime(e)));
-    const updateTimeOnMove = eMove => {
-      console.log('Move', eMove);
-
-      onTimeUpdate(calcClickedTime(eMove));
-    };
-
-    document.addEventListener('mousemove', updateTimeOnMove);
-
-    document.addEventListener('mouseup', () => {
-      document.removeEventListener('mousemove', updateTimeOnMove);
-    });
-  }
   return (
     <>
       {!mini ? (
@@ -58,7 +33,6 @@ const playBar = ({mini, duration, curTime, onTimeUpdate}) => {
         ></div>
         <div
             class="rounded-full p-1 drag bg-dark-blue"
-            onMouseDown={e => handleTimeDrag(e)}
             id="playhead"
           ></div>
       </div>

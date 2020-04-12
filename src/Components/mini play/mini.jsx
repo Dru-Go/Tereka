@@ -8,20 +8,10 @@ import PlayBar from './playBar';
 // // TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
 // TODO ADD ACTION TO CONTROLS
 
-const Mini = ({
-  mini,
-  setMin,
-  playing,
-  setPlay,
-  curTime,
-  duration,
-  setClickedTime,
-}) => {
-
+const Mini = ({mini, setMin, playing, setPlay, curTime, duration}) => {
   const handleClick = () => {
     setMin(false);
   };
-
 
   return (
     <div class="bottom-0 miniPlay  absolute pb-2 w-1/5">
@@ -42,11 +32,7 @@ const Mini = ({
               />
             </svg>
           </div>
-          {playing ? (
-            <Play setPlay={setPlay} />
-          ) : (
-            <Pause setPlay={setPlay} />
-          )}
+          {playing ? <Play setPlay={setPlay} /> : <Pause setPlay={setPlay} />}
           <div class="mx-4 cursor-pointer">
             <svg width="17.5" height="12" viewBox="0 0 17.5 12">
               <path
@@ -71,12 +57,7 @@ const Mini = ({
         <source src="./song.mp3" />
         Your browser does not support the <code>audio</code> element.
       </audio>
-      <PlayBar
-        mini={mini}
-        curTime={curTime}
-        duration={duration}
-        onTimeUpdate={time => setClickedTime(time)}
-      />
+      <PlayBar mini={mini} curTime={curTime} duration={duration} />
     </div>
   );
 };

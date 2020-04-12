@@ -1,26 +1,14 @@
 import React from 'react';
 import './controls.style.css';
 
-const pauseControl = ({controls, play, setPlay}) => {
-  const handleClick = () => {
-    controls(true);
-    // Pause audio
-    pause();
-  };
+const pauseControl = ({setPlay}) => {
   //Play and Pause
-   //Play and Pause
-   function pause() {
-    // start audio
-    if (play) {
-      setPlay(false)
-    } else {
-      // pause audio
-      setPlay(true)
-    }
-  }
+  const pauseNow = () => {
+    setPlay(true);
+  };
 
   return (
-    <div class="px-20 cursor-pointer" onClick={handleClick}>
+    <div class="px-20 cursor-pointer" onClick={pauseNow}>
       <svg width="98" height="98" viewBox="0 0 98 98">
         <defs>
           <linearGradient

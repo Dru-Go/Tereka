@@ -10,7 +10,7 @@ function SidePlay() {
     playing,
     setPlaying,
     setClickedTime,
-  } = useAudioPlayer('music');
+  } = useAudioPlayer();
   return (
     <>
       <Sizer

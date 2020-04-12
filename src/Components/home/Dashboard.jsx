@@ -24,26 +24,26 @@ const Dashboard = () => {
     '/philosopy',
   ];
   return (
-    <Router>
-      <div class="wrapper">
-        <Route path="/" component={Side} />
-        <div class="main">
-          <Route path="/" component={Header} />
-          <Route path="/" exact component={MidPromos} />
-          <Route path={['/', ...filters]} exact component={Board} />
-          <PlayProvider>
+    <PlayProvider>
+      <Router>
+        <div class="wrapper">
+          <Route path="/" component={Side} />
+          <div class="main">
+            <Route path="/" component={Header} />
+            <Route path="/" exact component={MidPromos} />
+            <Route path={['/', ...filters]} exact component={Board} />
             <Route path="/play" exact component={Play} />
-          </PlayProvider>
-          <Route path="/suggestions" exact component={Suggestion} />
-          <Route path="/suggestions/suggest" exact component={Suggest} />
-          <Route path="/trending" exact component={Top} />
-          <Route path="/sad" exact component={Sad} />
-          <Route path="/favorites" exact component={Favorites} />
-          <Route path="/details/:id" exact component={Details} />
-          <Route path="/playlist/:id" exact component={Playlist} />
+            <Route path="/suggestions" exact component={Suggestion} />
+            <Route path="/suggestions/suggest" exact component={Suggest} />
+            <Route path="/trending" exact component={Top} />
+            <Route path="/sad" exact component={Sad} />
+            <Route path="/favorites" exact component={Favorites} />
+            <Route path="/details/:id" exact component={Details} />
+            <Route path="/playlist/:id" exact component={Playlist} />
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </PlayProvider>
   );
 };
 
