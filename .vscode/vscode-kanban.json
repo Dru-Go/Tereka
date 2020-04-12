@@ -64,6 +64,20 @@
       "assignedTo": {
         "name": "Dre"
       },
+      "category": "Feature",
+      "creation_time": "2020-04-11T13:42:36.281Z",
+      "description": {
+        "content": "Add to header\n- Signup\n- Signin",
+        "mime": "text/markdown"
+      },
+      "id": "17",
+      "references": [],
+      "title": "Add a SignUp and Login to the Header"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
       "category": "Feature Component",
       "creation_time": "2020-03-25T06:13:49.733Z",
       "description": {
@@ -96,14 +110,14 @@
         "name": "Dre"
       },
       "category": "Feature",
-      "creation_time": "2020-04-11T13:42:36.281Z",
+      "creation_time": "2020-04-11T11:22:29.292Z",
       "description": {
-        "content": "Add to header\n- Signup\n- Signin",
+        "content": "Apply useAudio to the mini player ",
         "mime": "text/markdown"
       },
-      "id": "17",
+      "id": "16",
       "references": [],
-      "title": "Add a SignUp and Login to the Header"
+      "title": "Mini Play Logic"
     }
   ],
   "testing": [
@@ -182,20 +196,6 @@
       "references": [],
       "title": "Fix Sort Issue",
       "type": "bug"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature",
-      "creation_time": "2020-04-11T11:22:29.292Z",
-      "description": {
-        "content": "Apply useAudio to the mini player ",
-        "mime": "text/markdown"
-      },
-      "id": "16",
-      "references": [],
-      "title": "Mini Play Logic"
     },
     {
       "assignedTo": {

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import Mini from '../mini play/mini'
-import Expanded from '../mini play/expanded'
+import SidePlay from '../mini play/sidePlay'
 import {MenuLink, Menu} from '../menu/menuLink';
 import {AddPlaylist, ListPlaylist} from '../playlist/playlist';
 
@@ -27,7 +26,6 @@ const SideNav = () => {
 
 
   const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
-  const [toggleMinimize, setToggleMinimize] = useState(true);
 
   const addPlaylist = () => {
     setToggleAddPlaylist(true);
@@ -147,8 +145,7 @@ const SideNav = () => {
         {/* Here the list of playlist */}
         <ListPlaylist />
         
-
-        {toggleMinimize ? <Mini setMin={setToggleMinimize} />: <Expanded setMin={setToggleMinimize}/>}
+        <SidePlay/>
       </div>
     </div>
   );

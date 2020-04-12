@@ -4,7 +4,7 @@ import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
 // import {AudioContext} from '../../Context/audioContext';
-import useAudioPlayer from './useAudio';
+import useAudioPlayer from '../../Hooks/useAudio';
 
 const Player = () => {
   const [play_pause, setPlay_Pause] = useState(false);
@@ -15,7 +15,7 @@ const Player = () => {
     playing,
     setPlaying,
     setClickedTime,
-  } = useAudioPlayer();
+  } = useAudioPlayer("main_music");
 
 
   return (
@@ -95,7 +95,7 @@ const Player = () => {
           </div>
         </div>
         {/* audio */}
-        <audio id="music">
+        <audio id="main_music">
           <source src="./song.mp3" />
           Your browser does not support the <code>audio</code> element.
         </audio>

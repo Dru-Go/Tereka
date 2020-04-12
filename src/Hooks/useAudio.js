@@ -1,6 +1,6 @@
 import {useState, useEffect} from 'react';
 
-function useAudioPlayer() {
+function useAudioPlayer(id) {
   const [duration, setDuration] = useState();
   const [curTime, setCurTime] = useState();
   const [playing, setPlaying] = useState(false);
@@ -8,7 +8,7 @@ function useAudioPlayer() {
 
   // console.log('Clicked Time',/\clickedTime);
   useEffect(() => {
-    const audio = document.getElementById('music');
+    const audio = document.getElementById(id);
     // state setters wrappers
     const setAudioData = () => {
       setDuration(audio.duration);

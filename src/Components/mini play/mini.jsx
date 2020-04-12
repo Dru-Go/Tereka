@@ -1,14 +1,28 @@
 import React from 'react';
 import './play.style.css';
+import Pause from './controls/pause';
+import Play from './controls/play';
+import PlayBar from './playBar';
 
 // TODO HERE WE NEED TO PASS THE CURRENTLY PLAYING AUDIO
-// TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
+// // TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
 // TODO ADD ACTION TO CONTROLS
 
-const mini = ({setMin}) => {
+const Mini = ({
+  mini,
+  setMin,
+  playing,
+  setPlay,
+  curTime,
+  duration,
+  setClickedTime,
+}) => {
+
   const handleClick = () => {
     setMin(false);
   };
+
+
   return (
     <div class="bottom-0 miniPlay  absolute pb-2 w-1/5">
       <div class="mt-1 ml-8 cursor-pointer" onClick={handleClick}>
@@ -28,15 +42,11 @@ const mini = ({setMin}) => {
               />
             </svg>
           </div>
-          <div class="mx-4 cursor-pointer">
-            <svg width="20" height="20" viewBox="0 0 20 20">
-              <path
-                class="apause1"
-                d="M9,16h2V8H9ZM12,2A10,10,0,1,0,22,12,10,10,0,0,0,12,2Zm0,18a8,8,0,1,1,8-8A8.011,8.011,0,0,1,12,20Zm1-4h2V8H13Z"
-                transform="translate(-2 -2)"
-              />
-            </svg>
-          </div>
+          {playing ? (
+            <Play setPlay={setPlay} />
+          ) : (
+            <Pause setPlay={setPlay} />
+          )}
           <div class="mx-4 cursor-pointer">
             <svg width="17.5" height="12" viewBox="0 0 17.5 12">
               <path
@@ -56,11 +66,19 @@ const mini = ({setMin}) => {
           </svg>
         </div>
       </div>
-      <div class="mt-2 cursor-pointer rounded-full bg-gray-300 m-auto   opacity-25 h-1 w-full ">
-        <div class="rounded-full bg-gray-800  h-full w-1/3 float-right"></div>
-      </div>
+      {/* audio */}
+      <audio id="music">
+        <source src="./song.mp3" />
+        Your browser does not support the <code>audio</code> element.
+      </audio>
+      <PlayBar
+        mini={mini}
+        curTime={curTime}
+        duration={duration}
+        onTimeUpdate={time => setClickedTime(time)}
+      />
     </div>
   );
 };
 
-export default mini;
+export default Mini;

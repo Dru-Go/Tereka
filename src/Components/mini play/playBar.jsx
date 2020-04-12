@@ -3,21 +3,25 @@ import moment from 'moment';
 // eslint-disable-next-line no-unused-vars
 import momentDurationFormatSetup from 'moment-duration-format';
 
-const PlayBar = ({duration, curTime, onTimeUpdate}) => {
-  // const [width, setWidth] = useState(0);
+const styles = {
+  extended:
+    'mb-4 cursor-pointer rounded-full flex bg-gray-300 m-auto opacity-25 h-1 w-2/3',
+  mini:
+    'mt-2 cursor-pointer rounded-full flex bg-gray-300 m-auto opacity-25 h-1 w-full',
+  progess: 'rounded-full bg-gray-800  h-full  bar__progress bg-dark-blue',
+};
 
-  const curPercentage = (curTime / duration) * 100;
-  console.log("Calculate Percentage", curPercentage)
-
+const playBar = ({mini, duration, curTime, onTimeUpdate}) => {
   function formatDuration(duration) {
     return moment.duration(duration, 'seconds').format('mm:ss', {trim: false});
   }
+  const curPercentage = (curTime / duration) * 100;
 
   function calcClickedTime(e) {
     const clickPositionInPage = e.pageX;
     const bar = document.querySelector('.bar__progress');
     const barStart = bar.getBoundingClientRect().width + window.clientX;
-    console.log('Bar Start ',  bar.getBoundingClientRect().width);
+    console.log('Bar Start ', bar.getBoundingClientRect().width);
     const barWidth = bar.offsetWidth;
     const clickPositionInBar = clickPositionInPage - barStart;
     const timePerPixel = duration / barWidth;
@@ -38,31 +42,28 @@ const PlayBar = ({duration, curTime, onTimeUpdate}) => {
       document.removeEventListener('mousemove', updateTimeOnMove);
     });
   }
-
   return (
     <>
-      <div class=" ml-12 mr-20 text-xs flex items-center justify-between">
-        <div>{formatDuration(curTime)}</div>
-        <div>{formatDuration(duration)}</div>
-      </div>
-      <div
-        class="mt-1 ml-12 h-1 w-90p cursor-pointer bg-light-blue"
-        id="timeline"
-      >
-        <div class="flex">
-          <div
-            class="rounded-full bg-gray-300 h-1 bar__progress bg-dark-blue"
-            style={{width: `${curPercentage}%`}}
-          ></div>
-          <div
+      {!mini ? (
+        <div class="flex mt-4 mx-10 items-center text-gray-400  justify-between text-xxs">
+          <div>{formatDuration(curTime)}</div>
+          <div>{formatDuration(duration)}</div>
+        </div>
+      ) : null}
+
+      <div className={mini ? styles.mini : styles.extended}>
+        <div
+          className={styles.progress}
+          style={{width: `${curPercentage}%`}}
+        ></div>
+        <div
             class="rounded-full p-1 drag bg-dark-blue"
             onMouseDown={e => handleTimeDrag(e)}
             id="playhead"
           ></div>
-        </div>
       </div>
     </>
   );
 };
 
-export default PlayBar;
+export default playBar;
