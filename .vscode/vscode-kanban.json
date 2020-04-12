@@ -4,6 +4,22 @@
       "assignedTo": {
         "name": "Dre"
       },
+      "category": "Fix Issue",
+      "creation_time": "2020-04-12T04:16:17.761Z",
+      "description": {
+        "content": "Issue syncing \n - the Mini Player with the Main Player",
+        "mime": "text/markdown"
+      },
+      "id": "18",
+      "prio": 1,
+      "references": [],
+      "title": "Sync the players",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
       "category": "Feature Component, and a Resolver",
       "creation_time": "2020-03-25T05:29:17.882Z",
       "description": {
@@ -109,22 +125,6 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Fix Issue",
-      "creation_time": "2020-04-12T04:16:17.761Z",
-      "description": {
-        "content": "Issue syncing \n - the Mini Player with the Main Player",
-        "mime": "text/markdown"
-      },
-      "id": "18",
-      "prio": 1,
-      "references": [],
-      "title": "Sync the players",
-      "type": "bug"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
       "category": "Feature Component",
       "creation_time": "2020-03-25T06:13:49.733Z",
       "description": {
@@ -134,6 +134,20 @@
       "id": "8",
       "references": [],
       "title": "Items-styling"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-12T08:46:56.745Z",
+      "description": {
+        "content": "Add \n- Audio Icon",
+        "mime": "text/markdown"
+      },
+      "id": "19",
+      "references": [],
+      "title": "Add Audio Icon in the side nav which appears when playing is true"
     }
   ],
   "testing": [
