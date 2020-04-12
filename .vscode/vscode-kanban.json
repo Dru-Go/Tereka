@@ -4,21 +4,6 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature",
-      "creation_time": "2020-04-11T11:19:24.992Z",
-      "details": {
-        "content": "App program flow",
-        "mime": "text/markdown"
-      },
-      "id": "15",
-      "prio": 1,
-      "references": [],
-      "title": "Main Router Logic"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
       "category": "Feature Component, and a Resolver",
       "creation_time": "2020-03-25T05:29:17.882Z",
       "description": {
@@ -78,15 +63,15 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Component",
-      "creation_time": "2020-03-25T06:13:49.733Z",
+      "category": "Feature",
+      "creation_time": "2020-04-11T11:22:29.292Z",
       "description": {
-        "content": "Adding \n- Grid to the layout",
+        "content": "Apply useAudio to the mini player ",
         "mime": "text/markdown"
       },
-      "id": "8",
+      "id": "16",
       "references": [],
-      "title": "Items-styling"
+      "title": "Mini Play Logic"
     },
     {
       "assignedTo": {
@@ -110,14 +95,45 @@
         "name": "Dre"
       },
       "category": "Feature",
-      "creation_time": "2020-04-11T11:22:29.292Z",
-      "description": {
-        "content": "Apply useAudio to the mini player ",
+      "creation_time": "2020-04-11T11:19:24.992Z",
+      "details": {
+        "content": "App program flow",
         "mime": "text/markdown"
       },
-      "id": "16",
+      "id": "15",
+      "prio": 1,
       "references": [],
-      "title": "Mini Play Logic"
+      "title": "Main Router Logic"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Fix Issue",
+      "creation_time": "2020-04-12T04:16:17.761Z",
+      "description": {
+        "content": "Issue syncing \n - the Mini Player with the Main Player",
+        "mime": "text/markdown"
+      },
+      "id": "18",
+      "prio": 1,
+      "references": [],
+      "title": "Sync the players",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:13:49.733Z",
+      "description": {
+        "content": "Adding \n- Grid to the layout",
+        "mime": "text/markdown"
+      },
+      "id": "8",
+      "references": [],
+      "title": "Items-styling"
     }
   ],
   "testing": [
