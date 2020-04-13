@@ -6,9 +6,8 @@ import './menu.style.css';
 const style = {
   activeStyle:
     ' px-4 py-2  hover:shadow menu-back selected shadow-lg   cursor-pointer text-gray-100  text-sm',
-  activeSvgClass: 'ActiveSVG',
-  InactiveSvgClass: 'inActiveSVG',
-
+  visble:'flex items-center justify-between',
+  hidden: 'hidden',
   InactiveStyle:
     'px-4 py-2  hover:shadow color-text-menu cursor-pointer color-text-menu text-xs',
 };
@@ -30,7 +29,7 @@ const Menu = ({children, title}) => {
   const [, , , , playing] = useContext(AudioContext);
   console.log('Playing Menu', playing);
   return (
-    <div class="flex items-center justify-between">
+    <div className={style.visble}>
       <div class="flex items-center">
         <div class="pr-2">{children}</div>
         <div> {title}</div>

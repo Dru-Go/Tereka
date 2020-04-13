@@ -27,6 +27,7 @@ const Input = ({
           name={name}
           placeholder={placeholder}
           class=" pl-2 w-90p text-sm pb-1 outline-none bg-transparent"
+          autocomplete='off'
           onChange={handleChange}
           focus={handleFocus}
           value={value}

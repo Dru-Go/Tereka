@@ -20,7 +20,6 @@ const listItem = ({state, index}) => {
         <div class="text-sm camelcase mx-16">
           Narrator:
           <span class="text-green-500 text-xs ml-1 hover:underline">
-            {' '}
             {state.Narrator}
           </span>
         </div>

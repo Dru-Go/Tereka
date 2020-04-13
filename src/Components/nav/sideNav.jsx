@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
-import SidePlay from '../mini play/sidePlay'
+import SidePlay from '../mini play/sidePlay';
 import {MenuLink, Menu} from '../menu/menuLink';
 import {AddPlaylist, ListPlaylist} from '../playlist/playlist';
+import {AuthContext} from '../../Context/authContext';
 
 const style = {
   activeStyle:
@@ -23,13 +24,13 @@ const SideNav = () => {
     '/fantacy',
     '/philosopy',
   ];
-
+  const {user} = useContext(AuthContext);
 
   const [toggleAddPlaylist, setToggleAddPlaylist] = useState(false);
 
   const addPlaylist = () => {
     setToggleAddPlaylist(true);
-  }
+  };
   return (
     <div>
       <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">Browse</div>
@@ -72,7 +73,9 @@ const SideNav = () => {
         </MenuLink>
       </div>
       <div class="mt-2">
-        <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">your audios</div>
+        <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">
+          your audios
+        </div>
         <div class="pl-16 text-sm">
           <MenuLink to="/play" exact={true}>
             <Menu title={'Now Listening'}>
@@ -84,29 +87,36 @@ const SideNav = () => {
               </svg>
             </Menu>
           </MenuLink>
+          {user ? (
+            <>
+              <MenuLink to="/following" exact={true}>
+                <Menu title={'Following'}>
+                  <svg width="10" height="10.999" viewBox="0 0 10 10.999">
+                    <path
+                      className={style.InactiveSvgClass}
+                      d="M8.041,10.9,5,9.73,1.959,10.9a1.487,1.487,0,0,1-.531.1,1.467,1.467,0,0,1-.8-.236A1.361,1.361,0,0,1,0,9.624V1.375A1.4,1.4,0,0,1,1.428,0H8.571A1.4,1.4,0,0,1,10,1.375v8.25a1.361,1.361,0,0,1-.628,1.138,1.48,1.48,0,0,1-1.331.139Zm.53-1.277V1.375H1.428v8.25L5,8.25ZM3.237,5.252v0a1.012,1.012,0,0,1-.381-.782A1.075,1.075,0,0,1,4.99,4.327c0,.016.018.016.02,0a1.075,1.075,0,0,1,2.133.142,1.008,1.008,0,0,1-.381.782v0L5,6.875Z"
+                    />
+                  </svg>
+                </Menu>
+              </MenuLink>
 
-          <MenuLink to="/following" exact={true}>
-            <Menu title={'Following'}>
-              <svg width="10" height="10.999" viewBox="0 0 10 10.999">
-                <path
-                  className={style.InactiveSvgClass}
-                  d="M8.041,10.9,5,9.73,1.959,10.9a1.487,1.487,0,0,1-.531.1,1.467,1.467,0,0,1-.8-.236A1.361,1.361,0,0,1,0,9.624V1.375A1.4,1.4,0,0,1,1.428,0H8.571A1.4,1.4,0,0,1,10,1.375v8.25a1.361,1.361,0,0,1-.628,1.138,1.48,1.48,0,0,1-1.331.139Zm.53-1.277V1.375H1.428v8.25L5,8.25ZM3.237,5.252v0a1.012,1.012,0,0,1-.381-.782A1.075,1.075,0,0,1,4.99,4.327c0,.016.018.016.02,0a1.075,1.075,0,0,1,2.133.142,1.008,1.008,0,0,1-.381.782v0L5,6.875Z"
-                />
-              </svg>
-            </Menu>
-          </MenuLink>
-
-          <MenuLink to="/favorites" exact={true}>
-            <Menu title={'Favorites'}>
-              <svg width="11.238" height="11.238" viewBox="0 0 11.238 11.238">
-                <path
-                  className={style.InactiveSvgClass}
-                  d="M7.613,2a5.619,5.619,0,1,0,5.624,5.619A5.616,5.616,0,0,0,7.613,2ZM10,10.99,7.619,9.557,5.242,10.99l.629-2.7-2.1-1.815L6.54,6.237,7.619,3.686,8.7,6.231l2.764.236-2.1,1.815Z"
-                  transform="translate(-2 -2)"
-                />
-              </svg>
-            </Menu>
-          </MenuLink>
+              <MenuLink to="/favorites" exact={true}>
+                <Menu title={'Favorites'}>
+                  <svg
+                    width="11.238"
+                    height="11.238"
+                    viewBox="0 0 11.238 11.238"
+                  >
+                    <path
+                      className={style.InactiveSvgClass}
+                      d="M7.613,2a5.619,5.619,0,1,0,5.624,5.619A5.616,5.616,0,0,0,7.613,2ZM10,10.99,7.619,9.557,5.242,10.99l.629-2.7-2.1-1.815L6.54,6.237,7.619,3.686,8.7,6.231l2.764.236-2.1,1.815Z"
+                      transform="translate(-2 -2)"
+                    />
+                  </svg>
+                </Menu>
+              </MenuLink>
+            </>
+          ) : null}
           <MenuLink to="/recent" exact={true}>
             <Menu title={'Recent'}>
               <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">
@@ -120,33 +130,38 @@ const SideNav = () => {
           </MenuLink>
         </div>
       </div>
-      <div class="mt-2">
-        <div class="flex items-center ">
-          <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">playlist</div>
-          <div
-            class="ml-20 p-3 cursor-pointer rounded-full scaled"
-            onClick={addPlaylist}
-          >
-            <svg width="15.174" height="12.122" viewBox="0 0 10.174 7.122">
-              <path
-                className={style.InactiveSvgClass}
-                d="M8.1,8.035H2V9.052H8.1ZM8.1,6H2V7.017H8.1Zm2.035,4.07V8.035H9.122V10.07H7.087v1.017H9.122v2.035h1.017V11.087h2.035V10.07ZM2,11.087H6.07V10.07H2Z"
-                transform="translate(-2 -6)"
-              />
-            </svg>
+      {/* TODO Change back this set */}
+      {!user ? (
+        <div class="mt-2">
+          <div class="flex items-center ">
+            <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">
+              playlist
+            </div>
+            <div
+              class="ml-20 p-3 cursor-pointer rounded-full scaled"
+              onClick={addPlaylist}
+            >
+              <svg width="15.174" height="12.122" viewBox="0 0 10.174 7.122">
+                <path
+                  className={style.InactiveSvgClass}
+                  d="M8.1,8.035H2V9.052H8.1ZM8.1,6H2V7.017H8.1Zm2.035,4.07V8.035H9.122V10.07H7.087v1.017H9.122v2.035h1.017V11.087h2.035V10.07ZM2,11.087H6.07V10.07H2Z"
+                  transform="translate(-2 -6)"
+                />
+              </svg>
+            </div>
           </div>
-        </div>
 
-        {/* Here the add Playlist form  */}
-        <AddPlaylist
-          active={toggleAddPlaylist}
-          setActive={setToggleAddPlaylist}
-        />
-        {/* Here the list of playlist */}
-        <ListPlaylist />
-        
-        <SidePlay/>
-      </div>
+          {/* Here the add Playlist form  */}
+          <AddPlaylist
+            active={toggleAddPlaylist}
+            setActive={setToggleAddPlaylist}
+          />
+          {/* Here the list of playlist */}
+          <ListPlaylist />
+
+          <SidePlay />
+        </div>
+      ) : null}
     </div>
   );
 };
