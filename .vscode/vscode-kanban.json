@@ -80,6 +80,20 @@
         "name": "Dre"
       },
       "category": "Feature",
+      "creation_time": "2020-04-12T08:46:56.745Z",
+      "description": {
+        "content": "Add \n- Audio Icon",
+        "mime": "text/markdown"
+      },
+      "id": "19",
+      "references": [],
+      "title": "Add Audio Icon in the side nav which appears when playing is true"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
       "creation_time": "2020-04-11T11:22:29.292Z",
       "description": {
         "content": "Apply useAudio to the mini player ",
@@ -110,6 +124,21 @@
       "assignedTo": {
         "name": "Dre"
       },
+      "category": "Task",
+      "creation_time": "2020-04-12T18:16:30.214Z",
+      "description": {
+        "content": "Identify \n- schemas\n- Resolvers",
+        "mime": "text/markdown"
+      },
+      "id": "20",
+      "prio": 1,
+      "references": [],
+      "title": "GraphQL Schema and Resolvers"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
       "category": "Feature",
       "creation_time": "2020-04-11T11:19:24.992Z",
       "details": {
@@ -134,20 +163,6 @@
       "id": "8",
       "references": [],
       "title": "Items-styling"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature",
-      "creation_time": "2020-04-12T08:46:56.745Z",
-      "description": {
-        "content": "Add \n- Audio Icon",
-        "mime": "text/markdown"
-      },
-      "id": "19",
-      "references": [],
-      "title": "Add Audio Icon in the side nav which appears when playing is true"
     }
   ],
   "testing": [
@@ -282,6 +297,21 @@
       "id": "1",
       "references": [],
       "title": "Top Audio Books"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-13T04:44:08.894Z",
+      "description": {
+        "content": "Add\n- Animation to the progressbar ",
+        "mime": "text/markdown"
+      },
+      "id": "21",
+      "prio": 1,
+      "references": [],
+      "title": "Play Progress Animation"
     }
   ]
 }
