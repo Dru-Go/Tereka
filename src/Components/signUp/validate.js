@@ -23,6 +23,7 @@ const validateAuth = values => {
       'Password should me the same as the one Entered in the Password section of the form';
   }
 
+  console.log('Sign Up Errors', errors);
   return errors;
 };
 
