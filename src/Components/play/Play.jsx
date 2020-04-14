@@ -4,10 +4,11 @@ import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
 import {AudioContext} from '../../Context/audioContext';
+import usePageTitle from './usePageTitle';
 
-const Player = () => {
+const Player = ({title}) => {
   const [curTime, , duration, , playing, setPlaying] = useContext(AudioContext);
-
+  usePageTitle(title && playing? title : 'Audiobook Player');
   return (
     <>
       <div class="bord play-img border-gray-400">
@@ -84,7 +85,7 @@ const Player = () => {
             </svg>
           </div>
         </div>
-        
+
         {/* playBar */}
         <PlayBar curTime={curTime} duration={duration} />
         <div class="bord flex items-center mt-16">

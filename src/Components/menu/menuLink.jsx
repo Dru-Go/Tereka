@@ -27,7 +27,6 @@ const MenuLink = ({children, to, exact}) => (
 );
 const Menu = ({children, title}) => {
   const [, , , , playing] = useContext(AudioContext);
-  console.log('Playing Menu', playing);
   return (
     <div className={style.visble}>
       <div class="flex items-center">
