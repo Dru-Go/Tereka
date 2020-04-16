@@ -2,7 +2,8 @@ import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
 import SidePlay from '../mini play/sidePlay';
 import {MenuLink, Menu} from '../menu/menuLink';
-import {AddPlaylist, ListPlaylist} from '../playlist/playlist';
+import AddPlaylist from '../playlist/addPlaylist';
+import ListPlaylist from '../playlist/listPlaylist';
 import {AuthContext} from '../../Context/authContext';
 
 const style = {

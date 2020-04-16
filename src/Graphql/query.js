@@ -19,6 +19,35 @@ const ALL_AUDIO_ITEMS = gql`
   `;
 
 
+const ALL_PLAYLISTS = gql`
+  query ALL_PLAYLISTS($uid: String!) {
+    all_Playlists(uid: $uid) {
+      Id
+      Name
+    }
+  }
+`;
+
+
+const PLAYLISTS_AUDIOS = gql`
+  query PLAYLISTS_AUDIOS($uid: String!, $pid: String!) {
+    playlist_Audios(uid: $uid, pid: $pid) {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+        Url
+        Type
+        Duration
+    }
+  }
+`;
+
+
+
+
 // Audio for playing
 const PLAY_AUDIOS = gql`
   query PLAY_AUDIOS($id: String!) {
@@ -51,30 +80,7 @@ const FAVORITES = gql`
   }
 `;
 
-const ALL_PLAYLISTS = gql`
-  query ALL_PLAYLISTS($uid: String!) {
-    Playlists(uid: $uid) {
-      id
-      name
-    }
-  }
-`;
 
-const PLAYLISTS_AUDIOS = gql`
-  query PLAYLISTS_AUDIOS($uid: String!, $pid: String!) {
-    Playlist(uid: $uid, pid: $pid) {
-      Audios {
-        id
-        title
-        image
-        type
-        author
-        narrator
-        likes
-      }
-    }
-  }
-`;
 
 // Author Details
 const AUTHOR_DETAILS = gql`

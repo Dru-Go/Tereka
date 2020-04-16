@@ -42,6 +42,19 @@ const SIGNUP_USERMUTATION = gql`
   }
 `;
 
+
+// NEW PLAYLIST
+const NEW_PLAYLIST = gql`
+  mutation NEW_PLAYLIST($uid: String, $name: String!) {
+    NewPlaylist(uid: $uid, name: $name) {
+      Id
+      Name
+    }
+  }
+`;
+
+
+
 // Like
 const LIKE = gql`
   mutation LIKE($uid: String, $audioId: String!) {
@@ -97,15 +110,6 @@ const REMOVE_PLAYLIST = gql`
   }
 `;
 
-// NEW PLAYLIST
-const NEW_PLAYLIST = gql`
-  mutation NEW_PLAYLIST($uid: String, $name: String!) {
-    newPlaylist(uid: $uid, name: $name) {
-      id
-      name
-    }
-  }
-`;
 
 export {
   NEW_PLAYLIST,
