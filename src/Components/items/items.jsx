@@ -1,46 +1,48 @@
-import React, {useEffect, useReducer} from 'react';
+import React from 'react';
+import useAudioList from '../../Hooks/useAudioList';
 import ListItem from './list_Item';
 import CardItem from './card_Item';
-import SortReducer from '../../Reducer/sortReducer';
+import Sad from '../error/sad';
 
 const style = {
   card: 'flex items-center',
   list: 'block',
+  title: 'text-lg m-4 font-medium text-gray-500',
+  body: 'body ml-4 mt-6 border mr-3',
 };
-const INITIAL_STATE = [
-  {
-    Image: '',
-    Title: '',
-    Author: '',
-    Stars: 0,
-  },
-];
 
-// DONE: Manuplate the state passed
-const Items = ({state, ori, sortBy}) => {
-  const [, sort_Dispatcher] = useReducer(SortReducer, INITIAL_STATE);
-  let audios = [];
+const Items = ({ori, sortBy, filter}) => {
+  const {loading, error, audios, state} = useAudioList(sortBy, filter);
 
-  useEffect(() => {
-    sort_Dispatcher({type: sortBy.toUpperCase(), value: state});
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [sortBy]);
-
-  if (ori === 'Card') {
-    for (let i = 0; i < state.length; i++) {
-      audios.push(<CardItem state={state[i]} />);
+  if (state) {
+    console.log('Current State is ', state);
+    if (ori === 'Card') {
+      for (let i = 0; i < state.length; i++) {
+        audios.push(<CardItem state={state[i]} />);
+      }
+    } else {
+      for (let i = 0; i < state.length; i++) {
+        audios.push(<ListItem state={state[i]} index={i} />);
+      }
     }
-  } else {
-    for (let i = 0; i < state.length; i++) {
-      audios.push(<ListItem state={state[i]} index={i} />);
-    }
+  }
+
+  if (error) {
+    return <Sad />;
+  }
+
+  if (loading) {
+    return <h1>Loading...</h1>;
   }
 
   // TODO: Here a grid like class must be present
   return (
-    <div class="body ml-4 mt-6 border mr-3">
-      <div className={ori === 'Card' ? style.card : style.list}>{audios}</div>
-    </div>
+    <>
+      <div className={style.title}>{filter}</div>
+      <div className={style.body}>
+        <div className={ori === 'Card' ? style.card : style.list}>{audios}</div>
+      </div>
+    </>
   );
 };
 

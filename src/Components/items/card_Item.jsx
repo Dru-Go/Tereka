@@ -3,13 +3,13 @@ import {Link} from 'react-router-dom';
 
 const CardItem = ({state}) => {
   let stars = [];
-  for (let i = 0; i < state.Stars; i++) {
+  for (let i = 0; i < state.Likes/6; i++) {
     stars.push(<Star />);
   }
   return (
     <div class="mx-2 rounded-lg w-1/4 px-6 zoom-8 py-4 bg-white flex">
       <div class="w-1/2 cursor-pointer -mt-8">
-        <img class="rounded m-auto" src={state.Image} alt="" />
+        <img class="rounded m-auto" src={state.ImageURL} alt="" />
       </div>
       <div class="w-1/2  pl-2">
         <div class="font-helvetica-rounded py-1 cursor-pointer">

@@ -1,55 +1,23 @@
 import gql from 'graphql-tag';
 
-/**
- * token : {userID, Image, userType, selectedTheme}
- *
- */
-
-// LOGIN
-const SIGNIN_USERMUTATION = gql`
-  mutation SIGNIN_USERMUTATION($email: String!, $password: String!) {
-    signInUser(email: {email: $email, password: $password}) {
-      token
-      user {
-        id
-      }
-      theme
-    }
-  }
-`;
-
-// SIGNUP
-const SIGNUP_USERMUTATION = gql`
-  mutation SIGNUP_USERMUTATION(
-    $name: String!
-    $email: String!
-    $password: String!
-    $theme: String
-  ) {
-    signUpUser(
-      values: {name: $name, email: $email, password: $password, theme: $theme}
-    ) {
-      token
-      user {
-        id
-      }
-    }
-  }
-`;
-
-// Get Audios
 const ALL_AUDIO_ITEMS = gql`
-  query ALL_AUDIO_ITEMS {
-    Audios {
-      id
-      title
-      image
-      author
-      narrator
-      likes
+    query ALL_AUDIO_ITEMS {
+      all_Audios {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+        Url
+        Type
+        Duration
+        Published
+        CreatedAt
+      }
     }
-  }
-`;
+  `;
+
 
 // Audio for playing
 const PLAY_AUDIOS = gql`
@@ -83,20 +51,9 @@ const FAVORITES = gql`
   }
 `;
 
-// ADDTO FAVORITES
-const ADDTO_FAVORITES = gql`
-  mutation ADDTO_FAVORITES($audioId: String!) {
-    addTo_Favorites(id: $audioId) {
-      Audio {
-        id
-      }
-    }
-  }
-`;
-
 const ALL_PLAYLISTS = gql`
-  query ALL_PLAYLISTS {
-    Playlists {
+  query ALL_PLAYLISTS($uid: String!) {
+    Playlists(uid: $uid) {
       id
       name
     }
@@ -104,8 +61,8 @@ const ALL_PLAYLISTS = gql`
 `;
 
 const PLAYLISTS_AUDIOS = gql`
-  query PLAYLISTS_AUDIOS($pid: String!) {
-    Playlist(id: $pid) {
+  query PLAYLISTS_AUDIOS($uid: String!, $pid: String!) {
+    Playlist(uid: $uid, pid: $pid) {
       Audios {
         id
         title
@@ -115,38 +72,6 @@ const PLAYLISTS_AUDIOS = gql`
         narrator
         likes
       }
-    }
-  }
-`;
-
-// ADDS AUDIO TO PLAYLIST
-const ADDTO_PLAYLIST = gql`
-  mutation ADDTO_PLAYLIST($audioId: String!) {
-    addTo_Playlist(id: $audioId) {
-      Audio {
-        id
-      }
-    }
-  }
-`;
-
-// REMOVEFROM PLAYLIST
-const REMOVE_PLAYLIST = gql`
-  mutation REMOVE_PLAYLIST($audioId: String!) {
-    removeAudio(id: $audioId) {
-      Audio {
-        id
-      }
-    }
-  }
-`;
-
-// NEW PLAYLIST
-const NEW_PLAYLIST = gql`
-  mutation NEW_PLAYLIST($name: String!) {
-    newPlaylist(name: $name) {
-      id
-      name
     }
   }
 `;
@@ -226,17 +151,11 @@ export {
   SEARCH_AUDIO,
   SEARCH_NARRATOR,
   SEARCH_AUTHOR,
-  NEW_PLAYLIST,
   NARRATOR_DETAILS,
   AUTHOR_DETAILS,
-  REMOVE_PLAYLIST,
-  ADDTO_PLAYLIST,
   PLAYLISTS_AUDIOS,
   ALL_PLAYLISTS,
   PLAY_AUDIOS,
   FAVORITES,
-  ADDTO_FAVORITES,
-  SIGNIN_USERMUTATION,
-  SIGNUP_USERMUTATION,
   ALL_AUDIO_ITEMS,
 };

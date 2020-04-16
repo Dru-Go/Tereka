@@ -4,9 +4,9 @@ import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
 import {AudioContext} from '../../Context/audioContext';
-import usePageTitle from './usePageTitle';
+import usePageTitle from '../../Hooks/usePageTitle';
 
-const Player = ({title}) => {
+const Player = ({title, narrator, author}) => {
   const [curTime, , duration, , playing, setPlaying] = useContext(AudioContext);
   usePageTitle(title && playing? title : 'Audiobook Player');
   return (

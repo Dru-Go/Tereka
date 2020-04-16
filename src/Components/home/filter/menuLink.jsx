@@ -14,7 +14,7 @@ const MenuLink = ({value, to, dispatch}) => {
       children={({match}) => {
         if (match) {
           console.log('MenuLink -> Match ', match, '-> Value', value);
-          dispatch({type: value.toUpperCase()});
+          dispatch(value.toUpperCase());
         }
         return (
           <Link to={to}>

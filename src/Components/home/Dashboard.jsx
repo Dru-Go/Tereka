@@ -13,7 +13,7 @@ import Favorites from '../favorites/favorites';
 import Suggest from '../suggestions/suggest';
 import {PlayProvider} from '../../Context/audioContext';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import usePageTitle from './usePageTitle';
+import usePageTitle from '../../Hooks/usePageTitle';
 
 const Dashboard = () => {
 

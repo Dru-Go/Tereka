@@ -7,13 +7,30 @@ import Dashboard from './Components/home/Dashboard';
 import AuthRoute from './Components/AuthRoute';
 import {ThemeProvider} from './Context/themeContext';
 import {AuthProvider} from './Context/authContext';
+import {createHttpLink} from 'apollo-link-http';
+
 import {Route} from 'react-router-dom';
+
+import ApolloClient from 'apollo-client';
+import {InMemoryCache} from 'apollo-cache-inmemory';
+import {ApolloProvider} from '@apollo/react-hooks';
 // import routes from './Components/routes'
 
 // Paused adding a route to the dashboards
 
+const httpLink = createHttpLink({
+  uri: 'http://localhost:8080/query',
+});
+
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache(),
+  connectToDevTools: true,
+});
+
 function App() {
   return (
+    <ApolloProvider client={client}>
       <AuthProvider>
         <ThemeProvider>
           <Route exact path="/" component={Dashboard} />
@@ -21,6 +38,7 @@ function App() {
           <AuthRoute exact path="/register" component={SignUp} />
         </ThemeProvider>
       </AuthProvider>
+    </ApolloProvider>
   );
 }
 
