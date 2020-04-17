@@ -1,23 +1,17 @@
 import gql from 'graphql-tag';
 
 const ALL_AUDIO_ITEMS = gql`
-    query ALL_AUDIO_ITEMS {
-      all_Audios {
-        Id
-        Title
-        ImageURL
-        Author
-        Narrator
-        Likes
-        Url
-        Type
-        Duration
-        Published
-        CreatedAt
-      }
+  query ALL_AUDIO_ITEMS {
+    all_Audios {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
     }
-  `;
-
+  }
+`;
 
 const ALL_PLAYLISTS = gql`
   query ALL_PLAYLISTS($uid: String!) {
@@ -28,25 +22,33 @@ const ALL_PLAYLISTS = gql`
   }
 `;
 
-
 const PLAYLISTS_AUDIOS = gql`
   query PLAYLISTS_AUDIOS($uid: String!, $pid: String!) {
     playlist_Audios(uid: $uid, pid: $pid) {
-        Id
-        Title
-        ImageURL
-        Author
-        Narrator
-        Likes
-        Url
-        Type
-        Duration
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
+      Url
+      Type
+      Duration
     }
   }
 `;
 
-
-
+const SEARCH_AUDIO = gql`
+  query SEARCH_AUDIO($title: String) {
+    search_Audios(title: $title) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+    }
+  }
+`;
 
 // Audio for playing
 const PLAY_AUDIOS = gql`
@@ -80,8 +82,6 @@ const FAVORITES = gql`
   }
 `;
 
-
-
 // Author Details
 const AUTHOR_DETAILS = gql`
   query AUTHOR_DETAILS($id: String!) {
@@ -104,22 +104,6 @@ const NARRATOR_DETAILS = gql`
   }
 `;
 
-/**
- * searchKey will be a audio title
- *
- */
-const SEARCH_AUDIO = gql`
-  query SEARCH_AUDIO($searchKey: String!) {
-    Audios(filter: {title: $searchKey}) {
-      id
-      image
-      title
-      author
-      narrator
-      likes
-    }
-  }
-`;
 
 /**
  * searchKey will be a name

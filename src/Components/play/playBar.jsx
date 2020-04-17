@@ -7,7 +7,6 @@ const PlayBar = ({duration, curTime}) => {
   // const [width, setWidth] = useState(0);
 
   const curPercentage = (curTime / duration) * 100;
-  console.log("Calculate Percentage", curPercentage)
 
   function formatDuration(duration) {
     return moment.duration(duration, 'seconds').format('mm:ss', {trim: false});

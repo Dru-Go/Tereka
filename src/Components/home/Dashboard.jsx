@@ -36,7 +36,7 @@ const Dashboard = () => {
             <Route path="/" component={Header} />
             <Route path="/" exact component={MidPromos} />
             <Route path={['/', ...filters]} exact component={Board} />
-            <Route path="/play" exact component={Play} />
+            <Route path="/play/:id" exact component={Play} />
             <Route path="/suggestions" exact component={Suggestion} />
             <Route path="/suggestions/suggest" exact component={Suggest} />
             <Route path="/trending" exact component={Top} />
