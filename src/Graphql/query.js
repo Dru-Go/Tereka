@@ -53,16 +53,14 @@ const SEARCH_AUDIO = gql`
 // Audio for playing
 const PLAY_AUDIOS = gql`
   query PLAY_AUDIOS($id: String!) {
-    PlayAudio(id: $id) {
-      Audios {
-        id
-        title
-        image
-        url
-        author
-        narrator
-        likes
-      }
+    play_Audio(id: $id) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
+      Url
     }
   }
 `;
@@ -103,7 +101,6 @@ const NARRATOR_DETAILS = gql`
     published_books
   }
 `;
-
 
 /**
  * searchKey will be a name

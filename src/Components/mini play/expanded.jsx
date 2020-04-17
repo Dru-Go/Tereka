@@ -11,6 +11,7 @@ const Expanded = ({
   setPlay,
   curTime,
   duration,
+  curPlay
 }) => {
 
 
@@ -29,7 +30,7 @@ const Expanded = ({
       </div>
       {/* audio */}
       <audio id="music">
-        <source src="./song.mp3" />
+        <source  src={curPlay}/>
         Your browser does not support the <code>audio</code> element.
       </audio>
       <PlayBar

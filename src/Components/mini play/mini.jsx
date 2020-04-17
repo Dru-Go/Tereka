@@ -8,7 +8,7 @@ import PlayBar from './playBar';
 // // TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
 // TODO ADD ACTION TO CONTROLS
 
-const Mini = ({mini, setMin, playing, setPlay, curTime, duration}) => {
+const Mini = ({mini, setMin, playing, setPlay, curTime, duration, curPlay}) => {
   const handleClick = () => {
     setMin(false);
   };
@@ -54,7 +54,7 @@ const Mini = ({mini, setMin, playing, setPlay, curTime, duration}) => {
       </div>
       {/* audio */}
       <audio id="music">
-        <source src="./song.mp3" />
+        <source src={curPlay}/>
         Your browser does not support the <code>audio</code> element.
       </audio>
       <PlayBar mini={mini} curTime={curTime} duration={duration} />

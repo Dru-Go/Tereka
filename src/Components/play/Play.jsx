@@ -1,14 +1,48 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './play_style.css';
 import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
+import Loading from '../../Views/loading/loading';
+import Sad from '../error/sad';
+import {useQuery} from '@apollo/react-hooks';
+import {PLAY_AUDIOS} from '../../Graphql/query';
 import {AudioContext} from '../../Context/audioContext';
-import usePageTitle from '../../Hooks/usePageTitle';
+// import usePageTitle from '../../Hooks/usePageTitle';
 
-const Player = ({title, narrator, author}) => {
-  const [curTime, , duration, , playing, setPlaying] = useContext(AudioContext);
-  usePageTitle(title && playing? title : 'Audiobook Player');
+const Player = ({match}) => {
+  const [curTime, , duration, , playing, setPlaying, , setCurPlay] = useContext(
+    AudioContext
+  );
+
+  const audioId = match.params.id;
+
+  const {loading, error, data} = useQuery(PLAY_AUDIOS, {
+    variables: {id: audioId},
+  });
+
+  if (data) {
+    console.log('Audio data is ', data);
+    setCurPlay(data.play_Audio.Url);
+  }
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+  if (error) {
+    console.log(error);
+    return (
+      <div>
+        <Sad />
+      </div>
+    );
+  }
+
+  // usePageTitle(title && playing ? title : 'Audiobook Player');
   return (
     <>
       <div class="bord play-img border-gray-400">
@@ -24,10 +58,10 @@ const Player = ({title, narrator, author}) => {
               </svg>
             </div>
           </div>
-          <div>Narrator: ~~.....</div>
+          <div>Narrator: {data.play_Audio.Narrator}</div>
         </div>
         <div class="">
-          <img class="m-auto w-1/4 " src="../book1.png" alt="" />
+          <img class="m-auto w-1/4 " src={data.play_Audio.ImageURL} alt="" />
         </div>
       </div>
       <div class="bord play absolute w-80p bottom-0 border">
@@ -63,20 +97,15 @@ const Player = ({title, narrator, author}) => {
           </div>
           <div class="">
             <div class="uppercase font-helvetica-rounded font-bold text-3xl">
-              babshka's journey
+              {data.play_Audio.Title}
             </div>
             <div class="pt-4 text-center font-bold  cursor-pointer hover:underline text-color capitalize">
-              marry bay
+              {data.play_Audio.Author}
             </div>
           </div>
           {/* Here Onclick we change the fill to another color*/}
           <div class="p-4 cursor-pointer color1 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="25"
-              height="23"
-              viewBox="0 0 19.685 25.309"
-            >
+            <svg width="25" height="23" viewBox="0 0 19.685 25.309">
               <path
                 class="fill-current"
                 d="M21.872,3H7.812a2.808,2.808,0,0,0-2.8,2.812L5,28.309l9.842-4.218,9.842,4.218V5.812A2.82,2.82,0,0,0,21.872,3Zm0,21.091-7.03-3.065-7.03,3.065V5.812h14.06Z"

@@ -1,8 +1,7 @@
 import {useEffect, useContext} from 'react';
-import {AudioContext} from '../Context/audioContext'
+import {AudioContext} from '../Context/audioContext';
 
-function useAudioPlayer() {
-
+function useAudioPlayer(song) {
   const [
     curTime,
     setCurTime,
@@ -10,12 +9,12 @@ function useAudioPlayer() {
     setDuration,
     playing,
     setPlaying,
-  ] = useContext(AudioContext)
+    curPlay
+  ] = useContext(AudioContext);
 
   // console.log('Clicked Time',/\clickedTime);
   useEffect(() => {
-    const audio = document.getElementById("music");
-
+    const audio = document.getElementById('music');
     // state setters wrappers
     const setAudioData = () => {
       setDuration(audio.duration);
@@ -34,7 +33,6 @@ function useAudioPlayer() {
     playing ? audio.play() : audio.pause();
     console.log(playing);
 
-
     // effect cleanup
     return () => {
       audio.removeEventListener('loadeddata', setAudioData);
@@ -48,6 +46,7 @@ function useAudioPlayer() {
     duration,
     playing,
     setPlaying,
+    curPlay
   };
 }
 
