@@ -71,6 +71,10 @@
   transform: scale(1.2);
 }
 
+.searchList:hover {
+  background-color: #9cd9d9;
+}
+
 /* Bounce Animation */
 
 .spinner {

@@ -1,22 +1,22 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 const styles = {
-  listItem: 'flex items-center hover:bg-gray-100 cursor-pointer p-2',
+  listItem: 'flex items-center searchList cursor-pointer p-2',
 };
 
 // Dropdown List
-function listItem({selected, setToggle, name, history, link}) {
-  console.log('Name of Narrator is ', name);
+function listItem({selected, setToggle, setSearch, link}) {
   if (selected === '/Audio') {
     return (
       <AudioListItem
-        to={link.to}
+        to={link.Id}
         setActive={setToggle}
-        image={link.image}
-        title={link.title}
-        narratedBy={link.narrated}
-        author={link.author}
-        history={history}
+        image={link.ImageURL}
+        title={link.Title}
+        narratedBy={link.Narrator}
+        author={link.Author}
+        setSearch={setSearch}
       />
     );
   } else if (selected === '/Narrator') {
@@ -24,11 +24,11 @@ function listItem({selected, setToggle, name, history, link}) {
       <NarListItem
         to={link.to}
         setActive={setToggle}
-        image={link.image}
-        name={link.name}
-        numAudio={link.numAudio}
-        followers={link.followers}
-        history={history}
+        image={link.ImageURL}
+        name={link.Name}
+        numAudio={link.NumAudio}
+        followers={link.Followers}
+        setSearch={setSearch}
       />
     );
   } else {
@@ -36,11 +36,11 @@ function listItem({selected, setToggle, name, history, link}) {
       <AuthorListItem
         to={link.to}
         setActive={setToggle}
-        image={link.image}
-        name={link.name}
-        numBooks={link.numBooks}
-        followers={link.followers}
-        history={history}
+        image={link.ImageURL}
+        name={link.Name}
+        numBooks={link.NumBooks}
+        followers={link.Followers}
+        setSearch={setSearch}
       />
     );
   }
@@ -54,28 +54,29 @@ const AudioListItem = ({
   title,
   narratedBy,
   author,
-  history,
+  setSearch,
 }) => {
   const handleClick = () => {
-    // route to /play/... or {to}
-    history.push(to);
     // Set active = false
+    setSearch('');
     setActive(false);
   };
 
   return (
-    <div className={styles.listItem} onClick={handleClick}>
-      <div>
-        <img class="rounded-full w-8 h-8" src={image} alt="searchRes" />
-      </div>
-      <div class="ml-2">
-        <div class="font-helvetica-rounded ">{title}</div>
-        <div class="flex items-center text-xs">
-          <div> Narrated By {narratedBy}</div>
-          <div class="ml-4"> Author {author}</div>
+    <Link to={'/play/' + to}>
+      <div className={styles.listItem} onClick={handleClick}>
+        <div>
+          <img class="rounded-full w-8 h-8" src={image} alt="searchRes" />
+        </div>
+        <div class="ml-2">
+          <div class="font-helvetica-rounded ">{title}</div>
+          <div class="flex items-center text-xs">
+            <div> Narrated By {narratedBy}</div>
+            <div class="ml-4"> Author {author}</div>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -87,13 +88,12 @@ const NarListItem = ({
   name,
   numAudio,
   followers,
-  history,
+  setSearch,
 }) => {
   const handleClick = () => {
-    // route to /details/... or {to}
-    history.push(to);
     // Set active = false
     setActive(false);
+    setSearch('');
   };
 
   return (
@@ -120,13 +120,12 @@ const AuthorListItem = ({
   name,
   numBooks,
   followers,
-  history,
+  setSearch,
 }) => {
   const handleClick = () => {
-    // route to /details/... or {to}
-    history.push(to);
     // Set active = false
     setActive(false);
+    setSearch('');
   };
 
   return (
