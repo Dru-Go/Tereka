@@ -3,6 +3,7 @@ import useAudioList from '../../Hooks/useAudioList';
 import ListItem from './list_Item';
 import CardItem from './card_Item';
 import Sad from '../error/sad';
+import Loading from '../../Views/loading/loading'
 
 const style = {
   card: 'flex items-center',
@@ -32,7 +33,11 @@ const Items = ({ori, sortBy, filter}) => {
   }
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div>
+        <Loading/>
+      </div>
+    );
   }
 
   // TODO: Here a grid like class must be present

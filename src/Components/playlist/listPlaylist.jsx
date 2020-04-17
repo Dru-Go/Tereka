@@ -2,6 +2,7 @@ import React from 'react';
 import {useQuery} from '@apollo/react-hooks';
 import {ALL_PLAYLISTS} from '../../Graphql/query';
 import {MenuLink, Menu} from '../menu/menuLink';
+import Loading from '../../Views/loading/loading';
 
 const styles = {
   SvgClass: 'inActiveSVG ',
@@ -17,7 +18,11 @@ export default function ListPlaylist() {
   }
 
   if (loading) {
-    return <div>Loading...</div>;
+    return (
+      <div class="float-right">
+        <Loading />
+      </div>
+    );
   }
 
   if (!data || data.all_Playlists.length === 0) {

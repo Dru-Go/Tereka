@@ -1,5 +1,6 @@
-import React from 'react'
- 
+import React from 'react';
+import Loading from '../loading/loading';
+
 const Input = ({
   title,
   type,
@@ -27,24 +28,16 @@ const Input = ({
           name={name}
           placeholder={placeholder}
           class=" pl-2 w-90p text-sm pb-1 outline-none bg-transparent"
-          autocomplete='off'
+          autocomplete="off"
           onChange={handleChange}
           focus={handleFocus}
           value={value}
           style={style}
         />
-        {focused ? (
-          <div class="spinner ">
-            <div class="bounce1 bg-gray-900"></div>
-            <div class="bounce2 bg-gray-900"></div>
-            <div class="bounce3 bg-gray-900"></div>
-          </div>
-        ) : (
-          ''
-        )}
+        {focused ? <Loading /> : ''}
       </div>
     </div>
   );
 };
 
-export default Input
+export default Input;

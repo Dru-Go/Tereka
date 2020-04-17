@@ -93,12 +93,18 @@
 .spinner .bounce1 {
   -webkit-animation-delay: -0.32s;
   animation-delay: -0.32s;
+  background-color: var(--color1);
 }
 
 .spinner .bounce2 {
   -webkit-animation-delay: -0.16s;
   animation-delay: -0.16s;
+  background-color: var(--color1);
 }
+.spinner .bounce3 {
+  background-color: var(--color1);
+}
+
 
 @-webkit-keyframes sk-bouncedelay {
   0%,
