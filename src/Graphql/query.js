@@ -67,15 +67,13 @@ const PLAY_AUDIOS = gql`
 
 const FAVORITES = gql`
   query FAVORITES($uid: String!) {
-    Favs(uid: $uid) {
-      Audios {
-        id
-        title
-        image
-        author
-        narrator
-        likes
-      }
+    fav_Audios(uid: $uid) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
     }
   }
 `;

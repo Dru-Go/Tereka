@@ -1,71 +1,72 @@
-import React, {useEffect, useReducer} from 'react';
-import FavoriteReducer from '../../Reducer/favoriteReducer';
-import Card from '../items/card_Item';
+import React, {useState} from 'react';
+import {useQuery} from '@apollo/react-hooks';
+import {FAVORITES} from '../../Graphql/query';
+import Loading from '../../Views/loading/loading';
+import Sad from '../error/sad'
+import Card from './card_Item';
 
+// FAVORITES
 // TODO Remove Favorite
 // TODO Select Operation
-// TODO Sort By date of the added audio
 
-const INITIAL_STATE = [
-  {
-    Image: '',
-    Title: '',
-    Author: '',
-    Narrator: '',
-    Likes: 0,
-    Stars: 0,
-    Duration: '',
-  },
-];
+const styles = {
+  toggled:
+    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-red-300 cursor-pointer',
+  UnToggled:
+    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-gray-200 hover:bg-red-300 cursor-pointer',
+};
 
 const Favorites = () => {
-  const [fav_State, fav_Dispatcher] = useReducer(
-    FavoriteReducer,
-    INITIAL_STATE
-  );
+  const [toggleRemove, setToggleRemove] = useState(false);
 
-  console.log('Favorites State', fav_State);
+  const {loading, error, data} = useQuery(FAVORITES, {
+    variables: {uid: 'hash2'},
+  });
 
-  useEffect(() => {
-    fav_Dispatcher({type: 'ALL', user_id: '123'});
-  },[]);
+  if (error) {
+    console.log('Error in the Favorites ', error);
+    return (
+      <div>
+        <Sad />
+      </div>
+    );
+  }
+
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
+  if (!data || data.fav_Audios.length === 0) {
+    return null;
+  }
 
   return (
     <>
       <div>
-        <div class="text-xl ml-6 font-helvetica-rounded text-gray-800">
-          Favorites
+        <div class="flex justify-between items-center">
+          <div class="text-xl ml-6 font-helvetica-rounded text-gray-800">
+            Favorites
+          </div>
+          <div
+            className={toggleRemove ? styles.toggled : styles.UnToggled}
+            onClick={() => setToggleRemove(!toggleRemove)}
+          >
+            Remove
+          </div>
         </div>
         <div class="flex mt-8 items-center">
-          {fav_State.map(state => (
+          {data.fav_Audios.map(state => (
             <>
-              <Card state={state} />
-              <Remove state={state} dispatch={fav_Dispatcher} />
+              <Card state={state} toggleRemove={toggleRemove} />
             </>
           ))}
         </div>
       </div>
     </>
-  );
-};
-
-// Remove Favorite
-const Remove = ({state, dispatch}) => {
-  const handleRemove = () => {
-    dispatch({type: 'REMOVE', id: '1234', value: state.Title});
-  };
-  return (
-    <div
-      class="bg-red-200 hover:bg-red-300 rounded-lg p-2"
-      onClick={handleRemove}
-    >
-      <svg width="16" height="16" viewBox="0 0 16 16">
-        <path
-          class="a_remove"
-          d="M4,16a2,2,0,0,1-2-2V5H1A1,1,0,1,1,1,3H5V2A2,2,0,0,1,7,0H9a2,2,0,0,1,2,2V3h4a1,1,0,0,1,0,2H14v9a2,2,0,0,1-2,2Zm0-2h8V5H4ZM7,3H9V2H7ZM7,9A1,1,0,0,1,7,7H9A1,1,0,1,1,9,9Z"
-        />
-      </svg>
-    </div>
   );
 };
 

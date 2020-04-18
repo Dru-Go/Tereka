@@ -88,7 +88,7 @@ const SideNav = () => {
               </svg>
             </Menu>
           </MenuLink>
-          {user ? (
+          {!user ? (
             <>
               <MenuLink to="/following" exact={true}>
                 <Menu title={'Following'}>
