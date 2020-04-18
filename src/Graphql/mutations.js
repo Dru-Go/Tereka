@@ -42,7 +42,6 @@ const SIGNUP_USERMUTATION = gql`
   }
 `;
 
-
 // NEW PLAYLIST
 const NEW_PLAYLIST = gql`
   mutation NEW_PLAYLIST($uid: String, $name: String!) {
@@ -52,8 +51,6 @@ const NEW_PLAYLIST = gql`
     }
   }
 `;
-
-
 
 // Like
 const LIKE = gql`
@@ -79,11 +76,14 @@ const FOLLOW = gql`
 
 // ADDTO FAVORITES
 const ADDTO_FAVORITES = gql`
-  mutation ADDTO_FAVORITES($uid: String, $audioId: String!) {
-    addTo_Favorites(uid: $uid, id: $audioId) {
-      Audio {
-        id
-      }
+  mutation ADDTO_FAVORITES($uid: String, $id: String!) {
+    AddToFavs(uid: $uid, id: $id) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
     }
   }
 `;
@@ -109,7 +109,6 @@ const REMOVE_PLAYLIST = gql`
     }
   }
 `;
-
 
 export {
   NEW_PLAYLIST,
