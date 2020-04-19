@@ -10,6 +10,7 @@ import {AudioContext} from '../../Context/audioContext';
 import {useQuery} from '@apollo/react-hooks';
 
 import Fav from './controls/addToFav';
+import AddToPlaylist from './controls/addToPlaylist';
 
 import usePageTitle from '../../Hooks/usePageTitle';
 
@@ -27,7 +28,6 @@ const Player = ({match}) => {
   const [curTime, , duration, , playing, setPlaying, , setCurPlay] = useContext(
     AudioContext
   );
-
   const audioId = match.params.id;
 
   const {loading, error, data} = useQuery(PLAY_AUDIOS, {
@@ -41,7 +41,7 @@ const Player = ({match}) => {
     setCurPlay(data.play_Audio.Url);
   }
 
-  // This will enable the page to play onload 
+  // This will enable the page to play onload
 
   // useEffect(() => {
   //   if (data && audioId === "Current") {
@@ -97,15 +97,7 @@ const Player = ({match}) => {
             <div className={styles.author}>{data.play_Audio.Author}</div>
           </div>
           {/* Here Onclick we change the fill to another color*/}
-          <div class="p-4 cursor-pointer color1 rounded-full">
-            <svg width="25" height="23" viewBox="0 0 19.685 25.309">
-              <path
-                class="fill-current"
-                d="M21.872,3H7.812a2.808,2.808,0,0,0-2.8,2.812L5,28.309l9.842-4.218,9.842,4.218V5.812A2.82,2.82,0,0,0,21.872,3Zm0,21.091-7.03-3.065-7.03,3.065V5.812h14.06Z"
-                transform="translate(-5 -3)"
-              />
-            </svg>
-          </div>
+          <AddToPlaylist audioID={data.play_Audio.Id} />
         </div>
 
         {/* playBar */}

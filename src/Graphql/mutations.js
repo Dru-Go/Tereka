@@ -52,6 +52,15 @@ const NEW_PLAYLIST = gql`
   }
 `;
 
+// ADDS AUDIO TO PLAYLIST
+const ADDTO_PLAYLIST = gql`
+  mutation ADDTO_PLAYLIST($uid: String, $pid: String, $audioID: String!) {
+    AddToPlaylist(uid: $uid, pid: $pid, audioID: $audioID) {
+      Id
+    }
+  }
+`;
+
 // Like
 const LIKE = gql`
   mutation LIKE($uid: String, $audioId: String!) {
@@ -84,17 +93,6 @@ const ADDTO_FAVORITES = gql`
       Author
       Narrator
       Likes
-    }
-  }
-`;
-
-// ADDS AUDIO TO PLAYLIST
-const ADDTO_PLAYLIST = gql`
-  mutation ADDTO_PLAYLIST($uid: String, $audioId: String!) {
-    addTo_Playlist(uid: $uid, id: $audioId) {
-      Audio {
-        id
-      }
     }
   }
 `;

@@ -32,8 +32,6 @@ const PLAYLISTS_AUDIOS = gql`
       Narrator
       Likes
       Url
-      Type
-      Duration
     }
   }
 `;

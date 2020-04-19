@@ -14,7 +14,6 @@ const AddPlaylist = ({active, setActive}) => {
   const [name, setName] = useState('');
   const [NewPlaylist] = useMutation(NEW_PLAYLIST, {
     update(cache, {data: {NewPlaylist}}) {
-      console.log('This is the new Playlist ', NewPlaylist);
 
       const data = cache.readQuery({
         query: ALL_PLAYLISTS,
