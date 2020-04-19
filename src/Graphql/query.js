@@ -47,6 +47,33 @@ const SEARCH_AUDIO = gql`
     }
   }
 `;
+const SEARCH_SUGGESTIONS = gql`
+  query SEARCH_SUGGESTIONS($title: String) {
+    search_Suggestion(title: $title) {
+      Id
+      Title
+      Author
+      Likes
+      Category
+      Status
+    }
+  }
+`;
+
+const SUGGESTIONS = gql`
+  query SUGGESTIONS {
+    suggestions {
+      Id
+      Title
+      Likes
+      Author
+      Category
+      Discription
+      Status
+      CreatedAt
+    }
+  }
+`;
 
 // Audio for playing
 const PLAY_AUDIOS = gql`
@@ -141,4 +168,6 @@ export {
   PLAY_AUDIOS,
   FAVORITES,
   ALL_AUDIO_ITEMS,
+  SUGGESTIONS,
+  SEARCH_SUGGESTIONS,
 };

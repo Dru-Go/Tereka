@@ -6,18 +6,12 @@ const styles = {
   hidden: 'hidden',
 };
 
-const CategoryDropDown = ({
-  active,
-  categories,
-  values,
-  setValues,
-  setToggle,
-}) => {
-  console.log('Categories ', categories);
-  console.log('Values ', values);
+const Categories = ['Fiction', 'Buisness', 'History', 'Business', 'Others'];
+
+const CategoryDropDown = ({active, values, setValues, setToggle}) => {
   return (
     <ul className={active ? styles.active : styles.hidden}>
-      {categories.map(link => (
+      {Categories.map(link => (
         <List
           title={link}
           setActive={setToggle}
@@ -30,13 +24,10 @@ const CategoryDropDown = ({
 };
 
 const List = ({setActive, title, values, setValues}) => {
-  console.log('Titles in list', title);
   const handleClick = () => {
     const form = values;
-    setActive(false);
-    console.log('Forms Before', form);
     form.category = title;
-    console.log('Final Form', form);
+    setActive(false);
     setValues(form);
   };
 

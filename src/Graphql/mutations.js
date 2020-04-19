@@ -61,6 +61,33 @@ const ADDTO_PLAYLIST = gql`
   }
 `;
 
+
+// ADDS AUDIO TO PLAYLIST
+const NEW_SUGGESTION = gql`
+  mutation NEW_SUGGESTION(
+    $title: String
+    $author: String
+    $category: String
+    $discription: String
+  ) {
+    suggest(
+      title: $title
+      author: $author
+      category: $category
+      discription: $discription
+    ) {
+      Id
+      Title
+      Likes
+      Author
+      Category
+      Discription
+      Status
+      CreatedAt
+    }
+  }
+`;
+
 // Like
 const LIKE = gql`
   mutation LIKE($uid: String, $audioId: String!) {
@@ -117,4 +144,5 @@ export {
   SIGNUP_USERMUTATION,
   LIKE,
   FOLLOW,
+  NEW_SUGGESTION,
 };
