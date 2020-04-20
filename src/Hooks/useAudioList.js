@@ -17,7 +17,7 @@ export default function useItem(sortBy, filter) {
   }, [sortBy]);
 
   useEffect(() => {
-    if (!loading) {
+    if (data) {
       dispatcher({type: filter.toUpperCase(), value: data.all_Audios});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

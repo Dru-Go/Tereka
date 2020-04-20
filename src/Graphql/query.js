@@ -6,6 +6,7 @@ const ALL_AUDIO_ITEMS = gql`
       Id
       Title
       ImageURL
+      Type
       Author
       Narrator
       Likes

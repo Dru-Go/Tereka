@@ -1,22 +1,21 @@
 function filterReducer(state, action) {
   console.log('ACTION CALLED IS ', action.type);
-  console.log('STATE  IS ', state);
-  state = action.value;
+  const audios = action.value;
   switch (action.type) {
     case 'BUSINESS':
-      return state.filter(audio => audio.Type === 'Business');
+      return audios.filter(audio => audio.Type === 'Business');
     case 'HISTORY':
-      return state.filter(audio => audio.Type === 'History');
+      return audios.filter(audio => audio.Type === 'History');
     case 'ECONOMY':
-      return state.filter(audio => audio.Type === 'Economy');
+      return audios.filter(audio => audio.Type === 'Economy');
     case 'FICTION':
-      return state.filter(audio => audio.Type === 'Fiction');
+      return audios.filter(audio => audio.Type === 'Fiction');
     case 'FANTACY':
-      return state.filter(audio => audio.Type === 'Fantacy');
+      return audios.filter(audio => audio.Type === 'Fantacy');
     case 'PHILOSOPY':
-      return state.filter(audio => audio.Type === 'Philosophy');
+      return audios.filter(audio => audio.Type === 'Philosophy');
     default:
-      return state;
+      return audios;
   }
 }
 
