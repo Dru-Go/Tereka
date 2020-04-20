@@ -89,10 +89,16 @@
 }
 /* End Audio Control SVG */
 
-
-.drag{
+.drag {
   width: 12px;
   height: 12px;
   margin-top: -4px;
   margin-left: -3px;
+}
+
+.animating-width {
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
 }

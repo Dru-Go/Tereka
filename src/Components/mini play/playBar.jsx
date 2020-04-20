@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import './play.style.css'
 // eslint-disable-next-line no-unused-vars
 import momentDurationFormatSetup from 'moment-duration-format';
 
@@ -28,13 +29,10 @@ const playBar = ({mini, duration, curTime}) => {
 
       <div className={mini ? styles.mini : styles.extended}>
         <div
-          className={styles.progress}
+          class="rounded-full bg-gray-300 h-1 bar__progress animating-width bg-dark-blue"
           style={{width: `${curPercentage}%`}}
         ></div>
-        <div
-            class="rounded-full p-1 drag bg-dark-blue"
-            id="playhead"
-          ></div>
+        <div class="rounded-full p-1 drag bg-dark-blue" id="playhead"></div>
       </div>
     </>
   );

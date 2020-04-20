@@ -15,3 +15,10 @@
   background: rgb(253, 253, 253, 12%);
   backdrop-filter: blur(0px);
 }
+
+.animating-width {
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
+}
