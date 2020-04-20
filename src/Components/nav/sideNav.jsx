@@ -118,6 +118,13 @@ const SideNav = () => {
               </MenuLink>
             </>
           ) : null}
+          <MenuLink to="/suggestions" exact={true}>
+            <Menu title={'Requests'}>
+              <svg width="11.238" height="11.238" viewBox="0 0 16 16">
+                <path className={style.InactiveSvgClass} d="M15.109,4.336l-6-4a2,2,0,0,0-2.218,0l-6,4A2,2,0,0,0,0,6v8a2,2,0,0,0,2,2H14a2,2,0,0,0,2-2V6A2,2,0,0,0,15.109,4.336ZM8,2l5.1,3.4L8,8.8,2.9,5.4ZM2,14V7.2l5.445,3.63a1,1,0,0,0,1.11,0L14,7.2V14Z" />
+              </svg>
+            </Menu>
+          </MenuLink>
           <MenuLink to="/recent" exact={true}>
             <Menu title={'Recent'}>
               <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">

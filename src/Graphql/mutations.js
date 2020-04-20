@@ -61,7 +61,6 @@ const ADDTO_PLAYLIST = gql`
   }
 `;
 
-
 // ADDS AUDIO TO PLAYLIST
 const NEW_SUGGESTION = gql`
   mutation NEW_SUGGESTION(

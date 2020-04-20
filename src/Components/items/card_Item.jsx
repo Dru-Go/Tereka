@@ -3,29 +3,40 @@ import {Link} from 'react-router-dom';
 
 const CardItem = ({state}) => {
   let stars = [];
-  for (let i = 0; i < state.Likes/6; i++) {
+  for (let i = 0; i < state.Likes / 6; i++) {
     stars.push(<Star />);
   }
   return (
-    <div class="mx-2 rounded-lg w-1/4 px-6 zoom-8 py-4 bg-white flex">
-      <div class="w-1/2 cursor-pointer -mt-8">
-        <img class="rounded m-auto" src={state.ImageURL} alt="" />
-      </div>
-      <div class="w-1/2  pl-2">
-        <div class="font-helvetica-rounded py-1 cursor-pointer">
-          {state.Title}
+    <>
+      <div class="mx-2 rounded-lg w-1/4 px-6 zoom-8 cursor-pointer py-4 bg-white flex">
+        <div class="w-1/2 cursor-pointer -mt-8">
+          <Link to={'/play/' + state.Id}>
+            <img class="rounded m-auto" src={state.ImageURL} alt="" />
+          </Link>
         </div>
-        <Link to={'/details/2345'}>
-          <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
-            By {state.Author}
+        <div class="w-1/2  pl-2">
+          <Link to={'/play/' + state.Id}>
+            <div class="font-helvetica-rounded py-1 cursor-pointer">
+              {state.Title}
+            </div>
+          </Link>
+          <Link to={'/details/2345'}>
+            <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
+              By {state.Author}
+            </div>
+          </Link>
+          <Link to={'/details/2345'}>
+            <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
+              Narrated By {state.Narrator}
+            </div>
+          </Link>
+          <div class="text-xxs">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. .
           </div>
-        </Link>
-        <div class="text-xxs">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. .
+          <div class="py-1 flex">{stars}</div>
         </div>
-        <div class="py-1 flex">{stars}</div>
       </div>
-    </div>
+    </>
   );
 };
 

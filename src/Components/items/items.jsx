@@ -6,10 +6,10 @@ import Sad from '../error/sad';
 import Loading from '../../Views/loading/loading'
 
 const style = {
-  card: 'flex items-center',
+  card: 'flex item-center',
   list: 'block',
   title: 'text-lg m-4 font-medium text-gray-500',
-  body: 'body ml-4 mt-6 border mr-3',
+  body: 'body grid ml-4 mt-6 border mr-3',
 };
 
 const Items = ({ori, sortBy, filter}) => {

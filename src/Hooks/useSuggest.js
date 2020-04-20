@@ -3,7 +3,7 @@ import Sad from '../Components/error/sad';
 
 import {useLazyQuery, useMutation} from '@apollo/react-hooks';
 
-import {SEARCH_SUGGESTIONS} from '../Graphql/query';
+import {SUGGESTIONS, SEARCH_SUGGESTIONS} from '../Graphql/query';
 import {NEW_SUGGESTION} from '../Graphql/mutations';
 
 const status = {
@@ -24,22 +24,38 @@ const useSuggest = history => {
   const [values, setValue] = useState(INITIAL_STATE);
   const [toggle, setToggle] = useState(false);
 
-  const [AddSuggestion] = useMutation(NEW_SUGGESTION, {
-    variables: {
-      title: values.title,
-      author: values.author,
-      category: values.category,
-      discription: values.discription,
-    },
-  });
-
   const [AllSuggestions, {loading, error, data}] = useLazyQuery(
     SEARCH_SUGGESTIONS
   );
 
+
+  const [AddSuggestion] = useMutation(NEW_SUGGESTION, {
+    update(cache, {data: {AddSuggestion}}) {
+      const data = cache.readQuery({
+        query: SUGGESTIONS,
+      });
+
+      console.log('Cached Query is ', data.suggestions);
+
+      cache.writeQuery({
+        query: SUGGESTIONS,
+        data: {suggestions: [AddSuggestion, ...data.suggestions]},
+      });
+    },
+  });
+
+  
+
   const handleClick = () => {
     console.log(values);
-    AddSuggestion();
+    AddSuggestion({
+      variables: {
+        title: values.title,
+        author: values.author,
+        category: values.category,
+        discription: values.discription,
+      },
+    });
     setValue(INITIAL_STATE);
     history.push('/suggestions');
   };

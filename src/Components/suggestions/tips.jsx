@@ -7,8 +7,6 @@ const styles = {
 
 const Tips = ({state, loading, setValues}) => {
   
-  console.log('The State is ', state);
-
   if (loading) {
     return (
       <div class="my-20 bg-darkPurple w-1/4 h-side rounded-l-lg">
