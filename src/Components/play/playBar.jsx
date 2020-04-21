@@ -4,9 +4,8 @@ import './play_style.css'
 // eslint-disable-next-line no-unused-vars
 import momentDurationFormatSetup from 'moment-duration-format';
 
-const PlayBar = ({duration, curTime}) => {
-  // const [width, setWidth] = useState(0);
-
+const PlayBar = ({ duration, curTime }) => {
+  
   const curPercentage = (curTime / duration) * 100;
 
   function formatDuration(duration) {

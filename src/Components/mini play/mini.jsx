@@ -3,15 +3,27 @@ import './play.style.css';
 import Pause from './controls/pause';
 import Play from './controls/play';
 import PlayBar from './playBar';
+import Loading from '../../Views/loading/loading';
 
 // TODO HERE WE NEED TO PASS THE CURRENTLY PLAYING AUDIO
 // // TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
 // TODO ADD ACTION TO CONTROLS
 
-const Mini = ({mini, setMin, playing, setPlay, curTime, duration, curPlay}) => {
+const Mini = ({ mini, setMin, playing, setPlay, curTime, duration, curPlay, sound }) => {
+  
   const handleClick = () => {
     setMin(false);
   };
+
+  if (!curPlay) {
+    return (
+      <div class="bottom-0 absolute m-5">
+        <div class="m-auto">
+          <Loading />
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div class="bottom-0 miniPlay  absolute pb-2 w-1/5">
@@ -20,7 +32,7 @@ const Mini = ({mini, setMin, playing, setPlay, curTime, duration, curPlay}) => {
       </div>
       <div class="flex items-center justify-around">
         <div class="cursor-pointer" onClick={handleClick}>
-          <img src="./book1.png" class=" w-12  h-12 rounded-full" alt="" />
+          <img src={curPlay.ImageURL} class=" w-12  h-12 rounded-full" alt="" />
         </div>
         <div class="flex items-center ">
           <div class="mx-4 cursor-pointer">
@@ -54,10 +66,10 @@ const Mini = ({mini, setMin, playing, setPlay, curTime, duration, curPlay}) => {
       </div>
       {/* audio */}
       <audio id="music">
-        <source src={curPlay}/>
+        <source />
         Your browser does not support the <code>audio</code> element.
       </audio>
-      <PlayBar mini={mini} curTime={curTime} duration={duration} />
+      <PlayBar mini={mini} curTime={curTime} duration={duration} sound={sound} />
     </div>
   );
 };

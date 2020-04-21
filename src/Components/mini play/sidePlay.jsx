@@ -10,8 +10,10 @@ function SidePlay() {
     playing,
     setPlaying,
     setClickedTime,
-    curPlay
-  } = useAudioPlayer("./song.mp3");
+    curPlay,
+    sound
+  } = useAudioPlayer();
+ 
   return (
     <>
       <Sizer
@@ -21,12 +23,21 @@ function SidePlay() {
         duration={duration}
         setClickedTime={setClickedTime}
         curPlay={curPlay}
+        sound={sound}
       />
     </>
   );
 }
 
-function Sizer({playing, setPlay, curTime, duration, setClickedTime, curPlay}) {
+function Sizer({
+  playing,
+  setPlay,
+  curTime,
+  duration,
+  setClickedTime,
+  curPlay,
+  sound,
+}) {
   const [toggleMinimize, setToggleMinimize] = useState(true);
   return (
     <>
@@ -40,7 +51,8 @@ function Sizer({playing, setPlay, curTime, duration, setClickedTime, curPlay}) {
           duration={duration}
           setClickedTime={setClickedTime}
           curPlay={curPlay}
-          />
+          sound={sound}
+        />
       </div>
       <div className={toggleMinimize ? 'hidden' : 'block'}>
         <Expanded

@@ -78,7 +78,7 @@ const SideNav = () => {
           your audios
         </div>
         <div class="pl-16 text-sm">
-          <MenuLink to="/play/hash1" exact={true}>
+          <MenuLink to="/play/current" exact={true}>
             <Menu title={'Now Listening'}>
               <svg width="11.898" height="8.924" viewBox="0 0 11.898 8.924">
                 <path

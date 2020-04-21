@@ -91,6 +91,21 @@ const PLAY_AUDIOS = gql`
   }
 `;
 
+// Audio for playing
+const RECENT_PLAY = gql`
+  query RECENT_PLAY($uid: String!) {
+    recentPlay(uid: $uid) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
+      Url
+    }
+  }
+`;
+
 const FAVORITES = gql`
   query FAVORITES($uid: String!) {
     fav_Audios(uid: $uid) {
@@ -171,4 +186,5 @@ export {
   ALL_AUDIO_ITEMS,
   SUGGESTIONS,
   SEARCH_SUGGESTIONS,
+  RECENT_PLAY,
 };

@@ -1,7 +1,7 @@
 import {useEffect, useContext} from 'react';
 import {AudioContext} from '../Context/audioContext';
 
-function useAudioPlayer(song) {
+function useAudioPlayer() {
   const [
     curTime,
     setCurTime,
@@ -9,36 +9,20 @@ function useAudioPlayer(song) {
     setDuration,
     playing,
     setPlaying,
-    curPlay
+    curPlay,
+    ,
+    sound,
+    setSound,
   ] = useContext(AudioContext);
 
-  // console.log('Clicked Time',/\clickedTime);
+  setTimeout(function() {
+    setDuration(sound.duration());
+    setCurTime(sound.seek());
+  }, 500);
+
   useEffect(() => {
-    const audio = document.getElementById('music');
-    // state setters wrappers
-    const setAudioData = () => {
-      setDuration(audio.duration);
-      setCurTime(audio.currentTime);
-    };
-
-    const setAudioTime = () => setCurTime(audio.currentTime);
-
-    // DOM listeners: update React state on DOM events
-    audio.addEventListener('loadeddata', setAudioData);
-
-    audio.addEventListener('timeupdate', setAudioTime);
-
-    // React state listeners: update DOM on React state changes
-
-    playing ? audio.play() : audio.pause();
-    console.log(playing);
-
-    // effect cleanup
-    return () => {
-      audio.removeEventListener('loadeddata', setAudioData);
-      audio.removeEventListener('timeupdate', setAudioTime);
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    playing ? sound.play() : sound.pause();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playing]);
 
   return {
@@ -46,7 +30,9 @@ function useAudioPlayer(song) {
     duration,
     playing,
     setPlaying,
-    curPlay
+    sound,
+    setSound,
+    curPlay,
   };
 }
 

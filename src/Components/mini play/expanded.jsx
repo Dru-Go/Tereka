@@ -4,6 +4,7 @@ import './play.style.css';
 import Pause from './controls/pause';
 import Play from './controls/play';
 
+
 const Expanded = ({
   mini,
   setMin,
@@ -13,9 +14,6 @@ const Expanded = ({
   duration,
   curPlay
 }) => {
-
-
-
   const handleClick = () => {
     setMin(!mini);
   };
@@ -26,18 +24,14 @@ const Expanded = ({
         <div class="rounded-full bg-gray-300  opacity-25 h-1 w-10 m-auto"></div>
       </div>
       <div class="mx-6 my-4">
-        <img class="m-auto rounded-lg" src="../book1.png" alt="" />
+        <img class="m-auto rounded-lg" src={curPlay?curPlay.ImageURL:''} alt="" />
       </div>
       {/* audio */}
       <audio id="music">
-        <source  src={curPlay}/>
+        <source src='' />
         Your browser does not support the <code>audio</code> element.
       </audio>
-      <PlayBar
-        mini={mini}
-        curTime={curTime}
-        duration={duration}
-      />
+      <PlayBar mini={mini} curTime={curTime} duration={duration} />
       <div class="flex items-center my-2 justify-around">
         <div class="cursor-pointer" onClick={handleClick}>
           <svg width="16" height="15.999" viewBox="0 0 16 15.999">
@@ -57,15 +51,7 @@ const Expanded = ({
               />
             </svg>
           </div>
-          {playing ? (
-            <Play
-              setPlay={setPlay}
-            />
-          ) : (
-            <Pause
-              setPlay={setPlay}
-            />
-          )}
+          {playing ? <Play setPlay={setPlay} /> : <Pause setPlay={setPlay} />}
           <div class="mx-4 cursor-pointer">
             <svg width="17.5" height="12" viewBox="0 0 17.5 12">
               <path

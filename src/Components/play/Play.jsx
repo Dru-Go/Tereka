@@ -8,11 +8,11 @@ import Sad from '../error/sad';
 import {PLAY_AUDIOS} from '../../Graphql/query';
 import {AudioContext} from '../../Context/audioContext';
 import {useQuery} from '@apollo/react-hooks';
-
+import {Howl} from 'howler';
 import Fav from './controls/addToFav';
 import AddToPlaylist from './controls/addToPlaylist';
-
 import usePageTitle from '../../Hooks/usePageTitle';
+import {useEffect} from 'react';
 
 const styles = {
   inFav:
@@ -25,32 +25,45 @@ const styles = {
 };
 
 const Player = ({match}) => {
-  const [curTime, , duration, , playing, setPlaying, , setCurPlay] = useContext(
-    AudioContext
-  );
   const audioId = match.params.id;
 
   const {loading, error, data} = useQuery(PLAY_AUDIOS, {
     variables: {id: audioId},
   });
 
-  usePageTitle(data && data.play_Audio ? data.play_Audio.Title : 'Playing ...');
+  const [
+    curTime,
+    ,
+    duration,
+    ,
+    playing,
+    setPlaying,
+    curPlay,
+    setCurPlay,
+    sound,
+    setSound,
+  ] = useContext(AudioContext);
 
-  if (data) {
-    console.log('Audio data is ', data);
-    setCurPlay(data.play_Audio.Url);
-  }
+  useEffect(() => {
+    if (audioId !== 'current') {
+      if (data && data.play_Audio) {
+        setCurPlay(data.play_Audio);
+        sound.pause();
+        setSound(
+          new Howl({
+            src: [data.play_Audio.Url],
+          })
+        );
+        sound.html5 = true;
+        setPlaying(!playing);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
-  // This will enable the page to play onload
+  usePageTitle(data && data.play_Audio ? data.play_Audio.Title : curPlay.Title);
 
-  // useEffect(() => {
-  //   if (data && audioId === "Current") {
-  //     setPlaying(!playing);
-  //   }
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [data]);
-
-  if (loading) {
+  if (loading && !data) {
     return (
       <div>
         <Loading />
@@ -81,23 +94,21 @@ const Player = ({match}) => {
               </svg>
             </div>
           </div>
-          <div className={styles.narrator}>
-            Narrator: {data.play_Audio.Narrator}
-          </div>
+          <div className={styles.narrator}>Narrator: {curPlay.Narrator}</div>
         </div>
         <div class="">
-          <img class="m-auto w-1/4 " src={data.play_Audio.ImageURL} alt="" />
+          <img class="m-auto w-1/4 " src={curPlay.ImageURL} alt="" />
         </div>
       </div>
       <div class="bord play absolute w-80p bottom-0 border">
         <div class="bord  flex items-start justify-around">
           <Fav audio={audioId} />
           <div class="">
-            <div className={styles.title}>{data.play_Audio.Title}</div>
-            <div className={styles.author}>{data.play_Audio.Author}</div>
+            <div className={styles.title}>{curPlay.Title}</div>
+            <div className={styles.author}>{curPlay.Author}</div>
           </div>
           {/* Here Onclick we change the fill to another color*/}
-          <AddToPlaylist audioID={data.play_Audio.Id} />
+          <AddToPlaylist audioID={curPlay.Id} />
         </div>
 
         {/* playBar */}
