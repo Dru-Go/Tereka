@@ -1,5 +1,5 @@
 {
-  "name": "Tereka_Audio_Book",
+  "name": "Tereka-AudioBook-Player",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,10 +11,14 @@
     "apollo-client": "^2.6.8",
     "apollo-link-context": "^1.0.19",
     "apollo-link-http": "^1.5.16",
+    "graphql": "^15.0.0",
     "graphql-tag": "^2.10.3",
     "jwt-decode": "^2.2.0",
+    "moment": "^2.24.0",
+    "moment-duration-format": "^2.3.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-howler": "^3.7.4",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.0"
   },

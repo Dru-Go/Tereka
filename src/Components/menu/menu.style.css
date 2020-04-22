@@ -1,0 +1,21 @@
+@keyframes volSVG {
+  0% {
+	opacity: 60%
+}
+18% {
+	opacity: 30%
+}
+43% {
+	opacity: 20%
+}
+68% {
+	opacity: 500%
+}
+99% {
+	opacity: 100%
+  }
+}
+
+.playingLogo {
+  animation: volSVG 1.5s infinite 0.5s ease-in-out;
+}

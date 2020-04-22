@@ -1,7 +1,9 @@
-import React, {useState, useReducer, useEffect} from 'react';
-import SearchReducer from '../../../Reducer/searchReducer';
+import React, {useState, useEffect} from 'react';
+import {useLazyQuery} from '@apollo/react-hooks';
+import {SEARCH_AUDIO} from '../../../Graphql/query';
 import SearchDropdown from './searchDropdown';
 import SearchTip from './searchTips';
+import Loading from '../../../Views/loading/loading';
 
 const styles = {
   suggestion:
@@ -10,40 +12,50 @@ const styles = {
 
 const Search = () => {
   const [selected, setSelected] = useState('');
-  const [state, dispatch] = useReducer(SearchReducer, selected);
   const [search, setSearch] = useState('');
+
+  const [loadSearch, {loading, error, data}] = useLazyQuery(SEARCH_AUDIO, {
+    variables: {title: search},
+  });
+
   const [showTip, setShowTip] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
 
-
   useEffect(() => {
     if (selected === '/Audio') {
-      dispatch({type: 'AUDIO'});
-    } else if (selected === '/Narrator') {
-      dispatch({type: 'NARRATOR'});
-    } else if (selected === '/Author') {
-      dispatch({type: 'AUTHOR'});
-    } else {
-      dispatch({type: 'None'});
+      loadSearch();
     }
-  }, [selected]);
+    // else if (selected === '/Narrator') {
+    //   dispatch({type: 'NARRATOR'});
+    // } else if (selected === '/Author') {
+    //   dispatch({type: 'AUTHOR'});
+    // } else {
+    //   dispatch({type: 'None'});
+    // }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [search]);
 
   const handleChange = e => {
     setSearch(e.target.value);
     setShowSearch(!showSearch);
   };
+
   const handleFocus = () => {
     setShowTip(!showTip);
   };
+
   const removeSelection = () => {
     setShowTip(false);
     setShowSearch(false);
     setSelected('');
+    setSearch('');
   };
+
   // Dispatch an action
   return (
-    <div>
-      <div class="mx-1 text-sm font-medium w-full">
+    <div class=" w-full p-1">
+      <div class="mx-1 text-sm font-medium">
         <div class="flex">
           <div
             className={selected !== '' ? styles.suggestion : ''}
@@ -54,21 +66,31 @@ const Search = () => {
           <input
             type="text"
             placeholder="Search"
-            class="outline-none ml-2 w-64 bg-transparent"
+            class="outline-none ml-2 w-full bg-transparent"
             value={search}
             onChange={handleChange}
             onFocus={handleFocus}
             autocomplete="off"
             name="search"
           />
+          {showSearch || loading || error ? (
+            <div class="float-right">
+              {' '}
+              <Loading />{' '}
+            </div>
+          ) : null}
         </div>
       </div>
-      <SearchDropdown
-        active={showSearch}
-        selected={selected}
-        links={state}
-        setToggle={setShowSearch}
-      />
+      {data ? (
+        <SearchDropdown
+          active={showSearch}
+          selected={selected}
+          links={data.search_Audios}
+          setSearch={setSearch}
+          setToggle={setShowSearch}
+        />
+      ) : null}
+
       <SearchTip
         active={showTip}
         setActive={setShowTip}

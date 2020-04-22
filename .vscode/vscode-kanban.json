@@ -1,0 +1,317 @@
+{
+  "done": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Fix Issue",
+      "creation_time": "2020-04-12T04:16:17.761Z",
+      "description": {
+        "content": "Issue syncing \n - the Mini Player with the Main Player",
+        "mime": "text/markdown"
+      },
+      "id": "18",
+      "prio": 1,
+      "references": [],
+      "title": "Sync the players",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component, and a Resolver",
+      "creation_time": "2020-03-25T05:29:17.882Z",
+      "description": {
+        "content": "A Compoennt \n- Add Playlist\n- List Playlist\n- List Audios in Playlist\n- Add audio to playlist",
+        "mime": "text/markdown"
+      },
+      "id": "5",
+      "prio": 1,
+      "references": [],
+      "title": "Playlist"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-29T06:27:37.305Z",
+      "description": {
+        "content": "Adding a sort dropdown that sorts  with\n- Title\n- Auther\n- Narrator\n- Likes\n- Duration",
+        "mime": "text/markdown"
+      },
+      "id": "11",
+      "references": [],
+      "title": "Fix List Layout issue",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Styling Issue",
+      "creation_time": "2020-04-03T04:40:26.673Z",
+      "description": {
+        "content": "List Layout\n- use Tables ",
+        "mime": "text/markdown"
+      },
+      "id": "12",
+      "references": [],
+      "title": "Fix List Layout issue",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-11T13:42:36.281Z",
+      "description": {
+        "content": "Add to header\n- Signup\n- Signin",
+        "mime": "text/markdown"
+      },
+      "id": "17",
+      "references": [],
+      "title": "Add a SignUp and Login to the Header"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-12T08:46:56.745Z",
+      "description": {
+        "content": "Add \n- Audio Icon",
+        "mime": "text/markdown"
+      },
+      "id": "19",
+      "references": [],
+      "title": "Add Audio Icon in the side nav which appears when playing is true"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-11T11:22:29.292Z",
+      "description": {
+        "content": "Apply useAudio to the mini player ",
+        "mime": "text/markdown"
+      },
+      "id": "16",
+      "references": [],
+      "title": "Mini Play Logic"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component,",
+      "creation_time": "2020-03-25T05:31:28.124Z",
+      "description": {
+        "content": "Mini Player in the Sidenavs\n- Add Controlls\n- Manage Transitions",
+        "mime": "text/markdown"
+      },
+      "id": "6",
+      "prio": 0,
+      "references": [],
+      "title": "Mini Player"
+    }
+  ],
+  "in-progress": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Task",
+      "creation_time": "2020-04-12T18:16:30.214Z",
+      "description": {
+        "content": "Identify \n- schemas\n- Resolvers",
+        "mime": "text/markdown"
+      },
+      "id": "20",
+      "prio": 1,
+      "references": [],
+      "title": "GraphQL Schema and Resolvers"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-11T11:19:24.992Z",
+      "details": {
+        "content": "App program flow",
+        "mime": "text/markdown"
+      },
+      "id": "15",
+      "prio": 1,
+      "references": [],
+      "title": "Main Router Logic"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:13:49.733Z",
+      "description": {
+        "content": "Adding \n- Grid to the layout",
+        "mime": "text/markdown"
+      },
+      "id": "8",
+      "references": [],
+      "title": "Items-styling"
+    }
+  ],
+  "testing": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:52:17.163Z",
+      "description": {
+        "content": "A page that shows liked audios",
+        "mime": "text/markdown"
+      },
+      "id": "2",
+      "prio": 1,
+      "references": [],
+      "title": "Favorites"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-28T08:21:02.438Z",
+      "description": {
+        "content": "Shows details about narrators",
+        "mime": "text/markdown"
+      },
+      "id": "10",
+      "references": [],
+      "title": "Narator's Details"
+    }
+  ],
+  "todo": [
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:53:55.959Z",
+      "description": {
+        "content": "A page that shows recent plays with there time lines",
+        "mime": "text/markdown"
+      },
+      "id": "3",
+      "prio": 1,
+      "references": [],
+      "title": "History"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T05:24:13.493Z",
+      "description": {
+        "content": "update the play component to show \n - playlists, \n - queues, \n - forward and backward buttons ",
+        "mime": "text/markdown"
+      },
+      "id": "4",
+      "prio": 1,
+      "references": [],
+      "title": "Now Listening"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Rendering Issue",
+      "creation_time": "2020-04-03T04:42:32.234Z",
+      "description": {
+        "content": "Issues\n- changes are not reflected",
+        "mime": "text/markdown"
+      },
+      "id": "13",
+      "references": [],
+      "title": "Fix Sort Issue",
+      "type": "bug"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "View Feature",
+      "creation_time": "2020-04-11T10:58:42.438Z",
+      "description": {
+        "content": "Detailed View\n- Prototype\n- View Design",
+        "mime": "text/markdown"
+      },
+      "id": "14",
+      "references": [],
+      "title": "Narrators View"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:10:21.174Z",
+      "description": {
+        "content": "Adding \n- Slider",
+        "mime": "text/markdown"
+      },
+      "id": "7",
+      "references": [],
+      "title": "Promo styling"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Update",
+      "creation_time": "2020-03-25T12:22:27.784Z",
+      "description": {
+        "content": "Change up the Promo Component to feature\n- Narrator \n\t- Name\n    - Image\n    - Albems\n    - followers",
+        "mime": "text/markdown"
+      },
+      "id": "9",
+      "references": [],
+      "title": "Promo_Narrator"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:50:00.992Z",
+      "description": {
+        "content": "A page that shows most trending audios",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Top Audio Books"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature",
+      "creation_time": "2020-04-13T04:44:08.894Z",
+      "description": {
+        "content": "Add\n- Animation to the progressbar ",
+        "mime": "text/markdown"
+      },
+      "id": "21",
+      "prio": 1,
+      "references": [],
+      "title": "Play Progress Animation"
+    }
+  ]
+}

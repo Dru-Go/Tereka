@@ -1,41 +1,21 @@
-const FINAL_STATE = [
-  {
-    Image: './book1.png',
-    Title: "Babushka's Journey",
-    Author: 'Marry Bay',
-    Stars: 3,
-  },
-  {
-    Image: './book1.png',
-    Title: "Babushka's Journey",
-    Author: 'Marry Bay',
-    Stars: 3,
-  },
-  {
-    Image: './book1.png',
-    Title: "Babushka's Journey",
-    Author: 'Marry Bay',
-    Stars: 3,
-  },
-];
-
 function filterReducer(state, action) {
-  console.log('ACTION CALLED IS ', action.type)
+  console.log('ACTION CALLED IS ', action.type);
+  const audios = action.value;
   switch (action.type) {
     case 'BUSINESS':
-      return FINAL_STATE; // TODO return a list of BUSINESS related Audios
+      return audios.filter(audio => audio.Type === 'Business');
     case 'HISTORY':
-      return FINAL_STATE; // TODO return a list of HISTORY related Audios
+      return audios.filter(audio => audio.Type === 'History');
     case 'ECONOMY':
-      return FINAL_STATE; // TODO return a list of ECONOMY related Audios
+      return audios.filter(audio => audio.Type === 'Economy');
     case 'FICTION':
-      return FINAL_STATE; // TODO return a list of FICTION related Audios
+      return audios.filter(audio => audio.Type === 'Fiction');
     case 'FANTACY':
-      return FINAL_STATE; // TODO return a list of FANTACY related Audios
+      return audios.filter(audio => audio.Type === 'Fantacy');
     case 'PHILOSOPY':
-      return FINAL_STATE; // TODO return a list of PHYLOSOPY related Audios
+      return audios.filter(audio => audio.Type === 'Philosophy');
     default:
-      return FINAL_STATE; // TODO return all the list of audios
+      return audios;
   }
 }
 

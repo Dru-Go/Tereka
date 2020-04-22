@@ -34,14 +34,6 @@
   font-weight: 700;
 }
 
-.a8uyt {
-  fill: url(#a);
-}
-
-.b8uyt {
-  fill: #a4e6dd;
-}
-
 .clogo8uyt {
   filter: url(#d);
 }
@@ -61,12 +53,52 @@
 }
 
 .play {
-	display: grid;
-	background: rgba(255, 255, 255, 0.3);
-	height: 100%;
-	backdrop-filter: blur(3px);
+  display: grid;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(3px);
 }
 .menu-back {
-	background-color: #0BCDBA;
+  background-color: #0bcdba;
 }
 
+.color1 {
+  color: #a4e6dd;
+}
+.color1:hover {
+  color: #a4e6dd;
+}
+
+.bg-light-blue {
+  background-color: #a4e6dd;
+}
+
+.bg-dark-blue {
+  background-color: #29b9a4;
+}
+
+/* Audio Control SVG */
+.a24,
+.b24 {
+  fill: #0a4b41;
+}
+
+.b24 {
+  font-size: 11px;
+  font-family: SegoeUI-Bold, Segoe UI;
+  font-weight: 700;
+}
+/* End Audio Control SVG */
+
+.drag {
+  width: 12px;
+  height: 12px;
+  margin-top: -4px;
+  margin-left: -3px;
+}
+
+.animating-width {
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
+}

@@ -1,0 +1,11 @@
+.bg-darkPurple {
+  background-color: #d4e6e4;
+}
+
+.hover\:bg-darkPurple:hover {
+  background-color: #bad6d3;
+}
+
+.h-side {
+  height: 400px;
+}

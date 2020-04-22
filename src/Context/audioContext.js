@@ -1,18 +1,52 @@
-// TODO here we define an audio that store the last played record of an audio in cache
+import React, {useState, useEffect, createContext} from 'react';
+import {useQuery} from '@apollo/react-hooks';
+import {RECENT_PLAY} from '../Graphql/query';
+import {Howl} from 'howler';
 
-import React, {useState, createContext} from 'react';
-
-export const PlayContext = createContext();
+export const AudioContext = createContext();
 
 export const PlayProvider = props => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [curplay, setplay] = useState(null);
+  const [curPlay, setCurPlay] = useState(null);
+  const [duration, setDuration] = useState();
+  const [curTime, setCurTime] = useState();
+  const [playing, setPlaying] = useState(false);
+  const {error, data} = useQuery(RECENT_PLAY, {
+    variables: {uid: 'hash1'},
+  });
+
+  if (error) {
+    console.log(error);
+  }
+
+  useEffect(() => {
+    if (data) {
+      setCurPlay(data.recentPlay);
+    }
+  }, [data]);
+
+  const [sound, setSound] = useState(
+    new Howl({
+      src: [curPlay ? curPlay.Url : 'song.mp3']
+    })
+  );
+  sound.html5 = true
 
   return (
-    <PlayContext.Provider value={[curplay, setplay]}>
+    <AudioContext.Provider
+      value={[
+        curTime,
+        setCurTime,
+        duration,
+        setDuration,
+        playing,
+        setPlaying,
+        curPlay,
+        setCurPlay,
+        sound,
+        setSound,
+      ]}
+    >
       {props.children}
-    </PlayContext.Provider>
+    </AudioContext.Provider>
   );
 };
-
-

@@ -1,0 +1,13 @@
+.aMiniPlay {
+  fill: #9cd9d9;
+}
+.bMiniPlay,
+.cMiniPlay {
+  stroke: none;
+}
+.cMiniPlay {
+  fill: #9cd9d9;
+}
+.apause1 {
+	fill: #9cd9d9;
+  }

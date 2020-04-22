@@ -1,0 +1,24 @@
+.aback1 {
+  fill: #9cd9d9;
+}
+.apause1 {
+  fill: #9cd9d9;
+}
+.aforward1 {
+  fill: #9cd9d9;
+}
+.avolume1 {
+  fill: #9cd9d9;
+}
+.miniPlay {
+  border-radius: 14px 14px 0px 0px;
+  background: rgb(253, 253, 253, 12%);
+  backdrop-filter: blur(0px);
+}
+
+.animating-width {
+  -moz-transition: width 0.3s ease-out;
+  -o-transition: width 0.3s ease-out;
+  -webkit-transition: width 0.3s ease-out;
+  transition: width 0.3s ease-out;
+}

@@ -1,19 +1,21 @@
 import React, {useContext} from 'react';
 import Input from '../../Views/input/input';
 import Logo from '../../Views/logo/logo';
-import FormValdation from '../formValidation';
-import ValidateAuth from './validate'
+import useFormValdation from '../../Hooks/useformValidation';
+import ValidateAuth from './validate';
 
 import {ThemeContext} from '../../Context/themeContext';
 import ThemeToggle from '../themeChanger';
 
-// Border animation
-// Tick Icon
-// on Error/Success status
-// Button Disable/Enable
-// Loading animation
-// Dark Mode with animation
-// Error Handling
+
+// TODO: UI features
+// 1. Border animation
+// 2. Tick Icon
+// 3. on Error/Success status
+// 4. Button Disable/Enable
+// 5. Loading animation
+// 6. Dark Mode with animation
+// 7. Error Handling
 
 const INITIAL_STATE = {
   email: '',
@@ -30,7 +32,7 @@ const SignUp = () => {
     values,
     errors,
     isSubmitting,
-  } = FormValdation(INITIAL_STATE, ValidateAuth);
+  } = useFormValdation(INITIAL_STATE, ValidateAuth);
 
   const [, curTheme] = useContext(ThemeContext);
 
@@ -51,7 +53,7 @@ const SignUp = () => {
             title="Email"
             type="email"
             name="email"
-            placeholder="druMac2@gmail.com"
+            placeholder="email@mail.com"
             error={errors.email}
             focused={focus === 'email'}
             handleChange={handleChange}

@@ -5,7 +5,7 @@ import Logo from '../../Views/logo/logo';
 import {ThemeContext} from '../../Context/themeContext';
 import ThemeToggle from '../themeChanger';
 
-import FormValdation from '../formValidation';
+import useFormValdation from '../../Hooks/useformValidation'
 import ValidateAuth from './validate'
 
 const INITIAL_STATE = {
@@ -13,7 +13,7 @@ const INITIAL_STATE = {
   password: '',
 };
 
-const signIn = (props) => {
+const SignIn = (props) => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [, curTheme] = useContext(ThemeContext);
 
@@ -26,7 +26,7 @@ const signIn = (props) => {
     values,
     errors,
     isSubmitting,
-  } = FormValdation(INITIAL_STATE, ValidateAuth);
+  } = useFormValdation(INITIAL_STATE, ValidateAuth);
 
 
   return (
@@ -81,4 +81,4 @@ const signIn = (props) => {
   );
 };
 
-export default signIn;
+export default SignIn;
