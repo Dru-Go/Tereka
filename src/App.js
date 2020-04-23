@@ -19,7 +19,7 @@ import {ApolloProvider} from '@apollo/react-hooks';
 // Paused adding a route to the dashboards
 
 const httpLink = createHttpLink({
-  uri: 'https://tereka-graphql-server.herokuapp.com/query',
+  uri: 'http://localhost:8080/query',
 });
 
 const client = new ApolloClient({
