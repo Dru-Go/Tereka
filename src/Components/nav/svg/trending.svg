@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12.238" height="12.238" viewBox="0 0 10.238 10.238">
+	<def>
+		<style>
+			.inActiveSVG {
+				fill: #d4e6e4;
+			}
+		</style>
+	</def>
+	<path class="inActiveSVG" d="M12.1,3H4.138A1.141,1.141,0,0,0,3,4.138V12.1a1.141,1.141,0,0,0,1.138,1.138H12.1A1.141,1.141,0,0,0,13.238,12.1V4.138A1.141,1.141,0,0,0,12.1,3ZM6.413,10.963H5.275V6.981H6.413Zm2.275,0H7.55V5.275H8.688Zm2.275,0H9.825V8.688h1.138Z" transform="translate(-3 -3)" />
+</svg>
+

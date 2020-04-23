@@ -3,9 +3,9 @@ import {useMutation} from '@apollo/react-hooks';
 import {PLAYLISTS_AUDIOS} from '../../../Graphql/query';
 import {ADDTO_PLAYLIST} from '../../../Graphql/mutations';
 import Loading from '../../../Views/loading/loading';
+import folderSVG from '../svg/folders.svg';
 
-
-const List = ({setActive, title, Svg, Id, audioID}) => {
+const List = ({setActive, title, Id, audioID}) => {
   const [AddToPlaylist, {loading, error}] = useMutation(ADDTO_PLAYLIST, {
     update(cache, {data: {AddToPlaylist}}) {
       const data = cache.readQuery({
@@ -37,7 +37,7 @@ const List = ({setActive, title, Svg, Id, audioID}) => {
   return (
     <li class="hover:bg-green-300" onClick={handleClick}>
       <div class="flex items-center p-2 border-b">
-        <Svg />
+        <img src={folderSVG} alt="folderSVG" />
         <div class="ml-2 text-gray-700 font-medium text-sm">{title} </div>
         {loading ? <Loading /> : null}
       </div>
@@ -45,4 +45,4 @@ const List = ({setActive, title, Svg, Id, audioID}) => {
   );
 };
 
-export default List
+export default List;

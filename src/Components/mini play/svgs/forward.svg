@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="17.5" height="12" viewBox="0 0 17.5 12">
+	<def>
+		<style>
+			.aforward1 {
+				fill: #9cd9d9;
+			}
+		</style>
+	</def>
+	<path class="aforward1" d="M4,18l8.5-6L4,6ZM13,6V18l8.5-6Z" transform="translate(-4 -6)" />
+</svg>

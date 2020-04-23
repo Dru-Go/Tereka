@@ -66,78 +66,11 @@
   color: var(--color1);
 }
 
-/* Svg LOGO */
-.alogo,
-.blogo,
-.clogo,
-.elogo {
-  fill: none;
-  stroke-width: 1px;
-}
 
-.alogo {
-  stroke: #5d45f9;
-}
-
-.alogo,
-.blogo {
-  stroke-width: 1px;
-}
-
-.blogo {
-  stroke: #5b45f2;
-}
-
-.dlogo,
-.flogo {
-  stroke: none;
-}
-
-.flogo {
-  fill: #5b45f2;
-}
-
-.elogo {
-}
-
-/* END Svg LOGO */
-
-/* Search SVG */
-.searchIcon {
-  fill: #95989a;
-}
-
-/* END Search SVG */
-
-/* Notification SVG */
-.a_notify {
-  fill: #948686;
-}
-
-.b_notify {
-  fill: #0f8775;
-}
-
-.c_notify {
-  fill: #dedede;
-  font-size: 12px;
-  font-family: HelveticaRounded-Bold, Helvetica Rounded;
-  font-weight: 700;
-}
-
-/* END Notification SVG */
-
-/* Star SVG */
-.aStar {
-  fill: #0f8775;
-}
 
 /*END Star SVG */
 
-/* Dropdown SVG */
-.a_dropdown {
-  fill: #d2cdcd;
-}
+
 
 /* END Dropdown SVG */
 
@@ -147,11 +80,7 @@
 }
 /* End Bookmark and Like SVG */
 
-/* Back SVG */
-.aw {
-  fill: #125a4f;
-}
-/* End Back SVG */
+
 
 
 
@@ -168,10 +97,7 @@
 /* End Side SVGs */
 
 /* Filter SVGs */
-/* Item Display alarge */
-.alarge {
-  fill: #abacac;
-}
+
 /* End Item Display alarge */
 
 /* Item Display alist */

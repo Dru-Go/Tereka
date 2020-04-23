@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="7" viewBox="0 0 12 7.41">
+	<def>
+		<style>
+				/* Dropdown SVG */
+				.a_dropdown {
+					fill: #d2cdcd;
+				}
+		</style>
+	</def>
+	<path class="a_dropdown" d="M16.59,8.59,12,13.17,7.41,8.59,6,10l6,6,6-6Z" transform="translate(-6 -8.59)" />
+</svg>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="14" height="13" viewBox="0 0 16 15.999">
+	<def>
+		<style>
+			/* Item Display alarge */
+			.alarge {
+				fill: #abacac;
+			}
+		</style>
+	</def>
+	<path class="alarge" d="M11,16a2,2,0,0,1-2-2V11a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2v3a2,2,0,0,1-2,2Zm0-2h3V11H11ZM2,16a2,2,0,0,1-2-2V11A2,2,0,0,1,2,9H5a2,2,0,0,1,2,2v3a2,2,0,0,1-2,2Zm0-2H5V11H2Zm9-7A2,2,0,0,1,9,5V2a2,2,0,0,1,2-2h3a2,2,0,0,1,2,2V5a2,2,0,0,1-2,2Zm0-2h3V2H11ZM2,7A2,2,0,0,1,0,5V2A2,2,0,0,1,2,0H5A2,2,0,0,1,7,2V5A2,2,0,0,1,5,7ZM2,5H5V2H2Z" transform="translate(16 15.999) rotate(180)" />
+</svg>

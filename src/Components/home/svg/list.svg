@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="12" height="10" viewBox="0 0 12 10">
+	<def>
+		<style>
+			/* Item Display alarge */
+			.alist {
+				fill: #abacac;
+			}
+		</style>
+	</def>
+	<path class="alist" d="M1,10A1,1,0,0,1,1,8H11a1,1,0,0,1,0,2ZM1,6A1,1,0,0,1,1,4H11a1,1,0,0,1,0,2ZM1,2A1,1,0,0,1,1,0H11a1,1,0,0,1,0,2Z" transform="translate(12 10) rotate(180)" />
+</svg>

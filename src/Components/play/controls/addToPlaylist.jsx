@@ -18,10 +18,9 @@ const AddToPlaylist = ({audioID}) => {
   };
 
   return (
-    <div class="p-4 cursor-pointer color1 rounded-full" onClick={handleClick}>
-      <svg width="25" height="23" viewBox="0 0 19.685 25.309">
+    <div class="p-4 cursor-pointer hover:text-green-500 text-green-300 rounded-full" onClick={handleClick}>
+      <svg width="25" height="23" class="fill-current" viewBox="0 0 19.685 25.309">
         <path
-          class="fill-current"
           d="M21.872,3H7.812a2.808,2.808,0,0,0-2.8,2.812L5,28.309l9.842-4.218,9.842,4.218V5.812A2.82,2.82,0,0,0,21.872,3Zm0,21.091-7.03-3.065-7.03,3.065V5.812h14.06Z"
           transform="translate(-5 -3)"
         />
@@ -68,22 +67,11 @@ const Add = ({active, setActive, audioID}) => {
             setSelected={setSelected}
             title={playlist.Name}
             Id={playlist.Id}
-            Svg={svg}
             audioID={audioID}
           />
         ))}
       </ul>
     </>
-  );
-};
-
-const svg = () => {
-  return (
-    <div class="text-green-800">
-      <svg class="fill-current" width="16" height="14" viewBox="0 0 16 14">
-        <path d="M14,2H9.236l-.447-.895A2,2,0,0,0,7,0H2A2,2,0,0,0,0,2V12a2,2,0,0,0,2,2H14a2,2,0,0,0,2-2V4A2,2,0,0,0,14,2ZM11,5.05V7.5a.5.5,0,0,1-1,0V4h1ZM14,12H2V2H7L8,4V7.5a2.5,2.5,0,0,0,2,2.45,2.526,2.526,0,0,0,1,0A2.5,2.5,0,0,0,13,7.5V4h1Z" />
-      </svg>
-    </div>
   );
 };
 

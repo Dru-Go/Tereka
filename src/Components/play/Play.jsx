@@ -1,5 +1,4 @@
-import React, {useContext} from 'react';
-import './play_style.css';
+import React, {useContext,useEffect} from 'react';
 import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
@@ -8,11 +7,14 @@ import Sad from '../error/sad';
 import {PLAY_AUDIOS} from '../../Graphql/query';
 import {AudioContext} from '../../Context/audioContext';
 import {useQuery} from '@apollo/react-hooks';
+import {Link} from 'react-router-dom';
 import {Howl} from 'howler';
 import Fav from './controls/addToFav';
 import AddToPlaylist from './controls/addToPlaylist';
 import usePageTitle from '../../Hooks/usePageTitle';
-import {useEffect} from 'react';
+import forward from './svg/forwardP.svg';
+import prev from './svg/prevP.svg';
+import back from './svg/back.svg';
 
 const styles = {
   inFav:
@@ -45,10 +47,11 @@ const Player = ({match}) => {
   ] = useContext(AudioContext);
 
   useEffect(() => {
-    if (audioId !== 'current') {
+    console.log('Audio ID is ', audioId);
+    if (audioId !== ':id') {
       if (data && data.play_Audio) {
         setCurPlay(data.play_Audio);
-        sound.pause();
+        sound.stop();
         setSound(
           new Howl({
             src: [data.play_Audio.Url],
@@ -84,15 +87,11 @@ const Player = ({match}) => {
       <div class="bord play-img border-gray-400">
         <div class="p-10 flex items-center justify-between">
           <div>
-            <div class="p-4 rounded-full">
-              <svg width="14" height="14" viewBox="0 0 16 16">
-                <path
-                  class="aw "
-                  d="M20,11H7.83l5.59-5.59L12,4,4,12l8,8,1.41-1.41L7.83,13H20Z"
-                  transform="translate(-4 -4)"
-                />
-              </svg>
-            </div>
+            <Link to="/">
+              <div class="p-4 hover:bg-green-200 rounded-full">
+                <img src={back} alt="backSVG" />
+              </div>
+            </Link>
           </div>
           <div className={styles.narrator}>Narrator: {curPlay.Narrator}</div>
         </div>
@@ -116,12 +115,7 @@ const Player = ({match}) => {
         <div class="bord flex items-center mt-16">
           <div class="flex items-center ml-40 w-70p justify-center">
             <div class="cursor-pointer">
-              <svg class="w-8 h-8 b8uyt" viewBox="0 0 17.5 12">
-                <path
-                  d="M11,18V6L2.5,12Zm.5-6L20,18V6Z"
-                  transform="translate(-2.5 -6)"
-                />
-              </svg>
+              <img src={prev} alt="prevSVG" />
             </div>
             {playing ? (
               <Play setPlay={setPlaying} />
@@ -129,12 +123,7 @@ const Player = ({match}) => {
               <Pause setPlay={setPlaying} />
             )}
             <div class="cursor-pointer">
-              <svg class="w-8 h-8 b8uyt" viewBox="0 0 17.5 12">
-                <path
-                  d="M4,18l8.5-6L4,6ZM13,6V18l8.5-6Z"
-                  transform="translate(-4 -6)"
-                />
-              </svg>
+              <img src={forward} alt="forwardSVG" />
             </div>
           </div>
         </div>

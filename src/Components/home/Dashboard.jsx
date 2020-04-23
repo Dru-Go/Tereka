@@ -16,7 +16,6 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import usePageTitle from '../../Hooks/usePageTitle';
 
 const Dashboard = () => {
-
   usePageTitle('Audiobook Player');
 
   const filters = [
@@ -30,9 +29,9 @@ const Dashboard = () => {
   return (
     <PlayProvider>
       <Router>
-        <div class="wrapper">
+        <div class="wrapper overflow-y-hidden">
           <Route path="/" component={Side} />
-          <div class="main">
+          <div class="main overflow-y-auto">
             <Route path="/" component={Header} />
             <Route path="/" exact component={MidPromos} />
             <Route path={['/', ...filters]} exact component={Board} />
