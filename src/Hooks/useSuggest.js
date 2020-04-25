@@ -30,7 +30,7 @@ const useSuggest = history => {
 
 
   const [AddSuggestion] = useMutation(NEW_SUGGESTION, {
-    update(cache, {data: {AddSuggestion}}) {
+    update(cache, {data: {suggestions}}) {
       const data = cache.readQuery({
         query: SUGGESTIONS,
       });
@@ -39,7 +39,7 @@ const useSuggest = history => {
 
       cache.writeQuery({
         query: SUGGESTIONS,
-        data: {suggestions: [AddSuggestion, ...data.suggestions]},
+        data: {suggestions: [suggestions, ...data.suggestions]},
       });
     },
   });

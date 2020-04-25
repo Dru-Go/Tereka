@@ -1,23 +1,21 @@
-import React, {useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import Input from '../../Views/input/input';
 import Logo from '../../Views/logo/logo';
-
+import {useApolloClient} from '@apollo/react-hooks';
+import {SIGNIN} from '../../Graphql/query';
 import {ThemeContext} from '../../Context/themeContext';
 import ThemeToggle from '../themeChanger';
 
-import useFormValdation from '../../Hooks/useformValidation'
-import ValidateAuth from './validate'
+import useFormValdation from '../../Hooks/useformValidation';
+import useLocalStorage from '../../Hooks/useLocalStorage';
+import ValidateAuth from './validate';
 
 const INITIAL_STATE = {
   email: '',
   password: '',
 };
 
-const SignIn = (props) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [, curTheme] = useContext(ThemeContext);
-
-
+const SignIn = () => {
   const {
     handleChange,
     handleSubmit,
@@ -28,7 +26,35 @@ const SignIn = (props) => {
     isSubmitting,
   } = useFormValdation(INITIAL_STATE, ValidateAuth);
 
+  const {localState, setLoc} = useLocalStorage('auth');
 
+  const client = useApolloClient();
+
+  const [, curTheme] = useContext(ThemeContext);
+
+  useEffect(() => {
+    if (isSubmitting) {
+      const noErrors = Object.keys(errors).length === 0;
+      if (noErrors) {
+        const caller = async () => {
+          const {data} = await client.query({
+            query: SIGNIN,
+            variables: values,
+          });
+          if (data) {
+            console.log('Data is ', data.signIn);
+            setLoc(data.signIn);
+            console.log('Local state is ', localState);
+          }
+        };
+        caller();
+      }
+    }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errors]);
+
+  
   return (
     <div
       className="p-10 h-screen"

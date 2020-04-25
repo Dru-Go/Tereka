@@ -23,6 +23,18 @@ const ALL_PLAYLISTS = gql`
   }
 `;
 
+const SIGNIN = gql`
+  query SIGNIN($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
+      UserId
+      AccountId
+      Role
+      Token
+      Status
+    }
+  }
+`;
+
 const PLAYLISTS_AUDIOS = gql`
   query PLAYLISTS_AUDIOS($uid: String!, $pid: String!) {
     playlist_Audios(uid: $uid, pid: $pid) {
@@ -133,11 +145,25 @@ const AUTHOR_DETAILS = gql`
 // Narrator Details
 const NARRATOR_DETAILS = gql`
   query NARRATOR_DETAILS($id: String!) {
-    name
-    image
-    type
-    followers
-    published_books
+    details_Narrator(id: $id) {
+      User {
+        Id
+        Name
+        ImageURL
+        Type {
+          Type
+        }
+      }
+      Followers
+      Audios {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+      }
+    }
   }
 `;
 
@@ -174,6 +200,7 @@ const SEARCH_NARRATOR = gql`
 `;
 
 export {
+  SIGNIN,
   SEARCH_AUDIO,
   SEARCH_NARRATOR,
   SEARCH_AUTHOR,

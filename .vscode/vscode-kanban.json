@@ -20,6 +20,21 @@
       "assignedTo": {
         "name": "Dre"
       },
+      "category": "Feature",
+      "creation_time": "2020-04-13T04:44:08.894Z",
+      "description": {
+        "content": "Add\n- Animation to the progressbar ",
+        "mime": "text/markdown"
+      },
+      "id": "21",
+      "prio": 1,
+      "references": [],
+      "title": "Play Progress Animation"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
       "category": "Feature Component, and a Resolver",
       "creation_time": "2020-03-25T05:29:17.882Z",
       "description": {
@@ -117,6 +132,20 @@
       "prio": 0,
       "references": [],
       "title": "Mini Player"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T06:10:21.174Z",
+      "description": {
+        "content": "Adding \n- Slider",
+        "mime": "text/markdown"
+      },
+      "id": "7",
+      "references": [],
+      "title": "Promo styling"
     }
   ],
   "in-progress": [
@@ -134,6 +163,21 @@
       "prio": 1,
       "references": [],
       "title": "GraphQL Schema and Resolvers"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:53:55.959Z",
+      "description": {
+        "content": "A page that shows recent plays with there time lines",
+        "mime": "text/markdown"
+      },
+      "id": "3",
+      "prio": 1,
+      "references": [],
+      "title": "History"
     },
     {
       "assignedTo": {
@@ -163,6 +207,20 @@
       "id": "8",
       "references": [],
       "title": "Items-styling"
+    },
+    {
+      "assignedTo": {
+        "name": "Dre"
+      },
+      "category": "Feature Component",
+      "creation_time": "2020-03-25T04:50:00.992Z",
+      "description": {
+        "content": "A page that shows most trending audios",
+        "mime": "text/markdown"
+      },
+      "id": "1",
+      "references": [],
+      "title": "Top Audio Books"
     }
   ],
   "testing": [
@@ -197,21 +255,6 @@
     }
   ],
   "todo": [
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature Component",
-      "creation_time": "2020-03-25T04:53:55.959Z",
-      "description": {
-        "content": "A page that shows recent plays with there time lines",
-        "mime": "text/markdown"
-      },
-      "id": "3",
-      "prio": 1,
-      "references": [],
-      "title": "History"
-    },
     {
       "assignedTo": {
         "name": "Dre"
@@ -260,20 +303,6 @@
       "assignedTo": {
         "name": "Dre"
       },
-      "category": "Feature Component",
-      "creation_time": "2020-03-25T06:10:21.174Z",
-      "description": {
-        "content": "Adding \n- Slider",
-        "mime": "text/markdown"
-      },
-      "id": "7",
-      "references": [],
-      "title": "Promo styling"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
       "category": "Feature Update",
       "creation_time": "2020-03-25T12:22:27.784Z",
       "description": {
@@ -283,35 +312,6 @@
       "id": "9",
       "references": [],
       "title": "Promo_Narrator"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature Component",
-      "creation_time": "2020-03-25T04:50:00.992Z",
-      "description": {
-        "content": "A page that shows most trending audios",
-        "mime": "text/markdown"
-      },
-      "id": "1",
-      "references": [],
-      "title": "Top Audio Books"
-    },
-    {
-      "assignedTo": {
-        "name": "Dre"
-      },
-      "category": "Feature",
-      "creation_time": "2020-04-13T04:44:08.894Z",
-      "description": {
-        "content": "Add\n- Animation to the progressbar ",
-        "mime": "text/markdown"
-      },
-      "id": "21",
-      "prio": 1,
-      "references": [],
-      "title": "Play Progress Animation"
     }
   ]
 }

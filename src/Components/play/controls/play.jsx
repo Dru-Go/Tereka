@@ -1,6 +1,6 @@
 import React from 'react';
 
-import playSVG from '../svg/playP.svg' 
+import playSVG from '../svg/pauseP.svg' 
 const playControl = ({setPlay}) => {
   //Play and Pause
   const playNow = () => {

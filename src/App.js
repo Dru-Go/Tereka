@@ -14,9 +14,7 @@ import {Route} from 'react-router-dom';
 import ApolloClient from 'apollo-client';
 import {InMemoryCache} from 'apollo-cache-inmemory';
 import {ApolloProvider} from '@apollo/react-hooks';
-// import routes from './Components/routes'
 
-// Paused adding a route to the dashboards
 
 const httpLink = createHttpLink({
   uri: 'http://localhost:8080/query',

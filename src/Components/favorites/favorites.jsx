@@ -13,7 +13,7 @@ const styles = {
   toggled:
     'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-red-300 cursor-pointer',
   UnToggled:
-    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-gray-200 hover:bg-red-300 cursor-pointer',
+    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-gray-200 hover:bg-red-200 cursor-pointer',
 };
 
 const Favorites = () => {
@@ -58,7 +58,7 @@ const Favorites = () => {
             Remove
           </div>
         </div>
-        <div class="flex mt-8 items-center">
+        <div class="grid grid-cols-3 gap-5 mt-8 items-center">
           {data.fav_Audios.map(state => (
             <>
               <Card state={state} toggleRemove={toggleRemove} />

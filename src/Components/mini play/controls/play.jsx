@@ -1,5 +1,5 @@
 import React from 'react';
-import playSVG from '../svgs/play.svg';
+import playSVG from '../svgs/pause.svg';
 
 const play = ({setPlay}) => {
   //Play and Pause

@@ -32,7 +32,7 @@ const SignUp = () => {
     values,
     errors,
     isSubmitting,
-  } = useFormValdation(INITIAL_STATE, ValidateAuth);
+  } = useFormValdation(INITIAL_STATE, ValidateAuth,"SignUp");
 
   const [, curTheme] = useContext(ThemeContext);
 
@@ -49,6 +49,30 @@ const SignUp = () => {
           Register
         </div>
         <div class="mt-10">
+          <Input
+            title="First Name"
+            type="text"
+            name="fname"
+            placeholder="Homer"
+            error={errors.fname}
+            focused={focus === 'fname'}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            value={values.fname}
+            style={{color: curTheme.textColor}}
+          />
+          <Input
+            title="Last Name"
+            type="text"
+            name="lname"
+            placeholder="Homer"
+            error={errors.lname}
+            focused={focus === 'lname'}
+            handleChange={handleChange}
+            handleFocus={handleFocus}
+            value={values.lname}
+            style={{color: curTheme.textColor}}
+          />
           <Input
             title="Email"
             type="email"
