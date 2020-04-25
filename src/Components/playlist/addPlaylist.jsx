@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {useMutation} from '@apollo/react-hooks';
-
+import {AuthContext} from '../../Context/authContext';
 import {NEW_PLAYLIST} from '../../Graphql/mutations';
 import {ALL_PLAYLISTS} from '../../Graphql/query';
+import { Redirect } from 'react-router-dom';
 
 const styles = {
   visble: 'pl-16 text-sm',
@@ -10,30 +11,37 @@ const styles = {
 };
 
 // // Adds to the list of available playlists
-const AddPlaylist = ({active, setActive}) => {
+const AddPlaylist = ({ active, setActive }) => {
+  const context = useContext(AuthContext);
   const [name, setName] = useState('');
   const [NewPlaylist] = useMutation(NEW_PLAYLIST, {
     update(cache, {data: {NewPlaylist}}) {
 
       const data = cache.readQuery({
         query: ALL_PLAYLISTS,
-        variables: {uid: 'hash1'},
+        variables: {uid: context.user.UserId.toString()},
       });
 
       console.log('Cached Query is ', data.all_Playlists);
 
       cache.writeQuery({
         query: ALL_PLAYLISTS,
-        variables: {uid: 'hash1'},
+        variables: {uid: context.user.UserId.toString()},
         data: {all_Playlists: [...data.all_Playlists, NewPlaylist]},
       });
     },
   });
 
+  
+  if (!context.user) {
+    console.log('User has not signed in');
+    return <Redirect to="/signin" />;
+  }
+
   const handleClick = () => {
     // // TODO handle dispatching a new playlist event
     NewPlaylist({
-      variables: {uid: 'hash1', name: name},
+      variables: {uid: context.user.UserId.toString(), name: name},
     });
     setActive(!active);
   };

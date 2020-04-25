@@ -5,7 +5,7 @@ import {useApolloClient} from '@apollo/react-hooks';
 import {SIGNIN} from '../../Graphql/query';
 import {ThemeContext} from '../../Context/themeContext';
 import ThemeToggle from '../themeChanger';
-
+import {AuthContext} from '../../Context/authContext';
 import useFormValdation from '../../Hooks/useformValidation';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 import ValidateAuth from './validate';
@@ -26,7 +26,9 @@ const SignIn = () => {
     isSubmitting,
   } = useFormValdation(INITIAL_STATE, ValidateAuth);
 
-  const {localState, setLoc} = useLocalStorage('auth');
+  const context = useContext(AuthContext);
+
+  const {setLoc} = useLocalStorage('auth');
 
   const client = useApolloClient();
 
@@ -42,9 +44,8 @@ const SignIn = () => {
             variables: values,
           });
           if (data) {
-            console.log('Data is ', data.signIn);
             setLoc(data.signIn);
-            console.log('Local state is ', localState);
+            context.login(data.signIn);
           }
         };
         caller();

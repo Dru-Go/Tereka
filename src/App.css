@@ -142,14 +142,16 @@
   background-color: var(--color1);
   border: none;
   width: 0.45rem;
+  cursor: pointer;
   border-radius: 10px;
   background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
   cursor: pointer;
-  background: var(--color1);
+  background: #9cd9d9;
   border-radius: 2px;
+  
 }
 /* Scroll Bar */
 

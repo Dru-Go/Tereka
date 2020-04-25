@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {useLazyQuery} from '@apollo/react-hooks';
 import {ALL_PLAYLISTS} from '../../../Graphql/query';
 import Loading from '../../../Views/loading/loading';
 import List from './listPlaylists';
+import {AuthContext} from '../../../Context/authContext';
 
 const styles = {
   active:
@@ -12,7 +13,7 @@ const styles = {
 
 const AddToPlaylist = ({audioID}) => {
   const [active, setActive] = useState(false);
-
+  
   const handleClick = () => {
     setActive(!active);
   };
@@ -32,13 +33,13 @@ const AddToPlaylist = ({audioID}) => {
 
 const Add = ({active, setActive, audioID}) => {
   const [selected, setSelected] = useState('');
-
+  const context = useContext(AuthContext);
   const [LoadPlaylists, {loading, error, data}] = useLazyQuery(ALL_PLAYLISTS);
 
   useEffect(() => {
-    if (active) {
+    if (active && context.user) {
       LoadPlaylists({
-        variables: {uid: 'hash1'},
+        variables: {uid: context.user.UserId.toString()},
       });
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

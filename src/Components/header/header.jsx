@@ -1,5 +1,4 @@
 import React, {useState, useContext} from 'react';
-// import './header.style.css'
 import Dropdown from './dropdown';
 import Links from './links';
 import Search from './search/search';
@@ -14,7 +13,7 @@ const styles = {
     'rounded-full w-32  p-1 h-10 mt-2 font-medium color5-bg text-xs flex items-center justify-around',
 };
 
-const Header = ({history}) => {
+const Header = () => {
   const [toggle, setToggle] = useState(false);
   const {user} = useContext(AuthContext);
   console.log('User is ', user);
@@ -40,7 +39,7 @@ const Header = ({history}) => {
           setToggle={setToggle}
         />
       ) : (
-        <UserAbsent history={history} />
+        <UserAbsent/>
       )}
     </div>
   );
@@ -63,7 +62,7 @@ const UserPresent = ({toggle, onToggle, links, setToggle}) => (
   </>
 );
 
-const UserAbsent = ({history}) => (
+const UserAbsent = () => (
   <div className={styles.absent}>
     <a href="/login" className={styles.links}>
       Sign In

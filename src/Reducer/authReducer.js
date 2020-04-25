@@ -1,14 +1,16 @@
-function authReducer(state, action) {
+
+function AuthReducer(state, action) {
   console.log(state, action);
 
   switch (action.type) {
     case 'LOGIN':
-      // HERE WE CALL GRAPHQL 
+
       return {
         ...state,
         user: action.payload,
       };
     case 'LOGOUT':
+      localStorage.setItem('auth', null);
       return {
         ...state,
         user: null,
@@ -18,4 +20,4 @@ function authReducer(state, action) {
   }
 }
 
-export default authReducer
+export default AuthReducer;

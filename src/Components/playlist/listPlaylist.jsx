@@ -1,17 +1,24 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useQuery} from '@apollo/react-hooks';
+import {Redirect} from 'react-router-dom';
 import {ALL_PLAYLISTS} from '../../Graphql/query';
+import AddPlaylistSVG from './svg/addplaylist.svg';
 import {MenuLink, Menu} from '../menu/menuLink';
 import Loading from '../../Views/loading/loading';
-
-const styles = {
-  SvgClass: 'inActiveSVG ',
-};
+import {AuthContext} from '../../Context/authContext';
 
 export default function ListPlaylist() {
+  const context = useContext(AuthContext);
+
   const {loading, error, data} = useQuery(ALL_PLAYLISTS, {
-    variables: {uid: 'hash1'},
+    variables: {uid: context.user.UserId.toString()},
+    skip: context.user === null,
   });
+
+  if (!context.user) {
+    console.log('User has not signed in');
+    return <Redirect to="/signin" />;
+  }
 
   if (error) {
     console.log('Error in the Playlist ', error);
@@ -31,7 +38,7 @@ export default function ListPlaylist() {
 
   return (
     <div>
-      {data.all_Playlists.map(play => (
+      {data.all_Playlists.map((play) => (
         <Playlist name={play.Name} id={play.Id} />
       ))}
     </div>
@@ -44,13 +51,7 @@ function Playlist({id, name}) {
     <div class="pl-16 text-sm">
       <MenuLink to={'/playlist/' + id} exact={true}>
         <Menu title={name}>
-          <svg width="10.727" height="10.727" viewBox="0 0 10.727 10.727">
-            <path
-              className={styles.SvgClass}
-              d="M8.023,14.727H10.7V4H8.023ZM4,14.727H6.682V9.363H4Zm8.045-7.375v7.375h2.682V7.352Z"
-              transform="translate(-4 -4)"
-            />
-          </svg>
+          <img src={AddPlaylistSVG} alt="AddPlaylistSVG" />
         </Menu>
       </MenuLink>
     </div>

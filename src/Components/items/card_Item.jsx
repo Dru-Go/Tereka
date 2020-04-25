@@ -7,7 +7,7 @@ const CardItem = ({state}) => {
       <div class="mx-2 rounded-lg  px-6 zoom-8 cursor-pointer py-4 bg-white flex">
         <div class="w-1/2 cursor-pointer -mt-8">
           <Link to={'/play/' + state.Id}>
-            <img class="rounded m-auto h-56" src={state.ImageURL} alt="" />
+            <img class="rounded m-auto w-40 h-56" src={state.ImageURL} alt="" />
           </Link>
         </div>
         <div class="w-1/2  pl-2">

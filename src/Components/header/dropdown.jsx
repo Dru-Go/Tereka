@@ -1,5 +1,7 @@
 // Here we do some refactoring
-import React from 'react';
+import React, { useContext } from 'react';
+import {AuthContext} from '../../Context/authContext'
+import { withRouter } from 'react-router-dom'
 import './header.style.css'
 
 const styles = {
@@ -8,7 +10,7 @@ const styles = {
   hidden: 'hidden',
 };
 
-const Dropdown = ({active, links, setToggle}) => {
+const Dropdown = ({active, links, setToggle, history}) => {
   return (
     <ul className={active ? styles.active : styles.hidden}>
       {links.map(link => (
@@ -18,21 +20,28 @@ const Dropdown = ({active, links, setToggle}) => {
           redirectPath={link.path}
           Svg={link.Svg}
           extra={link.extra}
+          history={history}
         />
       ))}
     </ul>
   );
 };
 
-const List = ({setActive, redirectPath, title, Svg, extra}) => {
+const List = ({ setActive, redirectPath, title, Svg, extra , history}) => {
+  // const [redirect, setRedirect] = useState(false) 
+  
+  const context = useContext(AuthContext);
+
   const handleClick = () => {
     setActive(false);
-    // Redirect(redirectPath)
-    console.log(redirectPath);
-    if (title === 'Logout') {
-      console.log('Logging out ...');
+    // setRedirect(true)
+    if (title === "Logout") {
+        context.logout()
+        history.push("/")
     }
-  };
+
+  };  
+
 
   return (
     <li class="hover:bg-gray-500" onClick={handleClick}>
@@ -46,4 +55,4 @@ const List = ({setActive, redirectPath, title, Svg, extra}) => {
     </li>
   );
 };
-export default Dropdown;
+export default withRouter(Dropdown);

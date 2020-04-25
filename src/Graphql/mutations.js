@@ -5,39 +5,25 @@ import gql from 'graphql-tag';
  *
  */
 
-// LOGIN
-const SIGNIN_USERMUTATION = gql`
-  mutation SIGNIN_USERMUTATION($email: String!, $password: String!) {
-    signInUser(email: {email: $email, password: $password}) {
-      Auth {
-        token
-        user {
-          id
-          theme
-        }
-      }
-    }
-  }
-`;
-
 // SIGNUP
-const SIGNUP_USERMUTATION = gql`
-  mutation SIGNUP_USERMUTATION(
-    $name: String!
+const SIGNUP = gql`
+  mutation SIGNUP(
+    $firstname: String!
+    $lastname: String!
     $email: String!
     $password: String!
-    $theme: String
   ) {
-    signUpUser(
-      values: {name: $name, email: $email, password: $password, theme: $theme}
+    signUp(
+      firstname: $firstname
+      lastname: $lastname
+      email: $email
+      password: $password
     ) {
-      Auth {
-        token
-        user {
-          id
-          theme
-        }
-      }
+      UserId
+      Status
+      Role
+      Token
+      Status
     }
   }
 `;
@@ -139,8 +125,7 @@ export {
   REMOVE_PLAYLIST,
   ADDTO_PLAYLIST,
   ADDTO_FAVORITES,
-  SIGNIN_USERMUTATION,
-  SIGNUP_USERMUTATION,
+  SIGNUP,
   LIKE,
   FOLLOW,
   NEW_SUGGESTION,

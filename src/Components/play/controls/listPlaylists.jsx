@@ -1,21 +1,23 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useMutation} from '@apollo/react-hooks';
 import {PLAYLISTS_AUDIOS} from '../../../Graphql/query';
 import {ADDTO_PLAYLIST} from '../../../Graphql/mutations';
 import Loading from '../../../Views/loading/loading';
 import folderSVG from '../svg/folders.svg';
+import {AuthContext} from '../../../Context/authContext';
 
 const List = ({setActive, title, Id, audioID}) => {
+  const context = useContext(AuthContext);
   const [AddToPlaylist, {loading, error}] = useMutation(ADDTO_PLAYLIST, {
     update(cache, {data: {AddToPlaylist}}) {
       const data = cache.readQuery({
         query: PLAYLISTS_AUDIOS,
-        variables: {uid: 'hash1', pid: Id},
+        variables: {uid: context.user.UserId.toString(), pid: Id},
       });
 
       cache.writeQuery({
         query: PLAYLISTS_AUDIOS,
-        variables: {uid: 'hash1', pid: Id},
+        variables: {uid: context.user.UserId.toString(), pid: Id},
         data: {playlist_Audios: [...data.playlist_Audios, AddToPlaylist]},
       });
     },
@@ -28,9 +30,17 @@ const List = ({setActive, title, Id, audioID}) => {
 
   const handleClick = () => {
     console.log('Variables are Pid $1 and audioID $2', Id, audioID);
-    AddToPlaylist({
-      variables: {uid: 'hash1', pid: Id, audioID: audioID},
-    });
+
+    if (context.user) {
+      AddToPlaylist({
+        variables: {
+          uid: context.user.UserId.toString(),
+          pid: Id,
+          audioID: audioID,
+        },
+      });
+    }
+
     setActive(false);
   };
 

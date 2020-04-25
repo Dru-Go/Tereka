@@ -1,5 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {useMutation} from '@apollo/react-hooks';
+import {AuthContext} from '../../../Context/authContext';
+
+import {Redirect} from 'react-router-dom';
 
 import {ADDTO_FAVORITES} from '../../../Graphql/mutations';
 import {FAVORITES} from '../../../Graphql/query';
@@ -12,19 +15,21 @@ const styles = {
 
 const Fav = ({audio}) => {
   const [fav, setFav] = useState(false);
-  const [Newfavorites, {error}] = useMutation(ADDTO_FAVORITES,{
-    update(cache, {data: {AddToFavs}}) {
 
+  const context = useContext(AuthContext);
+
+  const [Newfavorites, {error}] = useMutation(ADDTO_FAVORITES, {
+    update(cache, {data: {AddToFavs}}) {
       const data = cache.readQuery({
         query: FAVORITES,
-        variables: {uid: 'hash2'},
+        variables: {uid: context.user.UserId.toString()},
       });
 
       console.log('Cached Query is ', data.fav_Audios);
 
       cache.writeQuery({
         query: FAVORITES,
-        variables: {uid: 'hash2'},
+        variables: {uid: context.user.UserId.toString()},
         data: {fav_Audios: [...data.fav_Audios, AddToFavs]},
       });
     },
@@ -34,12 +39,17 @@ const Fav = ({audio}) => {
     console.log('Error addin favorites ', error);
   }
 
+  if (!context.user) {
+    console.log('User has not signed in');
+    return <Redirect to="/login" />;
+  }
+
   const handleClick = () => {
     setFav(!fav);
 
-    if (!fav && audio !== 'Current') {
+    if (!fav && audio !== 'Current' && context.user) {
       Newfavorites({
-        variables: {uid: 'hash2', id: audio},
+        variables: {uid: context.user.UserId.toString(), id: audio},
       });
     }
   };

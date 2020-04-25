@@ -1,29 +1,26 @@
-import React, {useContext} from 'react';
+import React, {useEffect, useContext} from 'react';
 import Input from '../../Views/input/input';
 import Logo from '../../Views/logo/logo';
 import useFormValdation from '../../Hooks/useformValidation';
 import ValidateAuth from './validate';
-
+import useLocalStorage from '../../Hooks/useLocalStorage';
 import {ThemeContext} from '../../Context/themeContext';
+import {SIGNUP} from '../../Graphql/mutations';
 import ThemeToggle from '../themeChanger';
-
-
-// TODO: UI features
-// 1. Border animation
-// 2. Tick Icon
-// 3. on Error/Success status
-// 4. Button Disable/Enable
-// 5. Loading animation
-// 6. Dark Mode with animation
-// 7. Error Handling
+import {useMutation} from '@apollo/react-hooks';
 
 const INITIAL_STATE = {
+  firstname: '',
+  lastname: '',
   email: '',
   password: '',
   confirmPassword: '',
 };
 
 const SignUp = () => {
+  const [Signup, {data, error}] = useMutation(SIGNUP);
+  const [, curTheme] = useContext(ThemeContext);
+  const {setLoc} = useLocalStorage('auth');
   const {
     handleChange,
     handleSubmit,
@@ -32,9 +29,33 @@ const SignUp = () => {
     values,
     errors,
     isSubmitting,
-  } = useFormValdation(INITIAL_STATE, ValidateAuth,"SignUp");
+  } = useFormValdation(INITIAL_STATE, ValidateAuth);
 
-  const [, curTheme] = useContext(ThemeContext);
+  useEffect(() => {
+    if (isSubmitting) {
+      const noErrors = Object.keys(errors).length === 0;
+      if (noErrors) {
+        Signup({
+          variables: {
+            firstname: values.firstname,
+            lastname: values.lastname,
+            email: values.email,
+            password: values.password,
+          },
+        });
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [errors]);
+
+  if (error) {
+    console.log(error);
+  }
+
+  if (data) {
+    console.log('here is the returned result ', data);
+    setLoc(data.signIn);
+  }
 
   return (
     <div
@@ -52,25 +73,25 @@ const SignUp = () => {
           <Input
             title="First Name"
             type="text"
-            name="fname"
+            name="firstname"
             placeholder="Homer"
             error={errors.fname}
             focused={focus === 'fname'}
             handleChange={handleChange}
             handleFocus={handleFocus}
-            value={values.fname}
+            value={values.firstname}
             style={{color: curTheme.textColor}}
           />
           <Input
             title="Last Name"
             type="text"
-            name="lname"
+            name="lastname"
             placeholder="Homer"
             error={errors.lname}
             focused={focus === 'lname'}
             handleChange={handleChange}
             handleFocus={handleFocus}
-            value={values.lname}
+            value={values.lastname}
             style={{color: curTheme.textColor}}
           />
           <Input

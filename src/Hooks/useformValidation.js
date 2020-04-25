@@ -1,10 +1,10 @@
-import {useState, useContext, useEffect} from 'react';
-import {AuthContext} from '../Context/authContext';
+import {useState, useEffect} from 'react';
+
 
 
 // Custom Hook to handle Signup and Login forms
 const useFormValidaton = (initialState, validate) => {
-  const context = useContext(AuthContext);
+
 
   const [values, setValues] = useState(initialState);
   const [focus, setFocus] = useState('');
@@ -19,8 +19,7 @@ const useFormValidaton = (initialState, validate) => {
         console.log('Autenticated! ', values.email);
         setSubmitting(false);
         setValues(initialState);
-
-        context.login(values);
+      
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -2,12 +2,12 @@ const validateAuth = values => {
   let errors = {};
 
   // Email Errors
-  if (!values.fname) {
+  if (!values.firstname) {
     errors.fname = 'First Name is Required';
   } 
   
   // Email Errors
-  if (!values.lname) {
+  if (!values.lastname) {
     errors.lname = 'Last Name is Required';
   }
   

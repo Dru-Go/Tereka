@@ -66,7 +66,7 @@ const SideNav = () => {
               <img src={listeningSVG} alt="listeningSVG" />
             </Menu>
           </MenuLink>
-          {!user ? (
+          {user ? (
             <>
               <MenuLink to="/following" exact={true}>
                 <Menu title={'Following'}>
@@ -94,7 +94,7 @@ const SideNav = () => {
         </div>
       </div>
       {/* TODO Change back this set */}
-      {!user ? (
+      {user ? (
         <div class="mt-2">
           <div class="flex items-center ">
             <div class="uppercase  pl-12 pb-2 text-sm color-text-menu">
