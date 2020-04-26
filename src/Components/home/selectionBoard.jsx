@@ -7,7 +7,7 @@ const SelectionBoard = () => {
 
   const [orentation, SetOrentation] = useState('Card');
   const [sortBy, setSortBy] = useState('Sort');
-  const [filter, SetFilter] = useState('AUDIOS');
+  const [filter, SetFilter] = useState('NARRATIONS');
  
   return (
     <div class="footer bord ml-6">

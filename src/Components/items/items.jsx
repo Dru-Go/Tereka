@@ -8,7 +8,7 @@ import '../../responsive_grid.css'
 const style = {
   card: 'grid grid-cols-3 gap-5 ',
   list: 'block',
-  title: 'text-lg m-4 font-medium text-gray-500',
+  title: 'text-sm m-4 font-medium text-gray-500',
   body: 'body grid ml-4 mt-6 border mr-3',
 };
 

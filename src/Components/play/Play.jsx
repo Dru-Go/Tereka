@@ -84,7 +84,7 @@ const Player = ({match}) => {
 
   return (
     <>
-      <div class="bord play-img border-gray-400">
+      <div class="border-gray-400">
         <div class="p-10 flex items-center justify-between">
           <div>
             <Link to="/">
@@ -99,8 +99,8 @@ const Player = ({match}) => {
           <img class="m-auto w-1/4 " src={curPlay.ImageURL} alt="" />
         </div>
       </div>
-      <div class="bord play absolute w-80p bottom-0 border">
-        <div class="bord  flex items-start justify-around">
+      <div class="play border">
+        <div class=" flex items-start justify-around">
           <Fav audio={audioId} />
           <div class="">
             <div className={styles.title}>{curPlay.Title}</div>
@@ -112,8 +112,8 @@ const Player = ({match}) => {
 
         {/* playBar */}
         <PlayBar curTime={curTime} duration={duration} />
-        <div class="bord flex items-center mt-16">
-          <div class="flex items-center ml-40 w-70p justify-center">
+        <div class="flex items-center mt-10">
+          <div class="flex items-center m-auto w-70p justify-center">
             <div class="cursor-pointer">
               <img src={prev} alt="prevSVG" />
             </div>

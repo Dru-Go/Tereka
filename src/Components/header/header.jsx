@@ -10,7 +10,7 @@ import searchSVG from './svg/search.svg';
 const styles = {
   links: 'hover:underline cursor-pointer hover:font-bold',
   absent:
-    'rounded-full w-32  p-1 h-10 mt-2 font-medium color5-bg text-xs flex items-center justify-around',
+    'rounded-full w-32  p-1 h-10 mt-2 -ml-3 font-medium color5-bg text-xs flex items-center justify-around',
 };
 
 const Header = () => {

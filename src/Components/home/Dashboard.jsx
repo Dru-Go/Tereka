@@ -32,7 +32,7 @@ const Dashboard = () => {
       <Router>
         <div class="wrapper overflow-y-hidden">
           <Route path="/" component={Side} />
-          <div class="main overflow-y-auto">
+          <div class="main overflow-y-auto overflow-x-hidden">
             <Route path="/" component={Header} />
             <Route path="/" exact component={MidPromos} />
             <Route path={['/', ...filters]} exact component={Board} />

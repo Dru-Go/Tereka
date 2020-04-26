@@ -14,6 +14,21 @@ const ALL_AUDIO_ITEMS = gql`
   }
 `;
 
+
+const POPULAR = gql`
+  query POPULAR {
+    popular {
+      Id
+      Title
+      ImageURL
+      Type
+      Author
+      Narrator
+      Likes
+    }
+  }
+`;
+
 const ALL_PLAYLISTS = gql`
   query ALL_PLAYLISTS($uid: String!) {
     all_Playlists(uid: $uid) {
@@ -202,6 +217,7 @@ const SEARCH_NARRATOR = gql`
 export {
   SIGNIN,
   SEARCH_AUDIO,
+  POPULAR,
   SEARCH_NARRATOR,
   SEARCH_AUTHOR,
   NARRATOR_DETAILS,
