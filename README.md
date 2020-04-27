@@ -1,5 +1,5 @@
 <center>
-    <img style="width:300px; height:200px; margin:50px" src="./src/Logo.png"  />
+    <img style="width:300px; height:200px; margin:auto; padding:50px" src="./src/Logo.png"  />
 </center>
 
 <center>
@@ -121,4 +121,4 @@ yarn start
 Heroku was used for deployment of the front-end 
 - Frontend  https://intense-fortress-54208.herokuapp.com/
 
-- Dummy backend  https://tereka-graphql-server.herokuapp.com/
+- Dummy graphql backend https://tereka-graphql-server.herokuapp.com/query
