@@ -10,7 +10,7 @@ const styles = {
 
 // is called on input focus
 const SearchTip = ({active, setSearch, selected, setActive}) => {
-  const handleClick = e => {
+  const handleClick = (e) => {
     setSearch(e.target.innerHTML);
     setActive(false);
     //   TODO set Focus to the input
@@ -20,13 +20,14 @@ const SearchTip = ({active, setSearch, selected, setActive}) => {
       <li className={styles.tipLists}>
         <div onClick={handleClick}>/Audio</div>
       </li>
-
+      {/*     
+Not Implemented
       <li className={styles.tipLists}>
         <div onClick={handleClick}>/Author</div>
       </li>
       <li className={styles.tipLists}>
         <div onClick={handleClick}>/Narrator</div>
-      </li>
+      </li> */}
     </ul>
   );
 };

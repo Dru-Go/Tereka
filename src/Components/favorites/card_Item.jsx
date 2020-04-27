@@ -2,35 +2,36 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const CardItem = ({state, toggleRemove}) => {
-
   let stars = [];
   for (let i = 0; i < state.Likes / 6; i++) {
     stars.push(<Star />);
   }
   return (
-    <div class="mx-2 rounded-lg w-1/4 px-6 zoom-8 py-4 bg-white flex">
-      <div class="w-1/2 cursor-pointer -mt-8">
-        <img class="rounded m-auto" src={state.ImageURL} alt="" />
-      </div>
-      <div class="w-1/2  pl-2">
-        <div class="font-helvetica-rounded py-1 cursor-pointer">
-          {state.Title}
+    <Link to={'/play/' + state.Id}>
+      <div class="mx-2 rounded-lg px-6 zoom-8 py-4 bg-white flex">
+        <div class="w-1/2 cursor-pointer -mt-8">
+          <img class="rounded m-auto h-56" src={state.ImageURL} alt="" />
         </div>
-        <Link to={'/details/hash1'}>
-          <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
-            By {state.Author}
+        <div class="w-1/2  pl-2">
+          <div class="font-helvetica-rounded py-1 cursor-pointer">
+            {state.Title}
           </div>
-        </Link>
-        <Link to={'/details/hash2'}>
-          <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
-            Narrated By {state.Narrator}
-          </div>
-        </Link>
+          <Link to={'/details/hash1'}>
+            <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
+              By {state.Author}
+            </div>
+          </Link>
+          <Link to={'/details/hash2'}>
+            <div class="text-xs py-1 font-medium cursor-pointer hover:underline">
+              Narrated By {state.Narrator}
+            </div>
+          </Link>
 
-        <div class="py-1 flex">{stars}</div>
+          <div class="py-1 flex">{stars}</div>
+        </div>
+        {toggleRemove ? <Remove state={state} /> : null}
       </div>
-      {toggleRemove ? <Remove state={state}/> : null}
-    </div>
+    </Link>
   );
 };
 
@@ -52,13 +53,13 @@ const Star = () => (
 );
 
 const Remove = ({state}) => {
-
-  const handleDelete = () => {
-    
-  }
+  const handleDelete = () => {};
 
   return (
-    <div class="text-center p-3 border-b rounded-full h-10 bg-gray-200 hover:bg-red-300 cursor-pointer" onClick={handleDelete}>
+    <div
+      class="text-center p-3 border-b rounded-full h-10 bg-gray-200 hover:bg-red-300 cursor-pointer"
+      onClick={handleDelete}
+    >
       <svg width="16" height="16" viewBox="0 0 16 16">
         <path
           class="a_remove"

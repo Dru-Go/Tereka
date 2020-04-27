@@ -14,13 +14,13 @@ const PlayBar = ({ duration, curTime }) => {
 
 
   return (
-    <>
-      <div class=" ml-12 mr-20 text-xs flex items-center justify-between">
+    <div class="w-full">
+      <div class=" mx-12 text-xs flex items-center justify-between">
         <div>{formatDuration(curTime)}</div>
         <div>{formatDuration(duration)}</div>
       </div>
       <div
-        class="mt-1 ml-12 h-1 w-90p cursor-pointer bg-light-blue"
+        class="mt-1 mx-12 h-1 cursor-pointer bg-light-blue"
         id="timeline"
       >
         <div class="flex">
@@ -34,7 +34,7 @@ const PlayBar = ({ duration, curTime }) => {
           ></div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

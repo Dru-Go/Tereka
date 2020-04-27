@@ -14,11 +14,37 @@ const ALL_AUDIO_ITEMS = gql`
   }
 `;
 
+const POPULAR = gql`
+  query POPULAR {
+    popular {
+      Id
+      Title
+      ImageURL
+      Type
+      Author
+      Narrator
+      Likes
+    }
+  }
+`;
+
 const ALL_PLAYLISTS = gql`
   query ALL_PLAYLISTS($uid: String!) {
     all_Playlists(uid: $uid) {
       Id
       Name
+    }
+  }
+`;
+
+const SIGNIN = gql`
+  query SIGNIN($email: String!, $password: String!) {
+    signIn(email: $email, password: $password) {
+      UserId
+      AccountId
+      Role
+      Token
+      Status
     }
   }
 `;
@@ -106,6 +132,22 @@ const RECENT_PLAY = gql`
   }
 `;
 
+// Audio for playing
+const RECENTS = gql`
+  query RECENTS($uid: String!) {
+    recents(uid: $uid) {
+      Narration {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+      }
+    }
+  }
+`;
+
 const FAVORITES = gql`
   query FAVORITES($uid: String!) {
     fav_Audios(uid: $uid) {
@@ -133,50 +175,63 @@ const AUTHOR_DETAILS = gql`
 // Narrator Details
 const NARRATOR_DETAILS = gql`
   query NARRATOR_DETAILS($id: String!) {
-    name
-    image
-    type
-    followers
-    published_books
-  }
-`;
-
-/**
- * searchKey will be a name
- *
- */
-const SEARCH_AUTHOR = gql`
-  query SEARCH_AUTHOR($searchKey: String!) {
-    Authors(filter: {name: $searchKey}) {
-      id
-      image
-      name
-      followers
-      published_books
+    details_Narrator(id: $id) {
+      User {
+        Id
+        Name
+        ImageURL
+        Type {
+          Type
+        }
+      }
+      Followers
+      Audios {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+      }
     }
   }
 `;
 
+
 /**
  * searchKey will be a name
  *
  */
-const SEARCH_NARRATOR = gql`
-  query SEARCH_NARRATOR($searchKey: String!) {
-    Narrators(filter: {name: $searchKey}) {
-      id
-      image
-      name
-      followers
-      published_audios
+const SEARCH_BY_NARRATOR = gql`
+  query SEARCH_BY_NARRATOR($name: String!) {
+    search_By_Narrator(name: $name) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+    }
+  }
+`
+  ;
+const SEARCH_BY_AUTHOR = gql`
+  query SEARCH_BY_AUTHOR($name: String!) {
+    search_By_Author(name: $name) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
     }
   }
 `;
 
 export {
+  SIGNIN,
   SEARCH_AUDIO,
-  SEARCH_NARRATOR,
-  SEARCH_AUTHOR,
+  POPULAR,
+  SEARCH_BY_NARRATOR,
+  SEARCH_BY_AUTHOR,
   NARRATOR_DETAILS,
   AUTHOR_DETAILS,
   PLAYLISTS_AUDIOS,
@@ -187,4 +242,5 @@ export {
   SUGGESTIONS,
   SEARCH_SUGGESTIONS,
   RECENT_PLAY,
+  RECENTS,
 };

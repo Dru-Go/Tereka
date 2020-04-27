@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="21" height="22.5" viewBox="0 0 25 26.5">
+	<def>
+		<style>
+			
+			/* Notification SVG */
+			.a_notify {
+				fill: #948686;
+			}
+
+			.b_notify {
+				fill: #0f8775;
+			}
+
+			.c_notify {
+				fill: #dedede;
+				font-size: 12px;
+				font-family: HelveticaRounded-Bold, Helvetica Rounded;
+				font-weight: 700;
+			}
+
+			/* END Notification SVG */
+		</style>
+	</def>
+	<g transform="translate(-1095 -21)">
+		<path class="a_notify" d="M12,22a2.006,2.006,0,0,0,2-2H10A2,2,0,0,0,12,22Zm6-6V11c0-3.07-1.64-5.64-4.5-6.32V4a1.5,1.5,0,0,0-3,0v.68C7.63,5.36,6,7.92,6,11v5L4,18v1H20V18Z" transform="translate(1091 25.5)" />
+		<g transform="translate(-42 5)">
+			<circle class="b_notify" cx="8.5" cy="8.5" r="8.5" transform="translate(1145 16)" />
+			<text class="c_notify" transform="translate(1150 16)">
+				<tspan x="0" y="12">
+                2
+				</tspan>
+			</text>
+		</g>
+	</g>
+</svg>

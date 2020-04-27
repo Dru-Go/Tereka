@@ -1,42 +1,56 @@
-import React, {useEffect, useReducer} from 'react';
-import DetailReducer from '../../Reducer/detailReducer';
+import React from 'react';
+import ErrorPage from '../error/error';
+import {withRouter} from 'react-router-dom';
+import {useQuery} from '@apollo/react-hooks';
+import {NARRATOR_DETAILS} from '../../Graphql/query';
+import Loading from '../../Views/loading/loading';
+import Sad from '../error/sad';
 import Card from '../items/card_Item';
 
-const INITIALSTATE = {
-  id: '',
-  name: '',
-  type: '',
-  followers: 0,
-  image: '',
-  audios: [],
-};
-
+// Displays only Narrators details
 const Details = ({match}) => {
-  const [detailState, detail_Dispatcher] = useReducer(
-    DetailReducer,
-    INITIALSTATE
-  );
+  const {loading, error, data} = useQuery(NARRATOR_DETAILS, {
+    variables: {id: match.params.id},
+  });
 
-  console.log(detailState);
+  if (error) {
+    console.log('Error in the Favorites ', error);
+    return (
+      <div>
+        <Sad />
+      </div>
+    );
+  }
 
-  useEffect(() => {
-    detail_Dispatcher({type: 'SEARCH', id: match.params.id});
-  },[match.params.id]);
+  if (loading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
+  if (!data || !data.details_Narrator) {
+    return (
+      <div class="mt-32">
+        <ErrorPage status="401" />
+      </div>
+    );
+  }
   return (
     <div class="main_details">
       <div class="">
         <div class="ml-20 lister">
           <div class="">
-            <img src={detailState.image} class="rounded-full" alt="Narrator" />
+            <img src={data.details_Narrator.User.ImageURL} class="rounded-full" alt="Narrator" />
           </div>
           <div class="p-16">
             <div class="text-2xl font-helvetica-rounded">
-              {detailState.name}
+              {data.details_Narrator.User.Name}
             </div>
-            <div class="text-lg italic font-medium">{detailState.type}</div>
-            <div class="mt-4 text-sm">{detailState.followers} Followers</div>
-            <div class="mt-2 text-sm">{detailState.audios.length} Published Audios</div>
+            <div class="text-lg italic font-medium">Narrator</div>
+            <div class="mt-4 text-sm">{data.details_Narrator.Followers} Followers</div>
+            <div class="mt-2 text-sm">{data.details_Narrator.Audios.length} Published Audios</div>
           </div>
           <div class="flex mt-64">
             {/* TODO onClick change the text to following */}
@@ -54,8 +68,8 @@ const Details = ({match}) => {
         <div class="my-5 ml-8 font-helvetica-rounded text-gray-500">
           Published Audios
         </div>
-        <div class="mt-5 ml-5 text-2xl flex items-center font-helvetica-rounded text-gray-600">
-          {detailState.audios.map(audio => (
+        <div class="mt-5 ml-5 text-2xl grid grid-cols-3 gap-5 font-helvetica-rounded text-gray-600">
+          {data.details_Narrator.Audios.map(audio => (
             <Card state={audio} />
           ))}
         </div>
@@ -64,4 +78,4 @@ const Details = ({match}) => {
   );
 };
 
-export default Details;
+export default withRouter(Details);

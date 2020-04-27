@@ -10,17 +10,17 @@ import Playlist from '../playlist/playlistAudios';
 import Top from '../topAudios/trending';
 import Sad from '../error/sad';
 import Favorites from '../favorites/favorites';
+import RecentlyPlayed from '../recent/recentlyPlayed';
 import Suggest from '../suggestions/suggest';
 import {PlayProvider} from '../../Context/audioContext';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import usePageTitle from '../../Hooks/usePageTitle';
 
 const Dashboard = () => {
-
   usePageTitle('Audiobook Player');
 
   const filters = [
-    '/business',
+    '/poem',
     '/history',
     '/economy',
     '/fiction',
@@ -30,9 +30,9 @@ const Dashboard = () => {
   return (
     <PlayProvider>
       <Router>
-        <div class="wrapper">
+        <div class="wrapper overflow-y-hidden">
           <Route path="/" component={Side} />
-          <div class="main">
+          <div class="main overflow-y-auto overflow-x-hidden">
             <Route path="/" component={Header} />
             <Route path="/" exact component={MidPromos} />
             <Route path={['/', ...filters]} exact component={Board} />
@@ -42,6 +42,7 @@ const Dashboard = () => {
             <Route path="/trending" exact component={Top} />
             <Route path="/sad" exact component={Sad} />
             <Route path="/favorites" exact component={Favorites} />
+            <Route path="/recent" exact component={RecentlyPlayed} />
             <Route path="/details/:id" exact component={Details} />
             <Route path="/playlist/:id" exact component={Playlist} />
           </div>

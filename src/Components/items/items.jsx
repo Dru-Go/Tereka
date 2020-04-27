@@ -4,12 +4,12 @@ import ListItem from './list_Item';
 import CardItem from './card_Item';
 import Sad from '../error/sad';
 import Loading from '../../Views/loading/loading'
-
+import '../../responsive_grid.css'
 const style = {
-  card: 'flex item-center',
+  card: 'grid grid-cols-3 gap-5 ',
   list: 'block',
-  title: 'text-lg m-4 font-medium text-gray-500',
-  body: 'body grid ml-4 mt-6 border mr-3',
+  title: 'text-sm m-4 font-medium text-gray-500',
+  body: 'body grid mt-6 mr-3',
 };
 
 const Items = ({ori, sortBy, filter}) => {

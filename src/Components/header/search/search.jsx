@@ -22,15 +22,8 @@ const Search = () => {
   const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
-    if (selected === '/Audio') {
+    // if (selected === '/Audio') {
       loadSearch();
-    }
-    // else if (selected === '/Narrator') {
-    //   dispatch({type: 'NARRATOR'});
-    // } else if (selected === '/Author') {
-    //   dispatch({type: 'AUTHOR'});
-    // } else {
-    //   dispatch({type: 'None'});
     // }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
