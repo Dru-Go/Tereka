@@ -1,12 +1,13 @@
 import React, {useEffect, useContext} from 'react';
 import Input from '../../Views/input/input';
-import Logo from '../../Views/logo/logo';
+import logoSVG from './logo.svg';
 import useFormValdation from '../../Hooks/useformValidation';
 import ValidateAuth from './validate';
 import useLocalStorage from '../../Hooks/useLocalStorage';
 import {ThemeContext} from '../../Context/themeContext';
 import {SIGNUP} from '../../Graphql/mutations';
 import ThemeToggle from '../themeChanger';
+import {AuthContext} from '../../Context/authContext';
 import {useMutation} from '@apollo/react-hooks';
 
 const INITIAL_STATE = {
@@ -20,6 +21,7 @@ const INITIAL_STATE = {
 const SignUp = () => {
   const [Signup, {data, error}] = useMutation(SIGNUP);
   const [, curTheme] = useContext(ThemeContext);
+  const context = useContext(AuthContext);
   const {setLoc} = useLocalStorage('auth');
   const {
     handleChange,
@@ -45,6 +47,7 @@ const SignUp = () => {
         });
       }
     }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors]);
 
@@ -52,10 +55,13 @@ const SignUp = () => {
     console.log(error);
   }
 
-  if (data) {
-    console.log('here is the returned result ', data);
-    setLoc(data.signIn);
-  }
+  useEffect(() => {
+    if (data) {
+      setLoc(data.signUp);
+      context.login(data.signUp);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data]);
 
   return (
     <div
@@ -64,7 +70,7 @@ const SignUp = () => {
     >
       <ThemeToggle />
       <div class="h-16"></div>
-      <Logo />
+      <img class="m-auto" src={logoSVG} alt="logoSVG" />
       <form onSubmit={handleSubmit}>
         <div class="text-center mt-5 uppercase text-2xl text-gray-700 font-helvetica-rounded">
           Register

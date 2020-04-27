@@ -1,6 +1,6 @@
 import React, {useEffect, useContext} from 'react';
 import Input from '../../Views/input/input';
-import Logo from '../../Views/logo/logo';
+import logoSVG from './logo.svg';
 import {useApolloClient} from '@apollo/react-hooks';
 import {SIGNIN} from '../../Graphql/query';
 import {ThemeContext} from '../../Context/themeContext';
@@ -63,7 +63,7 @@ const SignIn = () => {
     >
       <ThemeToggle />
       <div class="h-16"></div>
-      <Logo />
+      <img class="m-auto" src={logoSVG} alt="logoSVG" />
       <form onSubmit={handleSubmit}>
         <div class="text-center mt-5 text-2xl uppercase text-gray-700 font-helvetica-rounded">
           Login

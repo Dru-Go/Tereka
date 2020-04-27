@@ -1,11 +1,7 @@
 import {useState, useEffect} from 'react';
 
-
-
 // Custom Hook to handle Signup and Login forms
 const useFormValidaton = (initialState, validate) => {
-
-
   const [values, setValues] = useState(initialState);
   const [focus, setFocus] = useState('');
   const [errors, setErrors] = useState({});
@@ -19,7 +15,6 @@ const useFormValidaton = (initialState, validate) => {
         console.log('Autenticated! ', values.email);
         setSubmitting(false);
         setValues(initialState);
-      
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -44,12 +39,10 @@ const useFormValidaton = (initialState, validate) => {
   };
 
   const handleSubmit = (e) => {
-    
     const validationErrors = validate(values);
     e.preventDefault();
     setErrors(validationErrors);
     setSubmitting(true);
-    
   };
 
   return {
