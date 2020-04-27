@@ -1,7 +1,6 @@
 <center>
-    <img src="./public/avatar.png"  />
+    <img style="width:300px; height:200px; margin:50px" src="./src/Logo.png"  />
 </center>
-
 
 <center>
 
@@ -89,13 +88,6 @@ tereka/
 ```
 
 
-<style>
-.flex{
-	display: flex;
-	justify-content:space-around; 
-	align-items: start;
-}
-</style>
 
 ### First time setup
 
