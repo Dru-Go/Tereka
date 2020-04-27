@@ -197,34 +197,31 @@ const NARRATOR_DETAILS = gql`
   }
 `;
 
-/**
- * searchKey will be a name
- *
- */
-const SEARCH_AUTHOR = gql`
-  query SEARCH_AUTHOR($searchKey: String!) {
-    Authors(filter: {name: $searchKey}) {
-      id
-      image
-      name
-      followers
-      published_books
-    }
-  }
-`;
 
 /**
  * searchKey will be a name
  *
  */
-const SEARCH_NARRATOR = gql`
-  query SEARCH_NARRATOR($searchKey: String!) {
-    Narrators(filter: {name: $searchKey}) {
-      id
-      image
-      name
-      followers
-      published_audios
+const SEARCH_BY_NARRATOR = gql`
+  query SEARCH_BY_NARRATOR($name: String!) {
+    search_By_Narrator(name: $name) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+    }
+  }
+`
+  ;
+const SEARCH_BY_AUTHOR = gql`
+  query SEARCH_BY_AUTHOR($name: String!) {
+    search_By_Author(name: $name) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
     }
   }
 `;
@@ -233,8 +230,8 @@ export {
   SIGNIN,
   SEARCH_AUDIO,
   POPULAR,
-  SEARCH_NARRATOR,
-  SEARCH_AUTHOR,
+  SEARCH_BY_NARRATOR,
+  SEARCH_BY_AUTHOR,
   NARRATOR_DETAILS,
   AUTHOR_DETAILS,
   PLAYLISTS_AUDIOS,

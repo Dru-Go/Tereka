@@ -62,7 +62,7 @@ const FilterBoard = ({fil_dispatch, ori, setOri, sortBy, setSortBy}) => {
         </div>
       </div>
       <div class="flex items-center text-gray-500 text-xs font-medium">
-        <MenuLink value="Business" dispatch={fil_dispatch} to="/business" />
+        <MenuLink value="Poem" dispatch={fil_dispatch} to="/poem" />
         <MenuLink value="History" dispatch={fil_dispatch} to="/history" />
         <MenuLink value="Economy" dispatch={fil_dispatch} to="/economy" />
         <MenuLink value="Fiction" dispatch={fil_dispatch} to="/fiction" />

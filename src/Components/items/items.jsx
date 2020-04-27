@@ -9,7 +9,7 @@ const style = {
   card: 'grid grid-cols-3 gap-5 ',
   list: 'block',
   title: 'text-sm m-4 font-medium text-gray-500',
-  body: 'body grid ml-4 mt-6 border mr-3',
+  body: 'body grid mt-6 mr-3',
 };
 
 const Items = ({ori, sortBy, filter}) => {

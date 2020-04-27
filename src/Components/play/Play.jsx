@@ -29,6 +29,7 @@ const styles = {
 };
 
 const Player = ({match}) => {
+  const [signed, setSigned] = useState(true);
   const [AddToRecents] = useMutation(ADDTORECENTS, {
     update(cache, {data: {NewRecent}}) {
       const data = cache.readQuery({
@@ -37,7 +38,7 @@ const Player = ({match}) => {
       });
 
       console.log('Cached Query is ', data.recents);
-      
+
       cache.writeQuery({
         query: RECENTS,
         variables: {uid: context.user.UserId.toString()},
@@ -67,6 +68,10 @@ const Player = ({match}) => {
 
   useEffect(() => {
     console.log('Audio ID is ', audioId);
+
+    if (!context.user) {
+      setSigned(false);
+    }
     if (audioId !== ':id') {
       if (data && data.play_Audio) {
         setCurPlay(data.play_Audio);
@@ -78,12 +83,14 @@ const Player = ({match}) => {
         );
         sound.html5 = true;
         setPlaying(!playing);
-        AddToRecents({
-          variables: {
-            uid: context.user.UserId.toString(),
-            nid: data.play_Audio.Id,
-          },
-        });
+        if (context.user) {
+          AddToRecents({
+            variables: {
+              uid: context.user.UserId.toString(),
+              nid: data.play_Audio.Id,
+            },
+          });
+        }
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -167,6 +174,11 @@ const Player = ({match}) => {
         {load ? (
           <div class="m-auto">
             <Loading />
+          </div>
+        ) : null}
+        {!signed ? (
+          <div class="m-auto">
+            <div class="text-sm font-medium text-red-800">Please Signin to Play this Audio</div>
           </div>
         ) : null}
         <PlayBar curTime={curTime} duration={duration} />

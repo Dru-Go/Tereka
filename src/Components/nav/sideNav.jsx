@@ -68,11 +68,11 @@ const SideNav = () => {
           </MenuLink>
           {user ? (
             <>
-              <MenuLink to="/following" exact={true}>
+              {/* <MenuLink to="/following" exact={true}>
                 <Menu title={'Following'}>
                   <img src={followingSVG} alt="followingSVG" />
                 </Menu>
-              </MenuLink>
+              </MenuLink> */}
 
               <MenuLink to="/favorites" exact={true}>
                 <Menu title={'Favorites'}>

@@ -20,7 +20,7 @@ const Dashboard = () => {
   usePageTitle('Audiobook Player');
 
   const filters = [
-    '/business',
+    '/poem',
     '/history',
     '/economy',
     '/fiction',

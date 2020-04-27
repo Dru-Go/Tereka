@@ -39,10 +39,10 @@ const Fav = ({audio}) => {
     console.log('Error addin favorites ', error);
   }
 
-  if (!context.user) {
-    console.log('User has not signed in');
-    return <Redirect to="/login" />;
-  }
+  // if (!context.user) {
+  //   console.log('User has not signed in');
+  //   return <Redirect to="/login" />;
+  // }
 
   const handleClick = () => {
     setFav(!fav);

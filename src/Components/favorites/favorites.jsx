@@ -13,9 +13,9 @@ import Card from './card_Item';
 
 const styles = {
   toggled:
-    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-red-300 cursor-pointer',
+    'text-center text-sm p-1 font-medium rounded-lg h-8 mr-3 bg-red-300 cursor-pointer',
   UnToggled:
-    'text-center p-2 font-medium rounded-lg h-10 mr-3 bg-gray-200 hover:bg-red-200 cursor-pointer',
+    'text-center text-sm p-1 font-medium rounded-lg h-8 mr-3 bg-gray-200 hover:bg-red-200 cursor-pointer',
 };
 
 const Favorites = () => {
@@ -62,14 +62,14 @@ const Favorites = () => {
     <>
       <div>
         <div class="flex justify-between items-center">
-          <div class="text-xl ml-6 font-helvetica-rounded text-gray-800">
+          <div class="text-lg ml-6 font-helvetica-rounded text-gray-800">
             Favorites
           </div>
           <div
             className={toggleRemove ? styles.toggled : styles.UnToggled}
             onClick={() => setToggleRemove(!toggleRemove)}
           >
-            Remove
+           Toggle Remove
           </div>
         </div>
         <div class="grid grid-cols-3 gap-5 mt-8 items-center">

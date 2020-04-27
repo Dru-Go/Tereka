@@ -2,8 +2,8 @@ function filterReducer(state, action) {
   console.log('ACTION CALLED IS ', action.type);
   const audios = action.value;
   switch (action.type) {
-    case 'BUSINESS':
-      return audios.filter(audio => audio.Type === 'Business');
+    case 'POEM':
+      return audios.filter(audio => audio.Type === 'Poem');
     case 'HISTORY':
       return audios.filter(audio => audio.Type === 'History');
     case 'ECONOMY':

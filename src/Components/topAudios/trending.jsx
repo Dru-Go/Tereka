@@ -4,7 +4,7 @@ const Trending = () => {
   
   return (
     <div class="mt-32">
-      <ErrorPage status="401"/>
+      <ErrorPage status="501"/>
     </div>
   );
 };
