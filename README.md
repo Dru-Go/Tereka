@@ -74,8 +74,7 @@ Tereka has been in development since March 4 2017
 	- ...
 
 #### Folder structure
-<diV class="flex items-center justify-between">
-<div>
+
 
 Client 
 
@@ -88,25 +87,7 @@ tereka/
 ├── Reducer     # Reducers 
 └── Views       # Views 
 ```
-</div>
-<div>
 
-Server
-
-```sh
-tereka/
-├── Components  # Individual Compoenents
-├── Context     # Contexts
-├── Graphql     # Queries amd Mutation
-├── Hooks       # Custom React Hooks 
-├── Reducer     # Reducers 
-└── Views       # Views 
-```
-
-</div>
-
-
-</div>
 
 <style>
 .flex{
@@ -146,3 +127,6 @@ yarn start
 ## Deployment
 
 Heroku was used for deployment of the front-end 
+- Frontend  https://intense-fortress-54208.herokuapp.com/
+
+- Dummy backend  https://tereka-graphql-server.herokuapp.com/
