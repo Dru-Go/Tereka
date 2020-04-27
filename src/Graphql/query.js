@@ -14,7 +14,6 @@ const ALL_AUDIO_ITEMS = gql`
   }
 `;
 
-
 const POPULAR = gql`
   query POPULAR {
     popular {
@@ -133,6 +132,22 @@ const RECENT_PLAY = gql`
   }
 `;
 
+// Audio for playing
+const RECENTS = gql`
+  query RECENTS($uid: String!) {
+    recents(uid: $uid) {
+      Narration {
+        Id
+        Title
+        ImageURL
+        Author
+        Narrator
+        Likes
+      }
+    }
+  }
+`;
+
 const FAVORITES = gql`
   query FAVORITES($uid: String!) {
     fav_Audios(uid: $uid) {
@@ -230,4 +245,5 @@ export {
   SUGGESTIONS,
   SEARCH_SUGGESTIONS,
   RECENT_PLAY,
+  RECENTS,
 };

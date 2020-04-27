@@ -37,18 +37,16 @@ const ListAudios = ({match}) => {
 
   // // TODO Dispatch the playlist id and fetch the audios
   return (
-    <div>
       <div>
         <div class="text-xl ml-6 font-helvetica-rounded text-gray-800">
           Audios
         </div>
-        <div class="flex mt-8 items-center">
+        <div class="grid grid-cols-3 gap-5 mt-8 items-center">
           {data.playlist_Audios.map((audio) => (
             <Card state={audio} />
           ))}
         </div>
       </div>
-    </div>
   );
 };
 

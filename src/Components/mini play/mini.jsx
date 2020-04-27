@@ -7,7 +7,6 @@ import PlayBar from './playBar';
 import volume from './svgs/volume.svg';
 import forward from './svgs/forward.svg';
 import prev from './svgs/prev.svg';
-import Loading from '../../Views/loading/loading';
 
 // // TODO EXPAND TO EXPANDED COMPONENT ANIMATED OR NOT
 // // TODO ADD ACTION TO CONTROLS
@@ -31,13 +30,7 @@ const Mini = ({mini, setMin}) => {
   };
 
   if (!curPlay) {
-    return (
-      <div class="bottom-0 absolute m-5">
-        <div class="m-auto">
-          <Loading />
-        </div>
-      </div>
-    );
+    return null
   }
 
   return (

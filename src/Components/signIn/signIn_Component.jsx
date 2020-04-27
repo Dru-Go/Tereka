@@ -73,7 +73,7 @@ const SignIn = () => {
             title="Email"
             type="email"
             name="email"
-            placeholder="druMac2@gmail.com"
+            placeholder=""
             error={errors.email}
             focused={focus === 'email'}
             handleChange={handleChange}
@@ -85,7 +85,7 @@ const SignIn = () => {
             title="Password"
             type="password"
             name="password"
-            placeholder=""
+            placeholder="more than 8 charactors"
             error={errors.password}
             focused={focus === 'password'}
             handleChange={handleChange}

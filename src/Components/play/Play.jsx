@@ -1,14 +1,16 @@
-import React, {useContext,useEffect} from 'react';
+import React, {useContext, useState, useEffect} from 'react';
 import PlayBar from './playBar';
 import Play from './controls/play';
 import Pause from './controls/pause';
 import Loading from '../../Views/loading/loading';
 import Sad from '../error/sad';
-import {PLAY_AUDIOS} from '../../Graphql/query';
+import {PLAY_AUDIOS, RECENTS} from '../../Graphql/query';
+import {ADDTORECENTS} from '../../Graphql/mutations';
 import {AudioContext} from '../../Context/audioContext';
-import {useQuery} from '@apollo/react-hooks';
+import {AuthContext} from '../../Context/authContext';
+import {useQuery, useMutation} from '@apollo/react-hooks';
 import {Link} from 'react-router-dom';
-import {Howl} from 'howler';
+import {Howl, Howler} from 'howler';
 import Fav from './controls/addToFav';
 import AddToPlaylist from './controls/addToPlaylist';
 import usePageTitle from '../../Hooks/usePageTitle';
@@ -27,8 +29,25 @@ const styles = {
 };
 
 const Player = ({match}) => {
-  const audioId = match.params.id;
+  const [AddToRecents] = useMutation(ADDTORECENTS, {
+    update(cache, {data: {NewRecent}}) {
+      const data = cache.readQuery({
+        query: RECENTS,
+        variables: {uid: context.user.UserId.toString()},
+      });
 
+      console.log('Cached Query is ', data.recents);
+      
+      cache.writeQuery({
+        query: RECENTS,
+        variables: {uid: context.user.UserId.toString()},
+        data: {recents: [NewRecent, ...data.recents]},
+      });
+    },
+  });
+  const context = useContext(AuthContext);
+  const audioId = match.params.id;
+  const [load, setLoad] = useState(false);
   const {loading, error, data} = useQuery(PLAY_AUDIOS, {
     variables: {id: audioId},
   });
@@ -59,14 +78,48 @@ const Player = ({match}) => {
         );
         sound.html5 = true;
         setPlaying(!playing);
+        AddToRecents({
+          variables: {
+            uid: context.user.UserId.toString(),
+            nid: data.play_Audio.Id,
+          },
+        });
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  usePageTitle(data && data.play_Audio ? data.play_Audio.Title : curPlay.Title);
+  sound.once('load', () => {
+    setLoad(true);
+  });
+
+  sound.on('play', () => {
+    setLoad(false);
+  });
+
+  sound.on('end', function () {
+    setPlaying(false);
+  });
+
+  Howler.volume(0.7);
+
+  usePageTitle(
+    data && data.play_Audio
+      ? data.play_Audio.Title
+      : curPlay
+      ? curPlay.Title
+      : 'Tereka AudioBook Player'
+  );
 
   if (loading && !data) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
+
+  if (!curPlay) {
     return (
       <div>
         <Loading />
@@ -84,7 +137,7 @@ const Player = ({match}) => {
 
   return (
     <>
-      <div class="border-gray-400">
+      <div>
         <div class="p-10 flex items-center justify-between">
           <div>
             <Link to="/">
@@ -111,6 +164,11 @@ const Player = ({match}) => {
         </div>
 
         {/* playBar */}
+        {load ? (
+          <div class="m-auto">
+            <Loading />
+          </div>
+        ) : null}
         <PlayBar curTime={curTime} duration={duration} />
         <div class="flex items-center mt-10">
           <div class="flex items-center m-auto w-70p justify-center">
@@ -122,6 +180,7 @@ const Player = ({match}) => {
             ) : (
               <Pause setPlay={setPlaying} />
             )}
+
             <div class="cursor-pointer">
               <img src={forward} alt="forwardSVG" />
             </div>

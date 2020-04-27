@@ -86,11 +86,13 @@ const SideNav = () => {
               <img src={suggestionSVG} alt="suggestionSVG" />
             </Menu>
           </MenuLink>
-          <MenuLink to="/recent" exact={true}>
-            <Menu title={'Recent'}>
-              <img src={recentSVG} alt="recentSVG" />
-            </Menu>
-          </MenuLink>
+          {user ? (
+            <MenuLink to="/recent" exact={true}>
+              <Menu title={'Recent'}>
+                <img src={recentSVG} alt="recentSVG" />
+              </Menu>
+            </MenuLink>
+          ) : null}
         </div>
       </div>
       {/* TODO Change back this set */}

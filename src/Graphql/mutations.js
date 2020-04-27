@@ -73,6 +73,20 @@ const NEW_SUGGESTION = gql`
   }
 `;
 
+// Add to Recents
+const ADDTORECENTS = gql`
+  mutation ADDTORECENTS($uid: String, $nid: String!) {
+    AddToRecents(uid: $uid, nid: $nid) {
+      Id
+      Title
+      ImageURL
+      Author
+      Narrator
+      Likes
+    }
+  }
+`;
+
 // Like
 const LIKE = gql`
   mutation LIKE($uid: String, $audioId: String!) {
@@ -126,6 +140,7 @@ export {
   ADDTO_PLAYLIST,
   ADDTO_FAVORITES,
   SIGNUP,
+  ADDTORECENTS,
   LIKE,
   FOLLOW,
   NEW_SUGGESTION,
