@@ -6,11 +6,13 @@ import Board from './selectionBoard';
 import Play from '../play/Play';
 import Suggestion from '../suggestions/suggestions';
 import Details from '../details/details';
+import Profile from '../account/profile';
 import Playlist from '../playlist/playlistAudios';
 import Top from '../topAudios/trending';
 import Sad from '../error/sad';
 import Favorites from '../favorites/favorites';
 import RecentlyPlayed from '../recent/recentlyPlayed';
+
 import Suggest from '../suggestions/suggest';
 import {PlayProvider} from '../../Context/audioContext';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
@@ -43,6 +45,7 @@ const Dashboard = () => {
             <Route path="/sad" exact component={Sad} />
             <Route path="/favorites" exact component={Favorites} />
             <Route path="/recent" exact component={RecentlyPlayed} />
+            <Route path="/profile" exact component={Profile} />
             <Route path="/details/:id" exact component={Details} />
             <Route path="/playlist/:id" exact component={Playlist} />
           </div>

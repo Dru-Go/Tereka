@@ -2,7 +2,7 @@ import React from 'react';
 
 const links = [
   {
-    path: '/play',
+    path: '/profile',
     title: 'Accounts',
     Svg: () => (
       <svg

@@ -27,19 +27,16 @@ const Dropdown = ({active, links, setToggle, history}) => {
   );
 };
 
-const List = ({ setActive, redirectPath, title, Svg, extra , history}) => {
-  // const [redirect, setRedirect] = useState(false) 
-  
+const List = ({ setActive, redirectPath, title, Svg, extra , history}) => {  
   const context = useContext(AuthContext);
-
+  
   const handleClick = () => {
     setActive(false);
-    // setRedirect(true)
     if (title === "Logout") {
         context.logout()
         history.push("/")
     }
-
+    history.push("/profile")
   };  
 
 
