@@ -5,6 +5,9 @@
 <center>
 
 # Tereka Audiobook Player
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/de562c9325b64cc3bc69200ccbdedbc0)](https://app.codacy.com/manual/Dru-Go/Tereka?utm_source=github.com&utm_medium=referral&utm_content=Dru-Go/Tereka&utm_campaign=Badge_Grade_Dashboard)
+
 </center>
 
 
